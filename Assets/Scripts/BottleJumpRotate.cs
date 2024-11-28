@@ -3,11 +3,13 @@ using DG.Tweening;
 
 public class BottleJumpRotate : MonoBehaviour
 {
+    [SerializeField] private Animator _animator;
     [SerializeField] private KeyCode _keyJump = KeyCode.Space;
     [SerializeField] private float _jumpHeight = 2f;
     [SerializeField] private float _jumpDuration = 1f;
     [SerializeField] private float _rotationDuration = 1f;
-    
+    [SerializeField] private string _rotateAnimationTrigger = "Rotate";
+
     private bool _isGrounded;
     private bool _canDoubleJump;
 
@@ -46,12 +48,13 @@ public class BottleJumpRotate : MonoBehaviour
             sequence.Append(transform.DOMoveY(initialPosition.y + _jumpHeight, _jumpDuration / 2f).SetEase(Ease.OutCubic));
             sequence.Append(transform.DOMoveY(initialPosition.y, _jumpDuration / 2f).SetEase(Ease.InCubic));
 
-            Rotate(sequence);
+           Rotate(sequence);
         }
     }
 
     private void Rotate(Sequence sequence)
     {
-        sequence.Join(transform.DORotate(new Vector3(0, 360f, 0), _rotationDuration));
+        //sequence.Join(transform.DORotate(new Vector3(0, 0, 360f), _rotationDuration));
+        _animator.SetTrigger(_rotateAnimationTrigger);
     }
 }
