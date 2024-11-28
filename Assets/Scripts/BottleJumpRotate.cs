@@ -50,6 +50,18 @@ public class BottleJumpRotate : MonoBehaviour
 
            Rotate(sequence);
         }
+        //else if (_canDoubleJump) 
+        //{
+        //    Vector3 initialPosition = transform.position;
+
+        //    Sequence sequence = DOTween.Sequence();
+        //    sequence.Append(transform.DOMoveY(initialPosition.y + _jumpHeight, _jumpDuration / 2f).SetEase(Ease.OutCubic));
+        //    sequence.Append(transform.DOMoveY(initialPosition.y, _jumpDuration / 2f).SetEase(Ease.InCubic));
+
+        //    Rotate(sequence);
+
+        //    _canDoubleJump = false;
+        //}
     }
 
     private void Rotate(Sequence sequence)

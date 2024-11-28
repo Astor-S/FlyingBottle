@@ -236,11 +236,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 153241349}
-  _rotateAnimationTrigger: Rotate
   _keyJump: 32
   _jumpHeight: 2
   _jumpDuration: 1
   _rotationDuration: 10
+  _rotateAnimationTrigger: Rotate
 --- !u!95 &153241349
 Animator:
   serializedVersion: 5
