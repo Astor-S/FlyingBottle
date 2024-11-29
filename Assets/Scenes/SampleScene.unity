@@ -264,6 +264,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &153241355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153241341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 248b19de93617b643b301801433d89cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &162284055 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2114531495875037320, guid: 9ded4a2f612997a4ea4eff7e80932e39, type: 3}
@@ -563,6 +575,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7364570271330739759, guid: 8589d208f5a42dc47aff4967a7ca598e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 153241349}
+    - targetCorrespondingSourceObject: {fileID: 7364570271330739759, guid: 8589d208f5a42dc47aff4967a7ca598e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 153241355}
   m_SourcePrefab: {fileID: 100100000, guid: 8589d208f5a42dc47aff4967a7ca598e, type: 3}
 --- !u!1 &705507993
 GameObject:
@@ -1177,7 +1192,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19829678, guid: 0845aa8b2ce753145ab9bacc42062661, type: 3}
       propertyPath: lengthInSec
-      value: 1
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 19876754, guid: 0845aa8b2ce753145ab9bacc42062661, type: 3}
       propertyPath: looping
@@ -1185,7 +1200,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19876754, guid: 0845aa8b2ce753145ab9bacc42062661, type: 3}
       propertyPath: lengthInSec
-      value: 1
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 19876754, guid: 0845aa8b2ce753145ab9bacc42062661, type: 3}
       propertyPath: InitialModule.startSizeY.minMaxState
@@ -1209,7 +1224,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19892674, guid: 0845aa8b2ce753145ab9bacc42062661, type: 3}
       propertyPath: lengthInSec
-      value: 1
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 19893504, guid: 0845aa8b2ce753145ab9bacc42062661, type: 3}
       propertyPath: looping
@@ -1217,7 +1232,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19893504, guid: 0845aa8b2ce753145ab9bacc42062661, type: 3}
       propertyPath: lengthInSec
-      value: 1
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 19916886, guid: 0845aa8b2ce753145ab9bacc42062661, type: 3}
       propertyPath: m_Materials.Array.size
@@ -1251,6 +1266,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1326,12 +1342,26 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.37, y: 1, z: -10}
+  m_LocalPosition: {x: 3.37, y: 1, z: -7.87}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &963194229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb08f8aabc2da1a4ba15df32d0823610, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 153241355}
+  _xOffset: 1
 --- !u!1 &983122632 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3866890514056514634, guid: 9e604626216d36b4bb52967cf3b88713, type: 3}
@@ -2370,6 +2400,10 @@ SceneRoots:
   - {fileID: 963194228}
   - {fileID: 705507995}
   - {fileID: 806088987}
+  - {fileID: 864260804}
+  - {fileID: 314994930}
+  - {fileID: 916912542}
+  - {fileID: 1809832331}
   - {fileID: 408151923}
   - {fileID: 2007590241}
   - {fileID: 727537730}
@@ -2386,8 +2420,4 @@ SceneRoots:
   - {fileID: 2002423165}
   - {fileID: 1608701524}
   - {fileID: 123544981}
-  - {fileID: 864260804}
-  - {fileID: 314994930}
-  - {fileID: 916912542}
-  - {fileID: 1809832331}
   - {fileID: 186760102}
