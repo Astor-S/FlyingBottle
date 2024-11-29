@@ -1,13 +1,18 @@
 using UnityEngine;
 using DG.Tweening;
+using TMPro;
 
 public class BottleJumpRotate : MonoBehaviour
 {
+    private const float HalfJumpDuration = 2f;
+
     [SerializeField] private Animator _animator;
     [SerializeField] private KeyCode _keyJump = KeyCode.Space;
     [SerializeField] private float _jumpHeight = 2f;
+    [SerializeField] private float _jumpDistance = 2f;
     [SerializeField] private float _jumpDuration = 1f;
     [SerializeField] private float _rotationDuration = 1f;
+    [SerializeField] private float _doubleJumpHeightFactor = 0.7f;
     [SerializeField] private string _rotateAnimationTrigger = "Rotate";
 
     private bool _isGrounded;
@@ -43,30 +48,32 @@ public class BottleJumpRotate : MonoBehaviour
         if (_isGrounded)
         {
             Vector3 initialPosition = transform.position;
+            Vector3 targetPosition = initialPosition + new Vector3(_jumpDistance, _jumpHeight, 0);
 
             Sequence sequence = DOTween.Sequence();
-            sequence.Append(transform.DOMoveY(initialPosition.y + _jumpHeight, _jumpDuration / 2f).SetEase(Ease.OutCubic));
-            sequence.Append(transform.DOMoveY(initialPosition.y, _jumpDuration / 2f).SetEase(Ease.InCubic));
+            sequence.Append(transform.DOMove(targetPosition, _jumpDuration / HalfJumpDuration).SetEase(Ease.OutCubic));
+            sequence.Append(transform.DOMove(new Vector3(initialPosition.x + _jumpDistance, initialPosition.y, initialPosition.z), _jumpDuration / HalfJumpDuration).SetEase(Ease.InCubic));
 
-           Rotate(sequence);
+            Rotate(sequence);
         }
-        //else if (_canDoubleJump) 
-        //{
-        //    Vector3 initialPosition = transform.position;
+        else if (_canDoubleJump)
+        {
+            Vector3 initialPosition = transform.position;
+            float doubleJumpHeight = _jumpHeight * _doubleJumpHeightFactor;
+            Vector3 targetPosition = initialPosition + new Vector3(_jumpDistance, doubleJumpHeight, 0);
+ 
+            Sequence sequence = DOTween.Sequence();
+            sequence.Append(transform.DOMove(targetPosition, _jumpDuration / HalfJumpDuration).SetEase(Ease.OutCubic));
+            sequence.Append(transform.DOMove(new Vector3(initialPosition.x + _jumpDistance, initialPosition.y, initialPosition.z), _jumpDuration / HalfJumpDuration).SetEase(Ease.InCubic));
 
-        //    Sequence sequence = DOTween.Sequence();
-        //    sequence.Append(transform.DOMoveY(initialPosition.y + _jumpHeight, _jumpDuration / 2f).SetEase(Ease.OutCubic));
-        //    sequence.Append(transform.DOMoveY(initialPosition.y, _jumpDuration / 2f).SetEase(Ease.InCubic));
+            Rotate(sequence);
 
-        //    Rotate(sequence);
-
-        //    _canDoubleJump = false;
-        //}
+            _canDoubleJump = false;
+        }
     }
 
     private void Rotate(Sequence sequence)
     {
-        //sequence.Join(transform.DORotate(new Vector3(0, 0, 360f), _rotationDuration));
         _animator.SetTrigger(_rotateAnimationTrigger);
     }
 }
