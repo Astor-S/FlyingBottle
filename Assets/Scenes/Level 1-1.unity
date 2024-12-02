@@ -299,6 +299,7 @@ MonoBehaviour:
   _jumpDuration: 1
   _rotationDuration: 10
   _doubleJumpHeightFactor: 0.7
+  _targetRotation: 90
   _rotateAnimationTrigger: Rotate
 --- !u!95 &153241349
 Animator:
@@ -637,6 +638,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3111468803686256930, guid: 8589d208f5a42dc47aff4967a7ca598e, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3111468803686256930, guid: 8589d208f5a42dc47aff4967a7ca598e, type: 3}
       propertyPath: m_Constraints
       value: 56
       objectReference: {fileID: 0}
@@ -654,6 +659,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3111468803686256930, guid: 8589d208f5a42dc47aff4967a7ca598e, type: 3}
       propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121167309906991936, guid: 8589d208f5a42dc47aff4967a7ca598e, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121167309906991936, guid: 8589d208f5a42dc47aff4967a7ca598e, type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4828115564570912857, guid: 8589d208f5a42dc47aff4967a7ca598e, type: 3}
@@ -988,8 +1001,8 @@ GameObject:
   - component: {fileID: 806088987}
   - component: {fileID: 806088986}
   - component: {fileID: 806088985}
-  - component: {fileID: 806088984}
   - component: {fileID: 806088988}
+  - component: {fileID: 806088989}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -997,27 +1010,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &806088984
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 806088983}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &806088985
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1095,6 +1087,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47a561110ce075f409284c1311bde7e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &806088989
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806088983}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &864260800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1534,6 +1547,17 @@ MonoBehaviour:
   _player: {fileID: 153241355}
   _failScreen: {fileID: 1514579166}
   _completeScreen: {fileID: 69493946}
+--- !u!114 &980005356 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7372760360494483219, guid: cc81c385ef92ec64ea154676a667ac48, type: 3}
+  m_PrefabInstance: {fileID: 4190959841483747009}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &983122632 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3866890514056514634, guid: 9e604626216d36b4bb52967cf3b88713, type: 3}
@@ -2128,9 +2152,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _windowGroup: {fileID: 1514579164}
-  _homeButton: {fileID: 0}
-  _reviveButton: {fileID: 0}
-  _replayButton: {fileID: 0}
+  _homeButton: {fileID: 1644200011}
+  _reviveButton: {fileID: 980005356}
+  _replayButton: {fileID: 7424151044509259202}
 --- !u!1 &1565733764
 GameObject:
   m_ObjectHideFlags: 0
@@ -2201,7 +2225,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 963194227}
-  m_PlaneDistance: 100
+  m_PlaneDistance: 5
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -2305,6 +2329,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1808420851}
   m_SourcePrefab: {fileID: 100100000, guid: a8544713cc514154098de947da0bb241, type: 3}
+--- !u!114 &1644200011 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8273939087820351653, guid: 48fca5b828bf0e643abbbeca5ab5554e, type: 3}
+  m_PrefabInstance: {fileID: 1064449858}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1658597517
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2567,14 +2602,20 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 114038, guid: 0845aa8b2ce753145ab9bacc42062661, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1809832333}
+      addedObject: {fileID: 1809832337}
+    - targetCorrespondingSourceObject: {fileID: 114038, guid: 0845aa8b2ce753145ab9bacc42062661, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1809832338}
+    - targetCorrespondingSourceObject: {fileID: 114038, guid: 0845aa8b2ce753145ab9bacc42062661, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1809832339}
   m_SourcePrefab: {fileID: 100100000, guid: 0845aa8b2ce753145ab9bacc42062661, type: 3}
 --- !u!1 &1809832332 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 114038, guid: 0845aa8b2ce753145ab9bacc42062661, type: 3}
   m_PrefabInstance: {fileID: 1809832331}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1809832333
+--- !u!114 &1809832337
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2586,6 +2627,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c225f908a6164b48aca58c13e0c143b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1809832338
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809832332}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.4758406, y: 0.21069282, z: 2.84}
+  m_Center: {x: -0.09690738, y: -0.049316846, z: 0}
+--- !u!114 &1809832339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809832332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24fb465a34d2cfe448a807fec6a600cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sceneToLoad: Level  1-2
 --- !u!1 &1854944934 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2114531495875037320, guid: 9ded4a2f612997a4ea4eff7e80932e39, type: 3}
@@ -3304,6 +3379,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3433782325023904053, guid: c108b5d3d41318643bb43ab38c6b6632, type: 3}
   m_PrefabInstance: {fileID: 7424151044509259200}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7424151044509259202 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6132828193377197527, guid: c108b5d3d41318643bb43ab38c6b6632, type: 3}
+  m_PrefabInstance: {fileID: 7424151044509259200}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

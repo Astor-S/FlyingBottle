@@ -1,6 +1,5 @@
 using UnityEngine;
 using DG.Tweening;
-using TMPro;
 
 public class BottleJumpRotate : MonoBehaviour
 {
@@ -13,8 +12,10 @@ public class BottleJumpRotate : MonoBehaviour
     [SerializeField] private float _jumpDuration = 1f;
     [SerializeField] private float _rotationDuration = 1f;
     [SerializeField] private float _doubleJumpHeightFactor = 0.7f;
+    [SerializeField] private float _targetRotation = 90f;
     [SerializeField] private string _rotateAnimationTrigger = "Rotate";
 
+    private Quaternion _initialRotation;
     private bool _isGrounded;
     private bool _canDoubleJump;
 
@@ -32,6 +33,7 @@ public class BottleJumpRotate : MonoBehaviour
         {
             _isGrounded = true;
             _canDoubleJump = true;
+            _initialRotation = transform.rotation;
         }
     }
 
@@ -74,6 +76,9 @@ public class BottleJumpRotate : MonoBehaviour
 
     private void Rotate(Sequence sequence)
     {
+        Quaternion targetRotation = _initialRotation * Quaternion.Euler(0, _targetRotation, 0);
+
+        sequence.Append(transform.DORotateQuaternion(targetRotation, _rotationDuration).SetEase(Ease.Linear)); 
         _animator.SetTrigger(_rotateAnimationTrigger);
     }
 }
