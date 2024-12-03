@@ -7,7 +7,7 @@ public class BreakShelf : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.TryGetComponent<Player>(out _))
+        if (collision.gameObject.TryGetComponent<Player>(out _)) 
             _animator.SetTrigger(_breakAnimationTrigger); 
     }
 }
