@@ -1,7 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
 
-public class BottleJumpRotate : MonoBehaviour
+public class Jumper : MonoBehaviour
 {
     private const float HalfJumpDuration = 2f;
 

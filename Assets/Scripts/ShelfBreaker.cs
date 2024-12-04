@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BreakShelf : MonoBehaviour
+public class ShelfBreaker : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
     [SerializeField] private string _breakAnimationTrigger = "Break";
