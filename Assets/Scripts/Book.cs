@@ -9,7 +9,7 @@ public class Book : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
     }
 
-    public void WakeUp()
+    public void Reawaken()
     {
         _rigidbody.WakeUp();
     }

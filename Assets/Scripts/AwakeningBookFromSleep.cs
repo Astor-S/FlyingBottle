@@ -21,6 +21,6 @@ public class AwakeningBookFromSleep : MonoBehaviour
     private void OnShelfBreak()
     {
         foreach (Book book in _books)
-            book.WakeUp();
+            book.Reawaken();
     }
 }
