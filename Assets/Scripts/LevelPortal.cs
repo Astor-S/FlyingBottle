@@ -1,9 +1,11 @@
+using NaughtyAttributes;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelPortal : MonoBehaviour
 {
+    [Scene]
     [SerializeField] private string _sceneToLoad;
 
     private void OnTriggerEnter(Collider collision)
