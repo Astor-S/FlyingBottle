@@ -2466,6 +2466,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec1a698748f3b444a8d278a3a8f7e310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _shelfBreakers:
+  - {fileID: 269462279}
+  - {fileID: 1273902784}
   _books:
   - {fileID: 274721090}
   - {fileID: 555473350}
