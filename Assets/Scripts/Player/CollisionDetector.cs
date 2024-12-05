@@ -12,6 +12,15 @@ public class CollisionDetector : MonoBehaviour
             FailedCollide?.Invoke();
 
         if(collision.gameObject.TryGetComponent<FinishPortal>(out _))
-            FinishedCollide?.Invoke();       
+            FinishedCollide?.Invoke();   
+        
+        if(collision.gameObject.TryGetComponent(out Crate crate))
+            transform.parent = crate.transform;  
+    }
+
+    private void OnTriggerExit(Collider collision)
+    {
+        if (collision.gameObject.TryGetComponent(out Crate crate))
+            transform.parent = null;
     }
 }
