@@ -2872,7 +2872,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 623017514}
-  _duration: 10
+  _duration: 3
 --- !u!1001 &1963044616
 PrefabInstance:
   m_ObjectHideFlags: 0
