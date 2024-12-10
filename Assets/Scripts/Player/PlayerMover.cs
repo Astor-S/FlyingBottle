@@ -1,12 +1,12 @@
 using UnityEngine;
 using DG.Tweening;
 
-public class Jumper : MonoBehaviour
+public class PlayerMover : MonoBehaviour
 {
     private const float HalfJumpDuration = 2f;
 
     [SerializeField] private Animator _animator;
-    [SerializeField] private KeyCode _keyJump = KeyCode.Space;
+    [SerializeField] private AudioClip _jumpSound;
     [SerializeField] private float _jumpHeight = 2f;
     [SerializeField] private float _jumpDistance = 2f;
     [SerializeField] private float _jumpDuration = 1f;
@@ -16,15 +16,14 @@ public class Jumper : MonoBehaviour
     [SerializeField] private string _rotateAnimationTrigger = "Rotate";
 
     private Quaternion _initialRotation;
+    private AudioSource _audioSource;
+
     private bool _isGrounded;
     private bool _canDoubleJump;
 
-    private void Update()
+    private void Awake()
     {
-        if (Input.GetKeyDown(_keyJump))
-        {
-            JumpAndRotate();
-        }
+        _audioSource = GetComponent<AudioSource>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -45,7 +44,7 @@ public class Jumper : MonoBehaviour
         }
     }
 
-    private void JumpAndRotate()
+    public void Move()
     {
         if (_isGrounded)
         {
@@ -56,6 +55,7 @@ public class Jumper : MonoBehaviour
             sequence.Append(transform.DOMove(targetPosition, _jumpDuration / HalfJumpDuration).SetEase(Ease.OutCubic));
             sequence.Append(transform.DOMove(new Vector3(initialPosition.x + _jumpDistance, initialPosition.y, initialPosition.z), _jumpDuration / HalfJumpDuration).SetEase(Ease.InCubic));
 
+            PlayJumpSound();
             Rotate(sequence);
         }
         else if (_canDoubleJump)
@@ -68,6 +68,7 @@ public class Jumper : MonoBehaviour
             sequence.Append(transform.DOMove(targetPosition, _jumpDuration / HalfJumpDuration).SetEase(Ease.OutCubic));
             sequence.Append(transform.DOMove(new Vector3(initialPosition.x + _jumpDistance, initialPosition.y, initialPosition.z), _jumpDuration / HalfJumpDuration).SetEase(Ease.InCubic));
 
+            PlayJumpSound();
             Rotate(sequence);
 
             _canDoubleJump = false;
@@ -80,5 +81,10 @@ public class Jumper : MonoBehaviour
 
         sequence.Append(transform.DORotateQuaternion(targetRotation, _rotationDuration).SetEase(Ease.Linear)); 
         _animator.SetTrigger(_rotateAnimationTrigger);
+    }
+
+    private void PlayJumpSound()
+    {
+        _audioSource.PlayOneShot(_jumpSound);
     }
 }
