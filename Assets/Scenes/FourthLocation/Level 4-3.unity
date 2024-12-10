@@ -409,7 +409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 153241349}
-  _keyJump: 32
+  _jumpSound: {fileID: 8300000, guid: 59f26f921c097b549a0f427ecb597598, type: 3}
   _jumpHeight: 2.5
   _jumpDistance: 2
   _jumpDuration: 1
@@ -450,6 +450,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 248b19de93617b643b301801433d89cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _inputReader: {fileID: 408151924}
+  _playerMover: {fileID: 408151925}
   _collisionDetector: {fileID: 153241356}
 --- !u!114 &153241356
 MonoBehaviour:
@@ -1068,6 +1070,28 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 153241356}
   m_SourcePrefab: {fileID: 100100000, guid: 8589d208f5a42dc47aff4967a7ca598e, type: 3}
+--- !u!114 &408151924 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6053141200965043559, guid: 8589d208f5a42dc47aff4967a7ca598e, type: 3}
+  m_PrefabInstance: {fileID: 408151923}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153241341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5a7a0b5c1dd4eb4ea63d3ef2319d3f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &408151925 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3687403396926286081, guid: 8589d208f5a42dc47aff4967a7ca598e, type: 3}
+  m_PrefabInstance: {fileID: 408151923}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153241341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 634d2a36ea910aa408fc349cb3880e5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &422007415 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3800496436466665405, guid: 82f624b1964c7ba4fb21eae95f185a9c, type: 3}
