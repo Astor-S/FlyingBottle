@@ -11,4 +11,58 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FirstLocation/Level 1-2.unity
     guid: 58bdeff1047ac024c9dd41ea36ce1061
+  - enabled: 1
+    path: Assets/Scenes/FirstLocation/Level 1-3.unity
+    guid: 762f5ff4e9f2e8f43ae2952badf705e4
+  - enabled: 1
+    path: Assets/Scenes/FirstLocation/Level 1-4.unity
+    guid: 730626f3fe8a8e5479bf710b1067208a
+  - enabled: 1
+    path: Assets/Scenes/FirstLocation/Level 1-5.unity
+    guid: f7955197d1ba6584db3d3599932be8db
+  - enabled: 1
+    path: Assets/Scenes/SecondLocation/Level 2-1.unity
+    guid: 56f4516ee649c6b4dab9b3c1434f4db9
+  - enabled: 1
+    path: Assets/Scenes/SecondLocation/Level 2-2.unity
+    guid: a186d32d446d8c54092f217af21dbcea
+  - enabled: 1
+    path: Assets/Scenes/SecondLocation/Level 2-3.unity
+    guid: ec04d6a242923a246b32a80ed43e92d4
+  - enabled: 1
+    path: Assets/Scenes/SecondLocation/Level 2-4.unity
+    guid: 6b339d72046c2ce4fb50d0d5b0155fd7
+  - enabled: 1
+    path: Assets/Scenes/SecondLocation/Level 2-5.unity
+    guid: becb83e9375b3524182e19de6e88a67a
+  - enabled: 1
+    path: Assets/Scenes/ThirdLocation/Level 3-1.unity
+    guid: 7413d398f13dee34d8f8fb506746a1b8
+  - enabled: 1
+    path: Assets/Scenes/ThirdLocation/Level 3-2.unity
+    guid: 67aaf5e3d769f3448bed8da64688634a
+  - enabled: 1
+    path: Assets/Scenes/ThirdLocation/Level 3-3.unity
+    guid: 8a1fefe71d8a3f14aa18c4639afb40dd
+  - enabled: 1
+    path: Assets/Scenes/ThirdLocation/Level 3-4.unity
+    guid: 6517d128bd2a3d541972a0810b363892
+  - enabled: 1
+    path: Assets/Scenes/ThirdLocation/Level 3-5.unity
+    guid: 0b1fb4b5f2bc8084d89187cb17bb3bc2
+  - enabled: 1
+    path: Assets/Scenes/FourthLocation/Level 4-1.unity
+    guid: 42de4616f6181714e9b2b12c7abaf15e
+  - enabled: 1
+    path: Assets/Scenes/FourthLocation/Level 4-2.unity
+    guid: 3ad41737472f7d64cbd0ee0de58fb78a
+  - enabled: 1
+    path: Assets/Scenes/FourthLocation/Level 4-3.unity
+    guid: e6946e59915bc6449997813257af0cf1
+  - enabled: 1
+    path: Assets/Scenes/FourthLocation/Level 4-4.unity
+    guid: a6fd6286d22196b458b0baa36136bc34
+  - enabled: 1
+    path: Assets/Scenes/FourthLocation/Level 4-5.unity
+    guid: 52b0caca02cdfc848b79228b334b61a5
   m_configObjects: {}
