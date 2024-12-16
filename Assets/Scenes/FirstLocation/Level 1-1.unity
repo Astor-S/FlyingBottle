@@ -413,8 +413,17 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1
-      value: 1
+      time: 0.5006432
+      value: 1.0042255
+      inSlope: 0.00203922
+      outSlope: 0.00203922
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.49085736
+    - serializedVersion: 3
+      time: 0.9916687
+      value: 0.0047187805
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -427,6 +436,7 @@ MonoBehaviour:
   _jumpHeight: 2.5
   _jumpDuration: 1
   _endJump: 1
+  _jumpDistanceX: 2
 --- !u!1 &162284055 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2114531495875037320, guid: 9ded4a2f612997a4ea4eff7e80932e39, type: 3}
