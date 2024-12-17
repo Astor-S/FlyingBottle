@@ -6,10 +6,11 @@ public class GroundChecker : MonoBehaviour
     
     private readonly RaycastHit[] _results = new RaycastHit[1];
     private readonly Vector3 _extents = new Vector3(0.45f, 0.45f, 0.45f);
-    private readonly LayerMask _groundMask;
-    private readonly Transform _defaultTransform;
+    
+    private LayerMask _groundMask;
+    private Transform _defaultTransform;
 
-    public GroundChecker(LayerMask groundMask, Transform defaultTransform)
+    public void Init(LayerMask groundMask, Transform defaultTransform)
     {
         _groundMask = groundMask;
         _defaultTransform = defaultTransform;
@@ -34,6 +35,7 @@ public class GroundChecker : MonoBehaviour
         if (count > 0)
         {
             groundPositionY = _results[0].transform.position.y;
+            Debug.Log($"Grounded! Hit object: {_results[0].transform.name}, Ground position Y: {groundPositionY}");
         }
 
         return count > 0;

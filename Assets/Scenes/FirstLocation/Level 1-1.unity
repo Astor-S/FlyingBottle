@@ -308,88 +308,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7364570271330739759, guid: 8589d208f5a42dc47aff4967a7ca598e, type: 3}
   m_PrefabInstance: {fileID: 408151923}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &153241362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 153241341}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 430c0bcfa28ea0e4ab8ca4a9669bef4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _jumpCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.5006432
-      value: 1.0042255
-      inSlope: 0.00203922
-      outSlope: 0.00203922
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.49085736
-    - serializedVersion: 3
-      time: 0.9916687
-      value: 0.0047187805
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  _rotationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.5037881
-      value: 101.88818
-      inSlope: -5.1654463
-      outSlope: -5.1654463
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.6560204
-    - serializedVersion: 3
-      time: 0.9919877
-      value: 0.7519312
-      inSlope: 37.74958
-      outSlope: 37.74958
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.44025162
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  _jumpHeight: 2.5
-  _jumpDuration: 1
-  _endJump: 1
-  _jumpDistanceX: 2
 --- !u!114 &153241365 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6015851530146063960, guid: 8589d208f5a42dc47aff4967a7ca598e, type: 3}
@@ -401,6 +319,106 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 248b19de93617b643b301801433d89cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &153241366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153241341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f365d1c59982c3d488a5ad4c97ae1765, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &153241375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153241341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c361fc114b1a04e8ee62fd86be5aa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _groundChecker: {fileID: 153241366}
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!114 &153241376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153241341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b689b794aee0d4c428704b827dea278b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _jumpCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.50469303
+      value: 1.0000746
+      inSlope: -0.007280615
+      outSlope: -0.007280615
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.7157319
+    - serializedVersion: 3
+      time: 1.0041809
+      value: -0.002357483
+      inSlope: 0.06997835
+      outSlope: 0.06997835
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.38691512
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _rotationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 360
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 360
+      inSlope: 360
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _jumpHeight: 3
+  _jumpDuration: 1
+  _jumpDistanceX: 2
 --- !u!1 &162284055 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2114531495875037320, guid: 9ded4a2f612997a4ea4eff7e80932e39, type: 3}
@@ -705,7 +723,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3111468803686256930, guid: 8589d208f5a42dc47aff4967a7ca598e, type: 3}
       propertyPath: m_Constraints
-      value: 120
+      value: 122
       objectReference: {fileID: 0}
     - target: {fileID: 3111468803686256930, guid: 8589d208f5a42dc47aff4967a7ca598e, type: 3}
       propertyPath: m_ImplicitCom
@@ -776,9 +794,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6015851530146063960, guid: 8589d208f5a42dc47aff4967a7ca598e, type: 3}
+      propertyPath: _playerMover
+      value: 
+      objectReference: {fileID: 153241376}
+    - target: {fileID: 6015851530146063960, guid: 8589d208f5a42dc47aff4967a7ca598e, type: 3}
       propertyPath: _jumpAnimCurve
       value: 
-      objectReference: {fileID: 153241362}
+      objectReference: {fileID: 0}
     - target: {fileID: 7364570271330739759, guid: 8589d208f5a42dc47aff4967a7ca598e, type: 3}
       propertyPath: m_Name
       value: RedSodaBottle
@@ -795,7 +817,13 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7364570271330739759, guid: 8589d208f5a42dc47aff4967a7ca598e, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 153241362}
+      addedObject: {fileID: 153241366}
+    - targetCorrespondingSourceObject: {fileID: 7364570271330739759, guid: 8589d208f5a42dc47aff4967a7ca598e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 153241375}
+    - targetCorrespondingSourceObject: {fileID: 7364570271330739759, guid: 8589d208f5a42dc47aff4967a7ca598e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 153241376}
   m_SourcePrefab: {fileID: 100100000, guid: 8589d208f5a42dc47aff4967a7ca598e, type: 3}
 --- !u!1 &705507993
 GameObject:
@@ -3264,6 +3292,10 @@ PrefabInstance:
     - target: {fileID: 6854795606429121349, guid: 5c1b01bd0f7d5ab4b82f4611868cfcaf, type: 3}
       propertyPath: m_Name
       value: Couch
+      objectReference: {fileID: 0}
+    - target: {fileID: 6854795606429121349, guid: 5c1b01bd0f7d5ab4b82f4611868cfcaf, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8439710967142309377, guid: 5c1b01bd0f7d5ab4b82f4611868cfcaf, type: 3}
       propertyPath: m_Convex

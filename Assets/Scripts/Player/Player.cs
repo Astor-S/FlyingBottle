@@ -4,9 +4,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private InputReader _inputReader;
-    //[SerializeField] private PlayerMover _playerMover;
     [SerializeField] private CollisionDetector _collisionDetector;
-    [SerializeField] private JumpAnimCurve _jumpAnimCurve;
+    [SerializeField] private PlayerMover _playerMover;
 
     public event Action GameOver;
     public event Action LevelComplete;
@@ -38,6 +37,6 @@ public class Player : MonoBehaviour
     private void OnMove()
     {
         //_playerMover.Move();
-        _jumpAnimCurve.Move();
+        _playerMover.Move();
     }
 }
