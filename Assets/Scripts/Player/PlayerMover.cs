@@ -46,28 +46,48 @@ public class PlayerMover : MonoBehaviour
 
     private IEnumerator Moving()
     {
-        _startPosition = transform.position;
-        _targetPosition = _startPosition + Vector3.right * _jumpDistanceX;
-
-        _rotationTween = transform.DORotate(
-            new Vector3(0, 0, -360f),
-            _jumpDuration,
-            RotateMode.FastBeyond360).SetEase(Ease.Linear);
+        InitializeJump();
 
         float currentTime = 0f;
 
         while (currentTime <= _jumpDuration)
         {
-            float jumpValue = _jumpCurve.Evaluate(currentTime / _jumpDuration) * _jumpHeight;
-            float xPosition = Mathf.Lerp(_startPosition.x, _targetPosition.x, currentTime);
-
-            transform.position = new Vector3(xPosition, _startPosition.y + jumpValue, _startPosition.z);
+            UpdateJumpPosition(currentTime);
 
             currentTime += Time.deltaTime;
 
             yield return null;
         }
 
+        FinalizeJump();
+    }
+
+    private void InitializeJump()
+    {
+        _startPosition = transform.position;
+        _targetPosition = _startPosition + Vector3.right * _jumpDistanceX;
+
+        StartRotationTween();
+    }
+
+    private void StartRotationTween()
+    {
+        _rotationTween = transform.DORotate(
+            new Vector3(0, 0, -360f),
+            _jumpDuration,
+            RotateMode.FastBeyond360).SetEase(Ease.Linear);
+    }
+
+    private void UpdateJumpPosition(float currentTime)
+    {
+        float jumpValue = _jumpCurve.Evaluate(currentTime / _jumpDuration) * _jumpHeight;
+        float xPosition = Mathf.Lerp(_startPosition.x, _targetPosition.x, currentTime / _jumpDuration);
+
+        transform.position = new Vector3(xPosition, _startPosition.y + jumpValue, _startPosition.z);
+    }
+
+    private void FinalizeJump()
+    {
         _jumpCoroutine = null;
         _rotationTween?.Kill();
         transform.rotation = Quaternion.identity;
