@@ -1,19 +1,20 @@
 using System.Collections;
 using UnityEngine;
-using DG.Tweening;
 
 public class PlayerMover : MonoBehaviour
 {
     [SerializeField] private AnimationCurve _jumpCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
-    [SerializeField] private AnimationCurve _rotationCurve = AnimationCurve.Linear(0, 0, 1, 360);
+    [SerializeField] private Vector3 _rotationOffset = new Vector3(0f, -0.5f, 0f);
     [SerializeField] private float _jumpHeight = 3f;
     [SerializeField] private float _jumpDuration = 1f;
     [SerializeField] private float _jumpDistanceX = 2f; 
 
     private Vector3 _startPosition;
     private Vector3 _targetPosition;
+    private Vector3 _rotationAnchor;
     private Coroutine _jumpCoroutine;
-    private Tween _rotationTween;
+
+    private float _currentRotationAngle;
 
     private bool _isSurfaced;
     private bool _canDoubleJump;
@@ -53,6 +54,7 @@ public class PlayerMover : MonoBehaviour
         while (currentTime <= _jumpDuration)
         {
             UpdateJumpPosition(currentTime);
+            UpdateRotation(currentTime);
 
             currentTime += Time.deltaTime;
 
@@ -67,15 +69,8 @@ public class PlayerMover : MonoBehaviour
         _startPosition = transform.position;
         _targetPosition = _startPosition + Vector3.right * _jumpDistanceX;
 
-        StartRotationTween();
-    }
-
-    private void StartRotationTween()
-    {
-        _rotationTween = transform.DORotate(
-            new Vector3(0, 0, -360f),
-            _jumpDuration,
-            RotateMode.FastBeyond360).SetEase(Ease.Linear);
+        _rotationAnchor = transform.position + _rotationOffset;
+        _currentRotationAngle = 0;
     }
 
     private void UpdateJumpPosition(float currentTime)
@@ -86,10 +81,18 @@ public class PlayerMover : MonoBehaviour
         transform.position = new Vector3(xPosition, _startPosition.y + jumpValue, _startPosition.z);
     }
 
+    private void UpdateRotation(float currentTime)
+    {
+        float rotationAngle = -360f * (currentTime / _jumpDuration); 
+        float deltaRotation = rotationAngle - _currentRotationAngle;
+        _currentRotationAngle = rotationAngle;
+
+        transform.RotateAround(_rotationAnchor, Vector3.forward, deltaRotation);
+    }
+
     private void FinalizeJump()
     {
         _jumpCoroutine = null;
-        _rotationTween?.Kill();
         transform.rotation = Quaternion.identity;
     }
 }
