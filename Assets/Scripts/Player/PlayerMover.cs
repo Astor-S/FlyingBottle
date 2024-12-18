@@ -7,7 +7,9 @@ public class PlayerMover : MonoBehaviour
     [SerializeField] private Vector3 _rotationOffset = new Vector3(0f, -0.5f, 0f);
     [SerializeField] private float _jumpHeight = 3f;
     [SerializeField] private float _jumpDuration = 1f;
-    [SerializeField] private float _jumpDistanceX = 2f; 
+    [SerializeField] private float _jumpDistanceX = 2f;
+    [SerializeField] private float _rotationStartTime = 0.2f;
+    [SerializeField] private float _rotationEndTime = 0.8f;
 
     private Vector3 _startPosition;
     private Vector3 _targetPosition;
@@ -83,7 +85,11 @@ public class PlayerMover : MonoBehaviour
 
     private void UpdateRotation(float currentTime)
     {
-        float rotationAngle = -360f * (currentTime / _jumpDuration); 
+        if (currentTime < _jumpDuration * _rotationStartTime || currentTime > _jumpDuration * _rotationEndTime)
+            return;
+
+        float normalizedRotationTime = Mathf.InverseLerp(_jumpDuration * _rotationStartTime, _jumpDuration * _rotationEndTime, currentTime);
+        float rotationAngle = -360f * normalizedRotationTime;
         float deltaRotation = rotationAngle - _currentRotationAngle;
         _currentRotationAngle = rotationAngle;
 
