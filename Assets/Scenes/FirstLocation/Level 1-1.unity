@@ -395,6 +395,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _rotationOffset: {x: 0, y: -0.5, z: 0}
+  _jumpSound: {fileID: 8300000, guid: 59f26f921c097b549a0f427ecb597598, type: 3}
   _jumpHeight: 3
   _jumpDuration: 1
   _jumpDistanceX: 2

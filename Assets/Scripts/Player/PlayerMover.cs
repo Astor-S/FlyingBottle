@@ -5,6 +5,7 @@ public class PlayerMover : MonoBehaviour
 {
     [SerializeField] private AnimationCurve _jumpCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
     [SerializeField] private Vector3 _rotationOffset = new Vector3(0f, -0.5f, 0f);
+    [SerializeField] private AudioClip _jumpSound;
     [SerializeField] private float _jumpHeight = 3f;
     [SerializeField] private float _jumpDuration = 1f;
     [SerializeField] private float _jumpDistanceX = 2f;
@@ -15,11 +16,17 @@ public class PlayerMover : MonoBehaviour
     private Vector3 _targetPosition;
     private Vector3 _rotationAnchor;
     private Coroutine _jumpCoroutine;
+    private AudioSource _audioSource;
 
     private float _currentRotationAngle;
 
     private bool _isSurfaced;
     private bool _canDoubleJump;
+
+    private void Awake()
+    {
+        _audioSource = GetComponent<AudioSource>();
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -38,13 +45,17 @@ public class PlayerMover : MonoBehaviour
 
     public void Move()
     {
-        if (_isSurfaced == false)
-            return;
+        if(_isSurfaced || _canDoubleJump)
+        {
+            if (_jumpCoroutine != null)
+                StopCoroutine(_jumpCoroutine);
+            
+            _jumpCoroutine = StartCoroutine(Moving());
+            PlayJumpSound();
 
-        if (_jumpCoroutine != null)
-            StopCoroutine(_jumpCoroutine);
-
-        _jumpCoroutine = StartCoroutine(Moving());
+            if (_isSurfaced == false)
+                _canDoubleJump = false;
+        }
     }
 
     private IEnumerator Moving()
@@ -100,5 +111,10 @@ public class PlayerMover : MonoBehaviour
     {
         _jumpCoroutine = null;
         transform.rotation = Quaternion.identity;
+    }
+
+    private void PlayJumpSound()
+    {
+        _audioSource.PlayOneShot(_jumpSound);
     }
 }
