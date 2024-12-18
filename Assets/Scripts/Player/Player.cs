@@ -36,7 +36,6 @@ public class Player : MonoBehaviour
 
     private void OnMove()
     {
-        //_playerMover.Move();
         _playerMover.Move();
     }
 }

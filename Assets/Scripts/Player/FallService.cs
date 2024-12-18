@@ -11,15 +11,20 @@ public class FallService : MonoBehaviour
         _groundChecker.Init(_groundLayer, transform);
     }
 
-    //private bool TryFall()
-    //{
-    //    if (_groundChecker.IsGrounded)
-    //    {
-    //        return false;
-    //    }
+    private void Update()
+    {
+            TryFall();   
+    }
 
-    //    _fallHandler.Play();
+    private bool TryFall()
+    {
+        if (_groundChecker.IsGrounded())
+        {
+            return false;
+        }
 
-    //    return true;
-    //}
+        _fallHandler.Play();
+
+        return true;
+    }
 }

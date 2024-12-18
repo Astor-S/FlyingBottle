@@ -331,22 +331,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f365d1c59982c3d488a5ad4c97ae1765, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &153241375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 153241341}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c361fc114b1a04e8ee62fd86be5aa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _groundChecker: {fileID: 153241366}
-  _groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!114 &153241376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,15 +349,15 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: 4.6148596
+      outSlope: 4.6148596
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.21861571
     - serializedVersion: 3
-      time: 0.25031275
-      value: 0.49465716
+      time: 0.114834026
+      value: 0.5000515
       inSlope: 2.9748306
       outSlope: 2.9748306
       tangentMode: 0
@@ -390,13 +374,22 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.89110214
     - serializedVersion: 3
-      time: 1.0041809
-      value: -0.002357483
-      inSlope: 0.06997835
-      outSlope: 0.06997835
+      time: 0.8997067
+      value: 0.50199854
+      inSlope: -3.0252974
+      outSlope: -3.0252974
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.38691512
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.0041809
+      value: -0.002357483
+      inSlope: -5.885167
+      outSlope: -5.885167
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.23312087
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -405,8 +398,43 @@ MonoBehaviour:
   _jumpHeight: 3
   _jumpDuration: 1
   _jumpDistanceX: 2
-  _rotationStartTime: 0.2
-  _rotationEndTime: 0.8
+  _rotationStartTime: 0
+  _rotationEndTime: 0.9
+--- !u!114 &153241386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153241341}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c361fc114b1a04e8ee62fd86be5aa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _groundChecker: {fileID: 153241366}
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  _speedFall: 1
+  _speedFallMultiplier: 9.8
+--- !u!114 &153241395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153241341}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb202ce728ac9974bac16e736b606958, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _groundChecker: {fileID: 153241366}
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  _fallHandler: {fileID: 153241386}
 --- !u!1 &162284055 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2114531495875037320, guid: 9ded4a2f612997a4ea4eff7e80932e39, type: 3}
@@ -808,10 +836,13 @@ PrefabInstance:
       addedObject: {fileID: 153241366}
     - targetCorrespondingSourceObject: {fileID: 7364570271330739759, guid: 8589d208f5a42dc47aff4967a7ca598e, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 153241375}
+      addedObject: {fileID: 153241376}
     - targetCorrespondingSourceObject: {fileID: 7364570271330739759, guid: 8589d208f5a42dc47aff4967a7ca598e, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 153241376}
+      addedObject: {fileID: 153241386}
+    - targetCorrespondingSourceObject: {fileID: 7364570271330739759, guid: 8589d208f5a42dc47aff4967a7ca598e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 153241395}
   m_SourcePrefab: {fileID: 100100000, guid: 8589d208f5a42dc47aff4967a7ca598e, type: 3}
 --- !u!1 &705507993
 GameObject:
