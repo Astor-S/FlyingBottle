@@ -8,6 +8,7 @@ public class FallHandler : MonoBehaviour
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private float _speedFall = 1f;
     [SerializeField] private float _speedFallMultiplier = 9.8f;
+    [SerializeField] private float _groundCheckDistanceForFall = 2f;
 
     private Vector3 _position;
 
@@ -41,13 +42,21 @@ public class FallHandler : MonoBehaviour
     private IEnumerator Falling()
     {
         float groundPositionY;
-        _groundChecker.IsGrounded(transform.position, 2f, out groundPositionY);
+        
+        if (_groundChecker.IsGrounded(transform.position, _groundCheckDistanceForFall, out groundPositionY) == false)
+        {
+            yield break;
+        }
+
         (Func<float, Vector3> calculatePosition, Func<bool> whileCondition) = GetFallIntoGroundData(groundPositionY);
         float speed = _speedFall;
 
+        float time = 0;
+
         while (whileCondition())
         {
-            float delta = (speed += _speedFallMultiplier) * Time.fixedDeltaTime;
+            time += Time.fixedDeltaTime;
+            float delta = (_speedFall + _speedFallMultiplier * time) * Time.fixedDeltaTime;
             Position = calculatePosition(delta);
             transform.position = Position;
 
@@ -55,20 +64,20 @@ public class FallHandler : MonoBehaviour
         }
     }
 
+
     private (Func<float, Vector3> calculatePosition, Func<bool> whileCondition)
         GetFallIntoGroundData(float groundPositionY) =>
         (
-             (delta) =>
-             {
-                 Vector3 position = Position;
+            (delta) =>
+            {
+                Vector3 position = Position;
+                if (position.y - delta < groundPositionY)
+                    position.y = groundPositionY;
+                else
+                    position.y -= delta;
 
-                 if (position.y - delta < groundPositionY)
-                     position.y = groundPositionY;
-                 else
-                     position.y -= delta;
-
-                 return position;
-             },
-             () => _groundChecker.IsGrounded() is false && groundPositionY < Position.y
-         );
+                return position;
+            },
+            () => groundPositionY < Position.y
+        );
 }

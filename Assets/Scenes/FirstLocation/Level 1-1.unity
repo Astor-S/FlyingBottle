@@ -396,7 +396,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   _rotationOffset: {x: 0, y: -0.5, z: 0}
   _jumpSound: {fileID: 8300000, guid: 59f26f921c097b549a0f427ecb597598, type: 3}
-  _jumpHeight: 3
+  _jumpHeight: 2.5
   _jumpDuration: 1
   _jumpDistanceX: 2
   _rotationStartTime: 0
@@ -419,6 +419,7 @@ MonoBehaviour:
     m_Bits: 64
   _speedFall: 1
   _speedFallMultiplier: 9.8
+  _groundCheckDistanceForFall: 2
 --- !u!114 &153241395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1016,6 +1017,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Bookshelf Large
       objectReference: {fileID: 0}
+    - target: {fileID: 523270632907252915, guid: 90128d4c28d314d438e6f628dae06392, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 867179816542338569, guid: 90128d4c28d314d438e6f628dae06392, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.074
@@ -1120,7 +1125,7 @@ GameObject:
   - component: {fileID: 806088985}
   - component: {fileID: 806088988}
   - component: {fileID: 806088989}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1921,6 +1926,10 @@ PrefabInstance:
     - target: {fileID: 5270983341688224441, guid: 88d126b4de386094c87b9d404e6b833d, type: 3}
       propertyPath: m_Name
       value: Short Nightstand
+      objectReference: {fileID: 0}
+    - target: {fileID: 5270983341688224441, guid: 88d126b4de386094c87b9d404e6b833d, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7964732408436680706, guid: 88d126b4de386094c87b9d404e6b833d, type: 3}

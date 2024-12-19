@@ -34,7 +34,7 @@ public class GroundChecker : MonoBehaviour
 
         if (count > 0)
         {
-            groundPositionY = _results[0].transform.position.y;
+             groundPositionY = _results[0].point.y;
             Debug.Log($"Grounded! Hit object: {_results[0].transform.name}, Ground position Y: {groundPositionY}");
         }
 
