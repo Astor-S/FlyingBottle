@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class Skate : MonoBehaviour
+public class SoundEffect : MonoBehaviour
 {
-    [SerializeField] private AudioClip _skateSound;
+    [SerializeField] private AudioClip _sound;
 
     private AudioSource _audioSource;
 
@@ -14,6 +14,6 @@ public class Skate : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.TryGetComponent<Player>(out _))
-            _audioSource.PlayOneShot(_skateSound);
+            _audioSource.PlayOneShot(_sound); 
     }
 }

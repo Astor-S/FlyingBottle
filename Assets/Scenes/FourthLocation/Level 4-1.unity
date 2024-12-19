@@ -485,8 +485,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inputReader: {fileID: 408151924}
-  _playerMover: {fileID: 408151925}
   _collisionDetector: {fileID: 153241356}
+  _playerMover: {fileID: 408151925}
 --- !u!114 &153241356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2023,7 +2023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93512faaf05c19d4884b3f0e9924610f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _synthesizerSound: {fileID: 8300000, guid: a734393eca685dd41ae41d5222b49a56, type: 3}
+  _sound: {fileID: 8300000, guid: a734393eca685dd41ae41d5222b49a56, type: 3}
 --- !u!82 &1430122664
 AudioSource:
   m_ObjectHideFlags: 0

@@ -253,6 +253,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Short Nightstand (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5270983341688224441, guid: 88d126b4de386094c87b9d404e6b833d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7964732408436680706, guid: 88d126b4de386094c87b9d404e6b833d, type: 3}
     m_RemovedGameObjects: []

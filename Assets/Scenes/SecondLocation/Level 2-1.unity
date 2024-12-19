@@ -390,8 +390,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inputReader: {fileID: 408151924}
-  _playerMover: {fileID: 408151925}
   _collisionDetector: {fileID: 153241356}
+  _playerMover: {fileID: 408151925}
 --- !u!114 &153241356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -940,10 +940,10 @@ PrefabInstance:
       addedObject: {fileID: 1399532132}
     - targetCorrespondingSourceObject: {fileID: 8605796194322107223, guid: 6e86b822bb8d54542ac1e3cf1972452c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1399532136}
+      addedObject: {fileID: 1399532135}
     - targetCorrespondingSourceObject: {fileID: 8605796194322107223, guid: 6e86b822bb8d54542ac1e3cf1972452c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1399532135}
+      addedObject: {fileID: 1399532136}
   m_SourcePrefab: {fileID: 100100000, guid: 6e86b822bb8d54542ac1e3cf1972452c, type: 3}
 --- !u!1001 &700838447
 PrefabInstance:
@@ -2755,10 +2755,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1399532128}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0d95704869aade40b35ee84ebf8536d, type: 3}
+  m_Script: {fileID: 11500000, guid: 93512faaf05c19d4884b3f0e9924610f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dishesSound: {fileID: 8300000, guid: 5532e3e61bc77c44d867e7fe0b38f287, type: 3}
+  _sound: {fileID: 8300000, guid: 5532e3e61bc77c44d867e7fe0b38f287, type: 3}
 --- !u!1 &1412378169 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3074032991447229604, guid: ebc4a50eb5c187947817efb7f3d72924, type: 3}

@@ -2425,7 +2425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93512faaf05c19d4884b3f0e9924610f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _synthesizerSound: {fileID: 8300000, guid: a734393eca685dd41ae41d5222b49a56, type: 3}
+  _sound: {fileID: 8300000, guid: a734393eca685dd41ae41d5222b49a56, type: 3}
 --- !u!1001 &1514269413
 PrefabInstance:
   m_ObjectHideFlags: 0
