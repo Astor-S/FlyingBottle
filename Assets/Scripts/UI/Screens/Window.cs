@@ -4,13 +4,16 @@ using UnityEngine.UI;
 
 public abstract class Window : MonoBehaviour
 {
-    [SerializeField] private CanvasGroup _windowGroup;
     [SerializeField] private Button _homeButton;
 
     public event Action HomeButtonClicked;
 
-    protected CanvasGroup WindowGroup => _windowGroup;
     protected Button HomeButton => _homeButton;
+
+    private void Awake()
+    {
+        gameObject.SetActive(false);
+    }
 
     private void OnEnable()
     {
@@ -29,7 +32,6 @@ public abstract class Window : MonoBehaviour
 
     public void Open()
     {
-        WindowGroup.alpha = 1f;
         gameObject.SetActive(true);
     }
 
