@@ -1,181 +1,183 @@
 using System.Collections;
-using PlayerControlSystem;
 using UnityEngine;
 
-[RequireComponent(typeof(GroundChecker))]
-public class PlayerMover : MonoBehaviour
+namespace PlayerControlSystem
 {
-	[SerializeField] private Bottle _bottle;
-	[SerializeField] private InputReader _inputReader;
-	[SerializeField] private VerticalMoveHandler _verticalMoveHandler;
-	[SerializeField] private Vector3 _rotationOffset = new Vector3(0f, -0.5f, 0f);
-	[SerializeField] private AudioClip _jumpSound;
-	[SerializeField] private float _jumpDuration = 1f;
-	[SerializeField] private float _jumpDistanceX = 2f;
-	[SerializeField] [Range(0, 1)] private float _rotationStartTime = 0.2f;
-	[SerializeField] [Range(0, 1)] private float _rotationEndTime = 0.8f;
-	[SerializeField] private Transform _rotationAnchor;
+    [RequireComponent(typeof(GroundChecker))]
+    public class PlayerMover : MonoBehaviour
+    {
+        [SerializeField] private Bottle _bottle;
+        [SerializeField] private InputReader _inputReader;
+        [SerializeField] private VerticalMoveHandler _verticalMoveHandler;
+        [SerializeField] private Vector3 _rotationOffset = new Vector3(0f, -0.5f, 0f);
+        [SerializeField] private AudioClip _jumpSound;
+        [SerializeField] private float _jumpDuration = 1f;
+        [SerializeField] private float _jumpDistanceX = 2f;
+        [SerializeField][Range(0, 1)] private float _rotationStartTime = 0.2f;
+        [SerializeField][Range(0, 1)] private float _rotationEndTime = 0.8f;
+        [SerializeField] private Transform _rotationAnchor;
 
-	private Vector3 _startPosition;
-	private Coroutine _moveCoroutine;
-	private AudioSource _audioSource;
-	private GroundChecker _groundChecker;
+        private Vector3 _startPosition;
+        private Coroutine _moveCoroutine;
+        private AudioSource _audioSource;
+        private GroundChecker _groundChecker;
 
-	private float _currentRotationAngle;
+        private float _currentRotationAngle;
 
-	private bool _isSurfaced;
-	private bool _canDoubleJump;
+        private bool _isSurfaced;
+        private bool _canDoubleJump;
 
-	private void Start()
-	{
-		_audioSource = GetComponent<AudioSource>();
-		_verticalMoveHandler.Init(transform);
-		_groundChecker = GetComponent<GroundChecker>();
+        private void Start()
+        {
+            _audioSource = GetComponent<AudioSource>();
+            _verticalMoveHandler.Init(transform);
+            _groundChecker = GetComponent<GroundChecker>();
 
-		StartCoroutine(Fall());
-	}
+            StartCoroutine(Fall());
+        }
 
-	private void OnEnable()
-	{
-		_inputReader.Moving += OnMoving;
-	}
+        private void OnEnable()
+        {
+            _inputReader.Moving += OnMoving;
+        }
 
-	private void OnDisable()
-	{
-		_inputReader.Moving -= OnMoving;
-	}
+        private void OnDisable()
+        {
+            _inputReader.Moving -= OnMoving;
+        }
 
-	private void OnCollisionEnter(Collision collision)
-	{
-		if (collision.gameObject.TryGetComponent<Surface>(out _))
-		{
-			_isSurfaced = true;
-			_canDoubleJump = true;
-		}
-	}
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (collision.gameObject.TryGetComponent<Surface>(out _))
+            {
+                _isSurfaced = true;
+                _canDoubleJump = true;
+            }
+        }
 
-	private void OnCollisionExit(Collision collision)
-	{
-		if (collision.gameObject.TryGetComponent<Surface>(out _))
-			_isSurfaced = false;
-	}
+        private void OnCollisionExit(Collision collision)
+        {
+            if (collision.gameObject.TryGetComponent<Surface>(out _))
+                _isSurfaced = false;
+        }
 
-	private void OnMoving()
-	{
-		if (_isSurfaced || _canDoubleJump)
-		{
-			if (_moveCoroutine != null)
-				StopCoroutine(_moveCoroutine);
+        private void OnMoving()
+        {
+            if (_isSurfaced || _canDoubleJump)
+            {
+                if (_moveCoroutine != null)
+                    StopCoroutine(_moveCoroutine);
 
-			_moveCoroutine = StartCoroutine(Moving());
-			PlayJumpSound();
+                _moveCoroutine = StartCoroutine(Moving());
+                PlayJumpSound();
 
-			if (_isSurfaced == false)
-				_canDoubleJump = false;
-		}
-	}
+                if (_isSurfaced == false)
+                    _canDoubleJump = false;
+            }
+        }
 
-	private IEnumerator Moving()
-	{
-		_currentRotationAngle = 0;
-		_startPosition = transform.position;
-		
-		var targetPosition = transform.position.x + _jumpDistanceX;
+        private IEnumerator Moving()
+        {
+            _currentRotationAngle = 0;
+            _startPosition = transform.position;
 
-		float currentTime = 0f;
+            var targetPosition = transform.position.x + _jumpDistanceX;
 
-		var maxHeight = transform.position.y + _jumpDistanceX;
+            float currentTime = 0f;
 
-		_verticalMoveHandler.Reset();
+            var maxHeight = transform.position.y + _jumpDistanceX;
 
-		var groundPositionY = 0f;
-		
-		while (Condition())
-		{
-			transform.position = new Vector3(
-				CalculateX(),
-				transform.position.y + _verticalMoveHandler.CalculateHeight(maxHeight, currentTime / _jumpDuration, groundPositionY), 
-				_startPosition.z);
+            _verticalMoveHandler.Reset();
 
-			UpdateRotation(currentTime);
+            var groundPositionY = 0f;
 
-			currentTime += Time.deltaTime;
+            while (Condition())
+            {
+                transform.position = new Vector3(
+                    CalculateX(),
+                    transform.position.y + _verticalMoveHandler.CalculateHeight(maxHeight, currentTime / _jumpDuration, groundPositionY),
+                    _startPosition.z);
 
-			yield return null;
-		}
+                UpdateRotation(currentTime);
 
-		FinalizeJump();
+                currentTime += Time.deltaTime;
 
-		yield break;
+                yield return null;
+            }
 
-		float CalculateX()
-		{
-			return Mathf.Lerp(_startPosition.x, targetPosition, currentTime / _jumpDuration);
-		}
+            FinalizeJump();
 
-		bool Condition()
-		{
-			if (_verticalMoveHandler.IsFall)
-			{
-				return _groundChecker.IsGrounded(out groundPositionY) == false;
-			}
-			else
-			{
-				return true;
-			}
-		}
-	}
-	
-	private IEnumerator Fall()
-	{
-		_startPosition = transform.position;
+            yield break;
 
-		float currentTime = 0f;
+            float CalculateX()
+            {
+                return Mathf.Lerp(_startPosition.x, targetPosition, currentTime / _jumpDuration);
+            }
 
-		var maxHeight = transform.position.y;
+            bool Condition()
+            {
+                if (_verticalMoveHandler.IsFall)
+                {
+                    return _groundChecker.IsGrounded(out groundPositionY) == false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+        }
 
-		var duration = _jumpDuration / 2;
-		
-		_verticalMoveHandler.Reset();
-		
-		while (_groundChecker.IsGrounded(out var groundPositionY) == false)
-		{
-			transform.position = new Vector3(
-				_startPosition.x, 
-				transform.position.y + _verticalMoveHandler.CalculateHeight(maxHeight, currentTime / duration, groundPositionY), 
-				_startPosition.z);
-			
-			currentTime += Time.deltaTime;
+        private IEnumerator Fall()
+        {
+            _startPosition = transform.position;
 
-			yield return null;
-		}
+            float currentTime = 0f;
 
-		Debug.Log("Fall end");
-		
-		_moveCoroutine = null;
-	}
+            var maxHeight = transform.position.y;
 
-	private void UpdateRotation(float currentTime)
-	{
-		if (currentTime < _jumpDuration * _rotationStartTime || currentTime > _jumpDuration * _rotationEndTime)
-			return;
+            var duration = _jumpDuration / 2;
 
-		float normalizedRotationTime = Mathf.InverseLerp(_jumpDuration * _rotationStartTime, _jumpDuration * _rotationEndTime, currentTime);
-		float rotationAngle = -360f * normalizedRotationTime;
-		float deltaRotation = rotationAngle - _currentRotationAngle;
-		_currentRotationAngle = rotationAngle;
+            _verticalMoveHandler.Reset();
 
-		_bottle.transform.RotateAround(_rotationAnchor.position, Vector3.forward, deltaRotation);
-	}
+            while (_groundChecker.IsGrounded(out var groundPositionY) == false)
+            {
+                transform.position = new Vector3(
+                    _startPosition.x,
+                    transform.position.y + _verticalMoveHandler.CalculateHeight(maxHeight, currentTime / duration, groundPositionY),
+                    _startPosition.z);
 
-	private void FinalizeJump()
-	{
-		_moveCoroutine = null;
-		_bottle.transform.rotation = Quaternion.identity;
-	}
+                currentTime += Time.deltaTime;
 
-	private void PlayJumpSound()
-	{
-		_audioSource.PlayOneShot(_jumpSound);
-	}
+                yield return null;
+            }
+
+            Debug.Log("Fall end");
+
+            _moveCoroutine = null;
+        }
+
+        private void UpdateRotation(float currentTime)
+        {
+            if (currentTime < _jumpDuration * _rotationStartTime || currentTime > _jumpDuration * _rotationEndTime)
+                return;
+
+            float normalizedRotationTime = Mathf.InverseLerp(_jumpDuration * _rotationStartTime, _jumpDuration * _rotationEndTime, currentTime);
+            float rotationAngle = -360f * normalizedRotationTime;
+            float deltaRotation = rotationAngle - _currentRotationAngle;
+            _currentRotationAngle = rotationAngle;
+
+            _bottle.transform.RotateAround(_rotationAnchor.position, Vector3.forward, deltaRotation);
+        }
+
+        private void FinalizeJump()
+        {
+            _moveCoroutine = null;
+            _bottle.transform.rotation = Quaternion.identity;
+        }
+
+        private void PlayJumpSound()
+        {
+            _audioSource.PlayOneShot(_jumpSound);
+        }
+    }
 }
