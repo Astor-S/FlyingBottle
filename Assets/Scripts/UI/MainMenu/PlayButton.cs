@@ -3,23 +3,26 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayButton : MonoBehaviour
+namespace UI.MainMenu
 {
-    [Scene]
-    [SerializeField] private string _sceneToLoad;
-
-    private void OnButtonClick()
+    public class PlayButton : MonoBehaviour
     {
-        StartCoroutine(LoadLevelAsync(_sceneToLoad));
-    }
+        [Scene]
+        [SerializeField] private string _sceneToLoad;
 
-    private IEnumerator LoadLevelAsync(string sceneName)
-    {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
-
-        while (asyncLoad.isDone == false)
+        public void OnPlayButtonClick()
         {
-            yield return null;
+            StartCoroutine(LoadLevelAsync(_sceneToLoad));
+        }
+
+        private IEnumerator LoadLevelAsync(string sceneName)
+        {
+            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
+
+            while (asyncLoad.isDone == false)
+            {
+                yield return null;
+            }
         }
     }
 }
