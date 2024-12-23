@@ -18,6 +18,7 @@ namespace PlayerControlSystem
         [SerializeField] private Transform _rotationAnchor;
 
         private Vector3 _startPosition;
+        private Vector3 _bottleStartPosition;
         private Coroutine _moveCoroutine;
         private AudioSource _audioSource;
         private GroundChecker _groundChecker;
@@ -32,6 +33,7 @@ namespace PlayerControlSystem
             _audioSource = GetComponent<AudioSource>();
             _verticalMoveHandler.Init(transform);
             _groundChecker = GetComponent<GroundChecker>();
+            _bottleStartPosition = _bottle.transform.localPosition;
 
             StartCoroutine(Fall());
         }
@@ -65,8 +67,7 @@ namespace PlayerControlSystem
         {
             if (_isSurfaced || _canDoubleJump)
             {
-                if (_moveCoroutine != null)
-                    StopCoroutine(_moveCoroutine);
+                ResetJump();
 
                 _moveCoroutine = StartCoroutine(Moving());
                 PlayJumpSound();
@@ -105,7 +106,7 @@ namespace PlayerControlSystem
                 yield return null;
             }
 
-            FinalizeJump();
+            ResetJump();
 
             yield break;
 
@@ -169,10 +170,14 @@ namespace PlayerControlSystem
             _bottle.transform.RotateAround(_rotationAnchor.position, Vector3.forward, deltaRotation);
         }
 
-        private void FinalizeJump()
+        private void ResetJump()
         {
+            if (_moveCoroutine != null)
+                StopCoroutine(_moveCoroutine);
+            
             _moveCoroutine = null;
             _bottle.transform.rotation = Quaternion.identity;
+            _bottle.transform.localPosition = _bottleStartPosition;
         }
 
         private void PlayJumpSound()
