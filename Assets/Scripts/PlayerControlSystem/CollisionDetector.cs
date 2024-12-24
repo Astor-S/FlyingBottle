@@ -8,7 +8,7 @@ public class CollisionDetector : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.TryGetComponent<Ground>(out _))
+        if (collision.gameObject.TryGetComponent<Floor>(out _))
             FailedCollide?.Invoke();
 
         if (collision.gameObject.TryGetComponent<FinishPortal>(out _))

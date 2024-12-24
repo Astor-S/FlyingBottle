@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace UI.MainMenu
+namespace UI.Home.MainMenu
 {
     public class PlayButton : MonoBehaviour
     {

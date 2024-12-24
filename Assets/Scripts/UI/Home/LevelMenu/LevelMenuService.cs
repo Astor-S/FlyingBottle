@@ -1,9 +1,14 @@
 using UnityEngine;
 
-namespace UI.MainMenu
+namespace UI.Home.LevelMenu
 {
-    public class MainMenuService : MonoBehaviour
+    public class LevelMenuService : MonoBehaviour
     {
+        private void Awake()
+        {
+            gameObject.SetActive(false);
+        }
+
         public void Open()
         {
             gameObject.SetActive(true);

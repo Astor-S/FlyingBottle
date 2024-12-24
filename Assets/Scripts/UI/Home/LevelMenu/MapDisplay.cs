@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI.LevelMenu
+namespace UI.Home.LevelMenu
 {
     public class MapDisplay : MonoBehaviour
     {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace UI.LevelMenu
+namespace UI.Home.LevelMenu
 {
     public class MapService : MonoBehaviour
     {

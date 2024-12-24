@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace UI.LevelMenu
+namespace UI.Home.LevelMenu
 {
     [CreateAssetMenu (fileName = "NewMap", menuName = "Scriptable Objects/Map")]
     public class Map : ScriptableObject
