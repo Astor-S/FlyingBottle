@@ -9,7 +9,7 @@ namespace UI.Home.LevelMenu
 
         public void DisplayMap(Map map)
         {
-            _mapImage.sprite = map.mapImage;
+            _mapImage.sprite = map.GetMapImage();
         }
     }
 }

@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b50be2307c7216647abe282be9c8edd4, type: 3}
-  m_Name: SecondLocatiom
+  m_Script: {fileID: 11500000, guid: 37753e8fa309d1f46850b46db6fb60ae, type: 3}
+  m_Name: SeventhLevel
   m_EditorClassIdentifier: 
-  _mapIndex: 1
-  _mapName: 
-  _mapImage: {fileID: 21300000, guid: 3a6d298b836b0814ab7d20c281ab03ab, type: 3}
+  _sceneToLoad: Level 2-2
+  _cellIndex: 6
