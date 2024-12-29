@@ -7,9 +7,7 @@ namespace UI.Home.LevelMenu
     {
         [SerializeField] private Image _mapImage;
 
-        public void DisplayMap(Map map)
-        {
+        public void DisplayMap(Map map) =>
             _mapImage.sprite = map.GetMapImage();
-        }
     }
 }

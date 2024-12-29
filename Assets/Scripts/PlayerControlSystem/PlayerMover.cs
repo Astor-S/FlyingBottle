@@ -6,17 +6,24 @@ namespace PlayerControlSystem
     [RequireComponent(typeof(GroundChecker))]
     public class PlayerMover : MonoBehaviour
     {
+        private readonly RaycastHit[] _hits = new RaycastHit[1];
+
         [SerializeField] private Bottle _bottle;
+        [SerializeField] private BoxCollider _boxCollider;
         [SerializeField] private InputReader _inputReader;
-        [SerializeField] private VerticalMoveHandler _verticalMoveHandler;
+        [SerializeField] private LayerMask _groundMask;
+        [SerializeField] private AnimationCurve _jumpCurve;
+        [SerializeField] private AnimationCurve _moveCurve;
         [SerializeField] private Vector3 _rotationOffset = new Vector3(0f, -0.5f, 0f);
         [SerializeField] private AudioClip _jumpSound;
         [SerializeField] private float _jumpDuration = 1f;
+        [SerializeField] private float _jumpHeight = 2f;
         [SerializeField] private float _jumpDistanceX = 2f;
         [SerializeField][Range(0, 1)] private float _rotationStartTime = 0.2f;
         [SerializeField][Range(0, 1)] private float _rotationEndTime = 0.8f;
         [SerializeField] private Transform _rotationAnchor;
 
+        private Rigidbody _rigidbody;
         private Vector3 _startPosition;
         private Vector3 _bottleStartPosition;
         private Coroutine _moveCoroutine;
@@ -28,14 +35,13 @@ namespace PlayerControlSystem
         private bool _isSurfaced;
         private bool _canDoubleJump;
 
-        private void Start()
+        private void Awake()
         {
+            _rigidbody = GetComponent<Rigidbody>();
             _audioSource = GetComponent<AudioSource>();
-            _verticalMoveHandler.Init(transform);
             _groundChecker = GetComponent<GroundChecker>();
-            _bottleStartPosition = _bottle.transform.localPosition;
 
-            StartCoroutine(Fall());
+            _bottleStartPosition = _bottle.transform.localPosition;
         }
 
         private void OnEnable()
@@ -78,83 +84,69 @@ namespace PlayerControlSystem
         }
 
         private IEnumerator Moving()
-        {
-            _currentRotationAngle = 0;
-            _startPosition = transform.position;
+        { 
+            var startHeight = _rigidbody.position.y;
+            var maxHeight = transform.position.y + _jumpHeight;
+            var startPositionX = _rigidbody.position.x;
+            var maxPositionX = startPositionX + _jumpDistanceX;
 
-            var targetPosition = transform.position.x + _jumpDistanceX;
+            var time = 0f;
+            
+            float normalTime;
 
-            float currentTime = 0f;
-
-            var maxHeight = transform.position.y + _jumpDistanceX;
-
-            _verticalMoveHandler.Reset();
-
-            var groundPositionY = 0f;
-
-            while (Condition())
+            while (time < _jumpDuration || _groundChecker.IsGrounded())
             {
-                transform.position = new Vector3(
-                    CalculateX(),
-                    transform.position.y + _verticalMoveHandler.CalculateHeight(maxHeight, currentTime / _jumpDuration, groundPositionY),
-                    _startPosition.z);
+                normalTime = Mathf.Clamp01(time / _jumpDuration);
 
-                UpdateRotation(currentTime);
+                var position = _rigidbody.position;
 
-                currentTime += Time.deltaTime;
+                position.y = CalculateY();
+                position.x = CalculateX();
 
-                yield return null;
+                if (CheckPosition(position) == false) 
+                   break;
+                print(2);
+                //UpdateRotation(currentTime);
+
+                _rigidbody.MovePosition(position);
+
+                time += Time.deltaTime;
+
+                yield return new WaitForFixedUpdate();
             }
+
+            Debug.Log("End");
 
             ResetJump();
 
-            yield break;
+            float CalculateY()
+            {
+                return Mathf.Lerp(startHeight, maxHeight, _jumpCurve.Evaluate(normalTime));
+            }
 
             float CalculateX()
             {
-                return Mathf.Lerp(_startPosition.x, targetPosition, currentTime / _jumpDuration);
+                return Mathf.Lerp(startPositionX, maxPositionX, _moveCurve.Evaluate(normalTime));
             }
 
-            bool Condition()
+            bool CheckPosition(Vector3 position)
             {
-                if (_verticalMoveHandler.IsFall)
-                {
-                    return _groundChecker.IsGrounded(out groundPositionY) == false;
-                }
-                else
-                {
-                    return true;
-                }
+                var direction = (position - _rigidbody.position).normalized;
+                var distance =  Vector3.Distance(_rigidbody.position, position);
+
+                var count = Physics.BoxCastNonAlloc(
+                    _boxCollider.bounds.center,
+                    _boxCollider.bounds.extents * 0.5f,
+                    direction,
+                    _hits,
+                    _bottle.transform.rotation,
+                    distance,
+                    _groundMask);
+
+                Debug.Log($"{count}");
+
+                return count == 0;
             }
-        }
-
-        private IEnumerator Fall()
-        {
-            _startPosition = transform.position;
-
-            float currentTime = 0f;
-
-            var maxHeight = transform.position.y;
-
-            var duration = _jumpDuration / 2;
-
-            _verticalMoveHandler.Reset();
-
-            while (_groundChecker.IsGrounded(out var groundPositionY) == false)
-            {
-                transform.position = new Vector3(
-                    _startPosition.x,
-                    transform.position.y + _verticalMoveHandler.CalculateHeight(maxHeight, currentTime / duration, groundPositionY),
-                    _startPosition.z);
-
-                currentTime += Time.deltaTime;
-
-                yield return null;
-            }
-
-            Debug.Log("Fall end");
-
-            _moveCoroutine = null;
         }
 
         private void UpdateRotation(float currentTime)
@@ -165,6 +157,7 @@ namespace PlayerControlSystem
             float normalizedRotationTime = Mathf.InverseLerp(_jumpDuration * _rotationStartTime, _jumpDuration * _rotationEndTime, currentTime);
             float rotationAngle = -360f * normalizedRotationTime;
             float deltaRotation = rotationAngle - _currentRotationAngle;
+            
             _currentRotationAngle = rotationAngle;
 
             _bottle.transform.RotateAround(_rotationAnchor.position, Vector3.forward, deltaRotation);
