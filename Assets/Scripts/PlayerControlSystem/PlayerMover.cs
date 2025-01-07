@@ -105,8 +105,8 @@ namespace PlayerControlSystem
 
                 if (CheckPosition(position) == false) 
                    break;
-                print(2);
-                //UpdateRotation(currentTime);
+
+                UpdateRotation(normalTime);
 
                 _rigidbody.MovePosition(position);
 
@@ -114,8 +114,6 @@ namespace PlayerControlSystem
 
                 yield return new WaitForFixedUpdate();
             }
-
-            Debug.Log("End");
 
             ResetJump();
 
@@ -142,8 +140,6 @@ namespace PlayerControlSystem
                     _bottle.transform.rotation,
                     distance,
                     _groundMask);
-
-                Debug.Log($"{count}");
 
                 return count == 0;
             }
