@@ -7,27 +7,40 @@ namespace UI.Home.LevelMenu
         private const int FirstLocation = 0;
         private const int CorrectionShift = 1;
 
-        [SerializeField] private ScriptableObject[] _scriptableObjects;
+        [SerializeField] private Map[] _levelDataByLocation;
+        [SerializeField] private LevelButton[] _levelButtons;
         [SerializeField] private MapDisplay _mapDisplay;
 
-        private int _currentIndex;
+        private int _currentLocationIndex;
 
         private void Awake()
         {
-            ChangerScriptableObject(FirstLocation);
+            ChangeLocation(FirstLocation);
         }
 
-        public void ChangerScriptableObject(int change)
+        public void ChangeLocation(int change)
         {
-            _currentIndex += change;
+            _currentLocationIndex += change;
 
-            if (_currentIndex < FirstLocation)
-                _currentIndex = _scriptableObjects.Length - CorrectionShift;
-            else if (_currentIndex > _scriptableObjects.Length - CorrectionShift)
-                _currentIndex = FirstLocation;
+            if (_currentLocationIndex < FirstLocation)
+                _currentLocationIndex = _levelDataByLocation.Length - CorrectionShift;
+            else if (_currentLocationIndex > _levelDataByLocation.Length - CorrectionShift)
+                _currentLocationIndex = FirstLocation;
 
             if(_mapDisplay != null)
-                _mapDisplay.DisplayMap((Map)_scriptableObjects[_currentIndex]);
+                _mapDisplay.DisplayMap(_levelDataByLocation[_currentLocationIndex]);
+
+            UpdateLevelButtons();
+        }
+
+        private void UpdateLevelButtons()
+        {
+            for (int i = 0; i < _levelButtons.Length; i++)
+            {
+                int buttonIndex = i;
+                _levelButtons[buttonIndex].SetCurrentLevelIndex(_currentLocationIndex);
+                _levelButtons[buttonIndex].UpdateLevelButton();
+            }
         }
     }
 }
