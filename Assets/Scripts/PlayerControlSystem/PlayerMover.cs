@@ -6,6 +6,8 @@ namespace PlayerControlSystem
     [RequireComponent(typeof(GroundChecker))]
     public class PlayerMover : MonoBehaviour
     {
+        private const float FullRotationDegrees = -360f;
+
         private readonly RaycastHit[] _hits = new RaycastHit[1];
 
         [SerializeField] private Bottle _bottle;
@@ -14,7 +16,7 @@ namespace PlayerControlSystem
         [SerializeField] private LayerMask _groundMask;
         [SerializeField] private AnimationCurve _jumpCurve;
         [SerializeField] private AnimationCurve _moveCurve;
-        [SerializeField] private Vector3 _rotationOffset = new Vector3(0f, -0.5f, 0f);
+        [SerializeField] private AnimationCurve _rotationCurve;
         [SerializeField] private AudioClip _jumpSound;
         [SerializeField] private float _jumpDuration = 1f;
         [SerializeField] private float _jumpHeight = 2f;
@@ -24,7 +26,6 @@ namespace PlayerControlSystem
         [SerializeField] private Transform _rotationAnchor;
 
         private Rigidbody _rigidbody;
-        private Vector3 _startPosition;
         private Vector3 _bottleStartPosition;
         private Coroutine _moveCoroutine;
         private AudioSource _audioSource;
@@ -84,13 +85,13 @@ namespace PlayerControlSystem
         }
 
         private IEnumerator Moving()
-        { 
-            var startHeight = _rigidbody.position.y;
-            var maxHeight = transform.position.y + _jumpHeight;
-            var startPositionX = _rigidbody.position.x;
-            var maxPositionX = startPositionX + _jumpDistanceX;
+        {
+            float startHeight = _rigidbody.position.y;
+            float maxHeight = transform.position.y + _jumpHeight;
+            float startPositionX = _rigidbody.position.x;
+            float maxPositionX = startPositionX + _jumpDistanceX;
 
-            var time = 0f;
+            float time = 0f;
             
             float normalTime;
 
@@ -98,7 +99,7 @@ namespace PlayerControlSystem
             {
                 normalTime = Mathf.Clamp01(time / _jumpDuration);
 
-                var position = _rigidbody.position;
+                Vector3 position = _rigidbody.position;
 
                 position.y = CalculateY();
                 position.x = CalculateX();
@@ -129,10 +130,10 @@ namespace PlayerControlSystem
 
             bool CheckPosition(Vector3 position)
             {
-                var direction = (position - _rigidbody.position).normalized;
-                var distance =  Vector3.Distance(_rigidbody.position, position);
+                Vector3 direction = (position - _rigidbody.position).normalized;
+                float distance = Vector3.Distance(_rigidbody.position, position);
 
-                var count = Physics.BoxCastNonAlloc(
+                int count = Physics.BoxCastNonAlloc(
                     _boxCollider.bounds.center,
                     _boxCollider.bounds.extents * 0.5f,
                     direction,
@@ -151,7 +152,8 @@ namespace PlayerControlSystem
                 return;
 
             float normalizedRotationTime = Mathf.InverseLerp(_jumpDuration * _rotationStartTime, _jumpDuration * _rotationEndTime, currentTime);
-            float rotationAngle = -360f * normalizedRotationTime;
+            float rotationCurveValue = _rotationCurve.Evaluate(normalizedRotationTime);
+            float rotationAngle = FullRotationDegrees * rotationCurveValue;
             float deltaRotation = rotationAngle - _currentRotationAngle;
             
             _currentRotationAngle = rotationAngle;
