@@ -1,4 +1,4 @@
-namespace UI.Home
+namespace UI.Home.Interfaces
 {
     public interface IMenuButton
     {

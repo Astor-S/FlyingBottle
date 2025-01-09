@@ -3,14 +3,12 @@ using UnityEngine;
 
 namespace UI.Home.LevelMenu
 {
-    public class CloseButton : MonoBehaviour, IMenuButton
+    public class CloseButton : MonoBehaviour, Home.Interfaces.IMenuButton
     {
         public event Action OnCloseLevelMenu;
-        
-        public void OnButtonClick()
-        {
+
+        public void OnButtonClick() =>
             OnCloseLevelMenu?.Invoke();
-        }
 
         public void OnCloseLevelButton() =>
             OnButtonClick();

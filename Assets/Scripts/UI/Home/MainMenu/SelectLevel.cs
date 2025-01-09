@@ -3,14 +3,12 @@ using UnityEngine;
 
 namespace UI.Home.MainMenu
 {
-    public class SelectLevel : MonoBehaviour, IMenuButton
+    public class SelectLevel : MonoBehaviour, Interfaces.IMenuButton
     {
         public event Action OnOpenLevelMenu;
 
-        public void OnButtonClick()
-        {
+        public void OnButtonClick() =>
             OnOpenLevelMenu?.Invoke();
-        }
 
         public void OnSelectLevelButton() =>
             OnButtonClick();
