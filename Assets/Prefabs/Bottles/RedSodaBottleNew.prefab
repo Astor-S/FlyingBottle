@@ -208,29 +208,29 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: -0.00052249397
-      inSlope: 4.733995
-      outSlope: 4.733995
+      inSlope: 6.310688
+      outSlope: 6.310688
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.046404187
+      outWeight: 0.08375327
     - serializedVersion: 3
-      time: 0.50107163
-      value: 0.99210083
-      inSlope: 0.027575219
-      outSlope: 0.027575219
+      time: 0.4998313
+      value: 0.9995921
+      inSlope: 0.009844688
+      outSlope: 0.009844688
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.4316859
+      inWeight: 0.06523862
+      outWeight: 0.07242873
     - serializedVersion: 3
-      time: 0.9998284
-      value: -0.004432095
-      inSlope: -3.7921677
-      outSlope: -3.7921677
+      time: 1.0000488
+      value: -0.00008885842
+      inSlope: -6.1887655
+      outSlope: -6.1887655
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.052835587
+      inWeight: 0.037195005
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -288,7 +288,7 @@ MonoBehaviour:
   _jumpHeight: 2
   _jumpDistanceX: 2
   _rotationStartTime: 0.07
-  _rotationEndTime: 0.8
+  _rotationEndTime: 0.85
   _rotationAnchor: {fileID: 3398328204470989926}
 --- !u!54 &958754186003071625
 Rigidbody:
