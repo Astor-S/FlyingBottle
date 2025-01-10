@@ -207,30 +207,30 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
-      inSlope: 5.5979333
-      outSlope: 5.5979333
+      value: -0.00052249397
+      inSlope: 4.733995
+      outSlope: 4.733995
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.042041615
+      outWeight: 0.046404187
     - serializedVersion: 3
-      time: 0.49967027
-      value: 0.99458957
-      inSlope: 0.0019256783
-      outSlope: 0.0019256783
+      time: 0.50107163
+      value: 0.99210083
+      inSlope: 0.027575219
+      outSlope: 0.027575219
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.70988524
+      outWeight: 0.4316859
     - serializedVersion: 3
-      time: 1.0083333
-      value: -0.0047169924
-      inSlope: -4.0599074
-      outSlope: -4.0599074
+      time: 0.9998284
+      value: -0.004432095
+      inSlope: -3.7921677
+      outSlope: -3.7921677
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.066077136
+      inWeight: 0.052835587
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -265,8 +265,8 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 2
-      outSlope: 2
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
@@ -287,8 +287,8 @@ MonoBehaviour:
   _jumpDuration: 1
   _jumpHeight: 2
   _jumpDistanceX: 2
-  _rotationStartTime: 0.076
-  _rotationEndTime: 0.85
+  _rotationStartTime: 0.07
+  _rotationEndTime: 0.8
   _rotationAnchor: {fileID: 3398328204470989926}
 --- !u!54 &958754186003071625
 Rigidbody:
