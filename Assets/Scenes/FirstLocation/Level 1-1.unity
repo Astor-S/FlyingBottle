@@ -1705,7 +1705,8 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8904447796716695609, guid: 9e604626216d36b4bb52967cf3b88713, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1967,7 +1968,8 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8904447796716695609, guid: 9e604626216d36b4bb52967cf3b88713, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2655,6 +2657,86 @@ PrefabInstance:
     - target: {fileID: 409308436660257781, guid: 64a07db83f0d3ce42badd781acc7d624, type: 3}
       propertyPath: m_Name
       value: RedSodaBottle
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967950153105286130, guid: 64a07db83f0d3ce42badd781acc7d624, type: 3}
+      propertyPath: _rotationEndTime
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967950153105286130, guid: 64a07db83f0d3ce42badd781acc7d624, type: 3}
+      propertyPath: _rotationStartTime
+      value: 0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967950153105286130, guid: 64a07db83f0d3ce42badd781acc7d624, type: 3}
+      propertyPath: _rotationCurve.m_Curve.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967950153105286130, guid: 64a07db83f0d3ce42badd781acc7d624, type: 3}
+      propertyPath: _rotationCurve.m_Curve.Array.data[1].time
+      value: 0.10048579
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967950153105286130, guid: 64a07db83f0d3ce42badd781acc7d624, type: 3}
+      propertyPath: _rotationCurve.m_Curve.Array.data[2].time
+      value: 0.7998669
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967950153105286130, guid: 64a07db83f0d3ce42badd781acc7d624, type: 3}
+      propertyPath: _rotationCurve.m_Curve.Array.data[3].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967950153105286130, guid: 64a07db83f0d3ce42badd781acc7d624, type: 3}
+      propertyPath: _rotationCurve.m_Curve.Array.data[1].value
+      value: 0.0009605903
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967950153105286130, guid: 64a07db83f0d3ce42badd781acc7d624, type: 3}
+      propertyPath: _rotationCurve.m_Curve.Array.data[2].value
+      value: 1.0000442
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967950153105286130, guid: 64a07db83f0d3ce42badd781acc7d624, type: 3}
+      propertyPath: _rotationCurve.m_Curve.Array.data[3].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967950153105286130, guid: 64a07db83f0d3ce42badd781acc7d624, type: 3}
+      propertyPath: _rotationCurve.m_Curve.Array.data[0].inSlope
+      value: 0.05265502
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967950153105286130, guid: 64a07db83f0d3ce42badd781acc7d624, type: 3}
+      propertyPath: _rotationCurve.m_Curve.Array.data[1].inSlope
+      value: 0.012865578
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967950153105286130, guid: 64a07db83f0d3ce42badd781acc7d624, type: 3}
+      propertyPath: _rotationCurve.m_Curve.Array.data[2].inSlope
+      value: -0.008160838
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967950153105286130, guid: 64a07db83f0d3ce42badd781acc7d624, type: 3}
+      propertyPath: _rotationCurve.m_Curve.Array.data[0].outSlope
+      value: 0.05265502
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967950153105286130, guid: 64a07db83f0d3ce42badd781acc7d624, type: 3}
+      propertyPath: _rotationCurve.m_Curve.Array.data[1].inWeight
+      value: 0.7241546
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967950153105286130, guid: 64a07db83f0d3ce42badd781acc7d624, type: 3}
+      propertyPath: _rotationCurve.m_Curve.Array.data[1].outSlope
+      value: 0.012865578
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967950153105286130, guid: 64a07db83f0d3ce42badd781acc7d624, type: 3}
+      propertyPath: _rotationCurve.m_Curve.Array.data[2].inWeight
+      value: 0.25621632
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967950153105286130, guid: 64a07db83f0d3ce42badd781acc7d624, type: 3}
+      propertyPath: _rotationCurve.m_Curve.Array.data[2].outSlope
+      value: -0.008160838
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967950153105286130, guid: 64a07db83f0d3ce42badd781acc7d624, type: 3}
+      propertyPath: _rotationCurve.m_Curve.Array.data[0].outWeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967950153105286130, guid: 64a07db83f0d3ce42badd781acc7d624, type: 3}
+      propertyPath: _rotationCurve.m_Curve.Array.data[1].outWeight
+      value: 0.2354682
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967950153105286130, guid: 64a07db83f0d3ce42badd781acc7d624, type: 3}
+      propertyPath: _rotationCurve.m_Curve.Array.data[2].outWeight
+      value: 0.9375416
       objectReference: {fileID: 0}
     - target: {fileID: 6693063305537587045, guid: 64a07db83f0d3ce42badd781acc7d624, type: 3}
       propertyPath: m_LocalPosition.x
