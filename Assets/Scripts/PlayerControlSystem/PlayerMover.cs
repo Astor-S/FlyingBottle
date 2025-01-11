@@ -32,7 +32,6 @@ namespace PlayerControlSystem
         private GroundChecker _groundChecker;
 
         private float _currentRotationAngle;
-        private float _previousRotationAngle;
 
         private bool _isSurfaced;
         private bool _canDoubleJump;
@@ -117,8 +116,6 @@ namespace PlayerControlSystem
                 yield return new WaitForFixedUpdate();
             }
 
-            _previousRotationAngle = _currentRotationAngle;
-
             ResetJump();
 
             float CalculateY()
@@ -156,7 +153,7 @@ namespace PlayerControlSystem
 
             float normalizedRotationTime = Mathf.InverseLerp(_jumpDuration * _rotationStartTime, _jumpDuration * _rotationEndTime, currentTime);
             float rotationCurveValue = _rotationCurve.Evaluate(normalizedRotationTime);
-            float rotationAngle = _previousRotationAngle + FullRotationDegrees * rotationCurveValue;
+            float rotationAngle = FullRotationDegrees * rotationCurveValue;
             float deltaRotation = rotationAngle - _currentRotationAngle;
             
             _currentRotationAngle = rotationAngle;
@@ -170,7 +167,7 @@ namespace PlayerControlSystem
                 StopCoroutine(_moveCoroutine);
             
             _moveCoroutine = null;
-            //_bottle.transform.rotation = Quaternion.identity;
+            _bottle.transform.rotation = Quaternion.identity;
             _bottle.transform.localPosition = _bottleStartPosition;
         }
 
