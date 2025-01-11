@@ -14,10 +14,13 @@ namespace PlayerControlSystem
         [SerializeField] private BoxCollider _boxCollider;
         [SerializeField] private InputReader _inputReader;
         [SerializeField] private LayerMask _groundMask;
+
         [SerializeField] private AnimationCurve _jumpCurve;
         [SerializeField] private AnimationCurve _moveCurve;
         [SerializeField] private AnimationCurve _rotationCurve;
+
         [SerializeField] private AudioClip _jumpSound;
+        
         [SerializeField] private float _jumpDuration = 1f;
         [SerializeField] private float _jumpHeight = 2f;
         [SerializeField] private float _jumpDistanceX = 2f;
@@ -27,12 +30,17 @@ namespace PlayerControlSystem
 
         private Rigidbody _rigidbody;
         private Vector3 _bottleStartPosition;
+        
         private Coroutine _moveCoroutine;
+        private Coroutine _waitingDoubleJumpCoroutine;
+        
         private AudioSource _audioSource;
         private GroundChecker _groundChecker;
 
         private float _currentRotationAngle;
-
+        private float _currentJumpTime; 
+        
+        private bool _isRotating;
         private bool _isSurfaced;
         private bool _canDoubleJump;
 
@@ -61,6 +69,7 @@ namespace PlayerControlSystem
             {
                 _isSurfaced = true;
                 _canDoubleJump = true;
+                DeactivateWaitingDoubleJump();
             }
         }
 
@@ -74,14 +83,50 @@ namespace PlayerControlSystem
         {
             if (_isSurfaced || _canDoubleJump)
             {
-                ResetJump();
-
-                _moveCoroutine = StartCoroutine(Moving());
-                PlayJumpSound();
-
-                if (_isSurfaced == false)
-                    _canDoubleJump = false;
+                if (_isSurfaced || (_isRotating == false && _canDoubleJump))
+                    StartJump();
+                else if (_isSurfaced == false && _canDoubleJump && _isRotating)
+                    ActivateWaitingDoubleJump();
             }
+        }
+
+        private void StartJump()
+        {
+            ResetJump();
+            
+            _moveCoroutine = StartCoroutine(Moving());
+            
+            PlayJumpSound();
+            
+            if (_isSurfaced == false)
+                _canDoubleJump = false;
+        }
+
+        private void ActivateWaitingDoubleJump()
+        {
+            if (_waitingDoubleJumpCoroutine == null)
+                _waitingDoubleJumpCoroutine = StartCoroutine(WaitStartDoubleJump());
+        }
+
+        private void DeactivateWaitingDoubleJump()
+        {
+            if (_waitingDoubleJumpCoroutine != null)
+            {
+                StopCoroutine(_waitingDoubleJumpCoroutine);
+                _waitingDoubleJumpCoroutine = null;
+            }
+        }
+
+        private IEnumerator WaitStartDoubleJump()
+        {
+            while (_isRotating)
+            {
+                yield return null;
+            }
+            
+            StartJump();
+
+            _waitingDoubleJumpCoroutine = null;
         }
 
         private IEnumerator Moving()
@@ -92,8 +137,10 @@ namespace PlayerControlSystem
             float maxPositionX = startPositionX + _jumpDistanceX;
 
             float time = 0f;
-            
+            _currentJumpTime = 0f;
+           
             float normalTime;
+            _isRotating = false;
 
             while (time < _jumpDuration || _groundChecker.IsGrounded())
             {
@@ -112,6 +159,7 @@ namespace PlayerControlSystem
                 _rigidbody.MovePosition(position);
 
                 time += Time.deltaTime;
+                _currentJumpTime = time;
 
                 yield return new WaitForFixedUpdate();
             }
@@ -148,6 +196,11 @@ namespace PlayerControlSystem
 
         private void UpdateRotation(float currentTime)
         {
+            if (currentTime > _jumpDuration * _rotationStartTime && currentTime < _jumpDuration * _rotationEndTime)
+                _isRotating = true;
+            else if (currentTime >= _jumpDuration * _rotationEndTime)
+                _isRotating = false; 
+            
             if (currentTime < _jumpDuration * _rotationStartTime || currentTime > _jumpDuration * _rotationEndTime)
                 return;
 
@@ -167,13 +220,14 @@ namespace PlayerControlSystem
                 StopCoroutine(_moveCoroutine);
             
             _moveCoroutine = null;
+            
             _bottle.transform.rotation = Quaternion.identity;
             _bottle.transform.localPosition = _bottleStartPosition;
+            
+            _currentRotationAngle = 0f;
         }
 
-        private void PlayJumpSound()
-        {
+        private void PlayJumpSound() =>
             _audioSource.PlayOneShot(_jumpSound);
-        }
     }
 }
