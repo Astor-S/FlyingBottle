@@ -483,22 +483,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &153668330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 153668327}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c57ece2c6e20c8b408cf097b32f80803, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rigidbody: {fileID: 0}
-  _start: {fileID: 0}
-  _target: {fileID: 1091754768}
-  _speed: 1
 --- !u!64 &153668331
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -521,6 +505,21 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -344061150032821096, guid: 0702578e4efb1c045acba01655e403dc, type: 3}
+--- !u!114 &153668333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153668327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d82d28aff87647c4fa1472d1badf623a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 1091754768}
+  _loopType: 1
+  _duration: 5
 --- !u!1001 &160044903
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -711,10 +710,10 @@ PrefabInstance:
       addedObject: {fileID: 153668331}
     - targetCorrespondingSourceObject: {fileID: 3144254729095943674, guid: 4feb7b624b286a94fb775672e6643c9f, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 153668330}
+      addedObject: {fileID: 153668329}
     - targetCorrespondingSourceObject: {fileID: 3144254729095943674, guid: 4feb7b624b286a94fb775672e6643c9f, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 153668329}
+      addedObject: {fileID: 153668333}
   m_SourcePrefab: {fileID: 100100000, guid: 4feb7b624b286a94fb775672e6643c9f, type: 3}
 --- !u!1001 &184775963
 PrefabInstance:
