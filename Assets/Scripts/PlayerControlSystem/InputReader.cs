@@ -17,17 +17,24 @@ namespace PlayerControlSystem
             _playerInput.Enable();
 
             _playerInput.Player.Jump.performed += OnJumpPerformed;
+            _playerInput.Player.Touch.performed += OnTouchPerformed;
         }
 
         private void OnDisable()
         {
             _playerInput.Player.Jump.performed -= OnJumpPerformed;
+            _playerInput.Player.Touch.performed -= OnTouchPerformed;
             _playerInput.Disable();
         }
 
         private void OnJumpPerformed(InputAction.CallbackContext _)
         {
             Moving?.Invoke();
+        }
+
+        private void OnTouchPerformed(InputAction.CallbackContext _)
+        {
+            Moving.Invoke();
         }
     }
 }
