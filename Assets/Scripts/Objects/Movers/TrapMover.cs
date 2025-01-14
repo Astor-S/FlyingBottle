@@ -1,7 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 
-public class Mover : MonoBehaviour
+public class TrapMover : MonoBehaviour
 {
     [SerializeField] private Transform _target;
     [SerializeField] private LoopType _loopType = LoopType.Yoyo;
