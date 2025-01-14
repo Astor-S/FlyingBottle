@@ -1,16 +1,19 @@
 using UnityEngine;
 
-public class Book : MonoBehaviour 
+namespace Objects
 {
-    private Rigidbody _rigidbody;
-
-    private void Awake()
+    public class Book : MonoBehaviour
     {
-        _rigidbody = GetComponent<Rigidbody>();
-    }
+        private Rigidbody _rigidbody;
 
-    public void Reawaken()
-    {
-        _rigidbody.WakeUp();
+        private void Awake()
+        {
+            _rigidbody = GetComponent<Rigidbody>();
+        }
+
+        public void Reawaken()
+        {
+            _rigidbody.WakeUp();
+        }
     }
 }

@@ -1,58 +1,61 @@
 using UnityEngine;
 
-public class ToyCar : MonoBehaviour
+namespace Objects
 {
-    [SerializeField] private Rigidbody _rigidbody;
-    [SerializeField] private Transform _target;
-    [SerializeField] private AudioClip _toyCarSound;
-    [SerializeField] private float _duration;
-
-    private AudioSource _audioSource;
-    private Vector3 _startPosition;
-    private bool _isMoving = false;
-    private float _startTime;
-
-    private void Awake()
+    public class ToyCar : MonoBehaviour
     {
-        _audioSource = GetComponent<AudioSource>();
-    }
+        [SerializeField] private Rigidbody _rigidbody;
+        [SerializeField] private Transform _target;
+        [SerializeField] private AudioClip _toyCarSound;
+        [SerializeField] private float _duration;
 
-    private void FixedUpdate()
-    {
-        if (_isMoving == false)
-            return;
+        private AudioSource _audioSource;
+        private Vector3 _startPosition;
+        private bool _isMoving = false;
+        private float _startTime;
 
-        float elapsedTime = Time.time - _startTime;
-        
-        if (elapsedTime >= _duration)
+        private void Awake()
         {
-            _rigidbody.MovePosition(_target.position);
-            _isMoving = false;
-            
-            return;
+            _audioSource = GetComponent<AudioSource>();
         }
 
-        float time = elapsedTime / _duration;
-
-        Vector3 newPosition = Vector3.Lerp(_startPosition, _target.position, time);
-        
-        _rigidbody.MovePosition(newPosition);
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.TryGetComponent<Player>(out _))
+        private void FixedUpdate()
         {
-            StartMovement();
+            if (_isMoving == false)
+                return;
 
-            _audioSource.PlayOneShot(_toyCarSound);
+            float elapsedTime = Time.time - _startTime;
+
+            if (elapsedTime >= _duration)
+            {
+                _rigidbody.MovePosition(_target.position);
+                _isMoving = false;
+
+                return;
+            }
+
+            float time = elapsedTime / _duration;
+
+            Vector3 newPosition = Vector3.Lerp(_startPosition, _target.position, time);
+
+            _rigidbody.MovePosition(newPosition);
         }
-    }
 
-    private void StartMovement()
-    {
-        _startPosition = transform.position;
-        _startTime = Time.time;
-        _isMoving = true;
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (collision.gameObject.TryGetComponent<PlayerControlSystem.Player>(out _))
+            {
+                StartMovement();
+
+                _audioSource.PlayOneShot(_toyCarSound);
+            }
+        }
+
+        private void StartMovement()
+        {
+            _startPosition = transform.position;
+            _startTime = Time.time;
+            _isMoving = true;
+        }
     }
 }

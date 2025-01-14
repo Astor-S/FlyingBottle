@@ -1,26 +1,29 @@
 using System;
 using UnityEngine;
 
-public class CollisionDetector : MonoBehaviour
+namespace PlayerControlSystem
 {
-    public event Action FailedCollide;
-    public event Action FinishedCollide;
-
-    private void OnCollisionEnter(Collision collision)
+    public class CollisionDetector : MonoBehaviour
     {
-        if (collision.gameObject.TryGetComponent<Floor>(out _))
-            FailedCollide?.Invoke();
+        public event Action FailedCollide;
+        public event Action FinishedCollide;
 
-        if (collision.gameObject.TryGetComponent<FinishPortal>(out _))
-            FinishedCollide?.Invoke();
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (collision.gameObject.TryGetComponent<Objects.Floor>(out _))
+                FailedCollide?.Invoke();
 
-        if (collision.gameObject.TryGetComponent(out MovingObject movingObject))
-            transform.parent = movingObject.transform;
-    }
+            if (collision.gameObject.TryGetComponent<Objects.FinishPortal>(out _))
+                FinishedCollide?.Invoke();
 
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.TryGetComponent<MovingObject>(out _))
-            transform.parent = null;
+            if (collision.gameObject.TryGetComponent(out Objects.MovingObject movingObject))
+                transform.parent = movingObject.transform;
+        }
+
+        private void OnCollisionExit(Collision collision)
+        {
+            if (collision.gameObject.TryGetComponent<Objects.MovingObject>(out _))
+                transform.parent = null;
+        }
     }
 }

@@ -1,3 +1,6 @@
 using UnityEngine;
 
-public class Surface : MonoBehaviour {}
+namespace Objects
+{
+    public class Surface : MonoBehaviour { }
+}

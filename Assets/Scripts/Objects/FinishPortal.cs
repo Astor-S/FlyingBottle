@@ -1,10 +1,13 @@
 using UnityEngine;
 
-public class FinishPortal : MonoBehaviour
+namespace Objects
 {
-    private void OnCollisionEnter(Collision collision)
+    public class FinishPortal : MonoBehaviour
     {
-        if (collision.gameObject.TryGetComponent(out Player player))
-            player.gameObject.SetActive(false);   
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (collision.gameObject.TryGetComponent(out PlayerControlSystem.Player player))
+                player.gameObject.SetActive(false);
+        }
     }
 }

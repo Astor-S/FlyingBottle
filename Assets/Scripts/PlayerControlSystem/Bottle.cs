@@ -2,7 +2,5 @@ using UnityEngine;
 
 namespace PlayerControlSystem
 {
-	public class Bottle : MonoBehaviour
-	{
-	}
+    public class Bottle : MonoBehaviour { }
 }

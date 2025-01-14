@@ -8,13 +8,13 @@ namespace PlayerControlSystem
 
         private void OnCollisionEnter(Collision collision)
         {
-            if (collision.gameObject.TryGetComponent<Ground>(out _))
+            if (collision.gameObject.TryGetComponent<Objects.Ground>(out _))
                 _isGrounded = true;   
         }
 
         private void OnCollisionExit(Collision collision)
         {
-            if (collision.gameObject.TryGetComponent<Ground>(out _))
+            if (collision.gameObject.TryGetComponent<Objects.Ground>(out _))
                 _isGrounded = false;
         }
 

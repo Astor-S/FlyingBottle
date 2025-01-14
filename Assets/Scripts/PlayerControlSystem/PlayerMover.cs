@@ -65,7 +65,7 @@ namespace PlayerControlSystem
 
         private void OnCollisionEnter(Collision collision)
         {
-            if (collision.gameObject.TryGetComponent<Surface>(out _))
+            if (collision.gameObject.TryGetComponent<Objects.Surface>(out _))
             {
                 _isSurfaced = true;
                 _canDoubleJump = true;
@@ -75,7 +75,7 @@ namespace PlayerControlSystem
 
         private void OnCollisionExit(Collision collision)
         {
-            if (collision.gameObject.TryGetComponent<Surface>(out _))
+            if (collision.gameObject.TryGetComponent<Objects.Surface>(out _))
                 _isSurfaced = false;
         }
 

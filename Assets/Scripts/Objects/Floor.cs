@@ -1,3 +1,6 @@
 using UnityEngine;
 
-public class Floor : MonoBehaviour {}
+namespace Objects
+{
+    public class Floor : MonoBehaviour { }
+}

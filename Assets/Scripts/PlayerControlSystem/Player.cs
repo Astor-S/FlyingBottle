@@ -1,32 +1,35 @@
 using System;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+namespace PlayerControlSystem
 {
-    [SerializeField] private CollisionDetector _collisionDetector;
-
-    public event Action GameOver;
-    public event Action LevelComplete;
-
-    private void OnEnable()
+    public class Player : MonoBehaviour
     {
-        AddListeners();
-    }
+        [SerializeField] private CollisionDetector _collisionDetector;
 
-    private void OnDisable()
-    {
-        RemoveListeners();
-    }
+        public event Action GameOver;
+        public event Action LevelComplete;
 
-    private void AddListeners()
-    {
-        _collisionDetector.FailedCollide += GameOver;
-        _collisionDetector.FinishedCollide += LevelComplete;
-    }
+        private void OnEnable()
+        {
+            AddListeners();
+        }
 
-    private void RemoveListeners()
-    {
-        _collisionDetector.FailedCollide -= GameOver;
-        _collisionDetector.FinishedCollide -= LevelComplete;
+        private void OnDisable()
+        {
+            RemoveListeners();
+        }
+
+        private void AddListeners()
+        {
+            _collisionDetector.FailedCollide += GameOver;
+            _collisionDetector.FinishedCollide += LevelComplete;
+        }
+
+        private void RemoveListeners()
+        {
+            _collisionDetector.FailedCollide -= GameOver;
+            _collisionDetector.FinishedCollide -= LevelComplete;
+        }
     }
 }

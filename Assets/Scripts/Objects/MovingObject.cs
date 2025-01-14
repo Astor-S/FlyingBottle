@@ -1,3 +1,6 @@
 using UnityEngine;
 
-public class MovingObject : MonoBehaviour {}
+namespace Objects
+{
+    public class MovingObject : MonoBehaviour { }
+}

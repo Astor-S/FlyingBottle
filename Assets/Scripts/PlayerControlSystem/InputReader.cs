@@ -3,28 +3,31 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using PlayerInput = InputActions.PlayerInput;
 
-public class InputReader : MonoBehaviour
+namespace PlayerControlSystem
 {
-    private PlayerInput _playerInput;
-    
-    public event Action Moving;
-
-    private void OnEnable()
+    public class InputReader : MonoBehaviour
     {
-        _playerInput = new PlayerInput();
-        _playerInput.Enable();
-        
-        _playerInput.Player.Jump.performed += OnJumpPerformed;
-    }
+        private PlayerInput _playerInput;
 
-    private void OnDisable()
-    {
-        _playerInput.Player.Jump.performed -= OnJumpPerformed;
-        _playerInput.Disable();
-    }
+        public event Action Moving;
 
-    private void OnJumpPerformed(InputAction.CallbackContext _)
-    {
-        Moving?.Invoke();
+        private void OnEnable()
+        {
+            _playerInput = new PlayerInput();
+            _playerInput.Enable();
+
+            _playerInput.Player.Jump.performed += OnJumpPerformed;
+        }
+
+        private void OnDisable()
+        {
+            _playerInput.Player.Jump.performed -= OnJumpPerformed;
+            _playerInput.Disable();
+        }
+
+        private void OnJumpPerformed(InputAction.CallbackContext _)
+        {
+            Moving?.Invoke();
+        }
     }
 }
