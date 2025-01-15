@@ -1993,7 +1993,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _comboCounterView: {fileID: 370304240}
   _inputReader: {fileID: 6015851530543644976}
-  _comboResetTime: 5
+  _comboResetTime: 2
 --- !u!4 &1500858956
 Transform:
   m_ObjectHideFlags: 0

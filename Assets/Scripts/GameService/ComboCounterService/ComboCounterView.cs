@@ -7,7 +7,7 @@ namespace GameService.ComboCounterService
     {
         [SerializeField] private TextMeshProUGUI _comboText;
 
-        private void Awake()
+        private void Start()
         {
             HideCombo();
         }

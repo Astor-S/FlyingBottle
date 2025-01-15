@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
-using System.Threading.Tasks;
 using PlayerControlSystem;
+using System.Collections;
 
 namespace GameService.ComboCounterService
 {
@@ -11,47 +10,61 @@ namespace GameService.ComboCounterService
         [SerializeField] private InputReader _inputReader;
         [SerializeField] private float _comboResetTime = 2f;
 
+        private Coroutine _resetCoroutine;
+        private WaitForSeconds _waitForSeconds;
+
         private int _currentComboCount;
         private int _totalComboCount;
-        private bool _isResetting = false;
 
         public int CurrentComboCount => _currentComboCount;
         public int TotalComboCount => _totalComboCount;
+
+        private void Awake()
+        {
+            _waitForSeconds = new WaitForSeconds(_comboResetTime);
+        }
 
         private void OnEnable()
         {
             _inputReader.Moving += OnMove;
         }
+
         private void OnDisable()
         {
             _inputReader.Moving -= OnMove;
+            StopResetCoroutine();
         }
 
         private void OnMove()
         {
-            Debug.Log("OnMove Called");
             _currentComboCount++;
             _totalComboCount++;
 
             _comboCounterView.ShowCombo();
             UpdateComboText();
 
-            if (_isResetting)
-                return;
-
-            ResetComboAfterDelay();
+            StopResetCoroutine(); 
+            _resetCoroutine = StartCoroutine(ResetComboAfterDelay());
         }
 
-        private async void ResetComboAfterDelay()
+        private IEnumerator ResetComboAfterDelay()
         {
-            _isResetting = true;
-            
-            await Task.Delay(TimeSpan.FromSeconds(_comboResetTime));
+            yield return _waitForSeconds;
 
             _currentComboCount = 0;
             _comboCounterView.HideCombo();
             UpdateComboText();
-            _isResetting = false;
+            
+            _resetCoroutine = null; 
+        }
+
+        private void StopResetCoroutine()
+        {
+            if (_resetCoroutine != null)
+            {
+                StopCoroutine(_resetCoroutine);
+                _resetCoroutine = null;
+            }
         }
 
         private void UpdateComboText()
