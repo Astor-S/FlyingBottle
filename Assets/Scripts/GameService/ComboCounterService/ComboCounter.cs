@@ -8,7 +8,7 @@ namespace GameService.ComboCounterService
     {
         [SerializeField] private ComboCounterView _comboCounterView;
         [SerializeField] private InputReader _inputReader;
-        [SerializeField] private float _comboResetTime = 2f;
+        [SerializeField] private float _comboResetTime = 1.5f;
 
         private Coroutine _resetCoroutine;
         private WaitForSeconds _waitForSeconds;
@@ -69,7 +69,7 @@ namespace GameService.ComboCounterService
 
         private void UpdateComboText()
         {
-            _comboCounterView.SetComboText($"Combo: {_currentComboCount}");
+            _comboCounterView.SetComboText($" {_currentComboCount}");
         }
     }
 }

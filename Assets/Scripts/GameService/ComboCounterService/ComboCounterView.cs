@@ -5,6 +5,7 @@ namespace GameService.ComboCounterService
 {
     public class ComboCounterView : MonoBehaviour
     {
+        [SerializeField] private TextMeshProUGUI _comboNumberText;
         [SerializeField] private TextMeshProUGUI _comboText;
 
         private void Start()
@@ -14,17 +15,19 @@ namespace GameService.ComboCounterService
 
         public void SetComboText(string text)
         {
-            _comboText.text = text;
+            _comboNumberText.text = text;
         }
 
         public void ShowCombo()
         {
-            _comboText.gameObject.SetActive(true);
+            _comboNumberText.enabled = true;
+            _comboText.enabled = true;
         }
 
         public void HideCombo()
         {
-            _comboText.gameObject.SetActive(false);
+            _comboNumberText.enabled = false;
+            _comboText.enabled = false;
         }
     }
 }
