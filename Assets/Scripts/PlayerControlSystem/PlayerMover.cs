@@ -179,7 +179,7 @@ namespace PlayerControlSystem
             bool CheckPosition(Vector3 position)
             {
                 Vector3 direction = (position - _rigidbody.position).normalized;
-                float distance = Vector3.Distance(_rigidbody.position, position);
+                float distance = (_rigidbody.position - position).sqrMagnitude;
 
                 int count = Physics.BoxCastNonAlloc(
                     _boxCollider.bounds.center,
