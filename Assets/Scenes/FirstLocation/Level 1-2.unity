@@ -347,8 +347,8 @@ Transform:
   m_GameObject: {fileID: 314994926}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.57, y: -0.61, z: 1.11}
-  m_LocalScale: {x: 30, y: 0.1, z: 0.1}
+  m_LocalPosition: {x: 9.549999, y: -0.61, z: 1.11}
+  m_LocalScale: {x: 40, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -637,6 +637,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5c8cc0871eb3034cbca66a847ae843f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &597757728
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597757721}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
 --- !u!1 &626777533 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5270983341688224441, guid: 88d126b4de386094c87b9d404e6b833d, type: 3}
@@ -1005,8 +1032,8 @@ Transform:
   m_GameObject: {fileID: 806088983}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.1435533, y: -1.14, z: -0.38275003}
-  m_LocalScale: {x: 30, y: 1, z: 30}
+  m_LocalPosition: {x: 9.123553, y: -1.14, z: -0.38275003}
+  m_LocalScale: {x: 40, y: 1, z: 30}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1155,8 +1182,8 @@ Transform:
   m_GameObject: {fileID: 864260800}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.14, y: 2.17, z: 1.17}
-  m_LocalScale: {x: 30, y: 6, z: 0.2}
+  m_LocalPosition: {x: 9.12, y: 2.17, z: 1.17}
+  m_LocalScale: {x: 40, y: 6, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1952,6 +1979,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4647283406098476851, guid: 00e7c20b7ef3bcb49a714b8924a5524b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 597757722}
+    - targetCorrespondingSourceObject: {fileID: 4647283406098476851, guid: 00e7c20b7ef3bcb49a714b8924a5524b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 597757728}
   m_SourcePrefab: {fileID: 100100000, guid: 00e7c20b7ef3bcb49a714b8924a5524b, type: 3}
 --- !u!1 &1576926088 stripped
 GameObject:
