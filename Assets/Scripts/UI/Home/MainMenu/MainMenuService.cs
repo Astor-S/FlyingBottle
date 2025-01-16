@@ -1,8 +1,9 @@
+using UI.Home.Interfaces;
 using UnityEngine;
 
 namespace UI.Home.MainMenu
 {
-    public class MainMenuService : MonoBehaviour
+    public class MainMenuService : MonoBehaviour, IMenuService
     {
         public void Open()
         {

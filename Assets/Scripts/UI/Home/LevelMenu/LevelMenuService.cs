@@ -1,8 +1,9 @@
+using UI.Home.Interfaces;
 using UnityEngine;
 
 namespace UI.Home.LevelMenu
 {
-    public class LevelMenuService : MonoBehaviour
+    public class LevelMenuService : MonoBehaviour, IMenuService
     {
         private void Awake()
         {
