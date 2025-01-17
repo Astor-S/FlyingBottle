@@ -13,6 +13,7 @@ namespace UI.Screens.LevelScreens.ScreenButtons
         public void OnButtonClick()
         {
             StartCoroutine(LoadingScene(_sceneToLoad));
+            ContinueGame();
         }
 
         private IEnumerator LoadingScene(string sceneName)
@@ -24,5 +25,8 @@ namespace UI.Screens.LevelScreens.ScreenButtons
                 yield return null;
             }
         }
+
+        private void ContinueGame() =>
+            Time.timeScale = 1f;
     }
 }

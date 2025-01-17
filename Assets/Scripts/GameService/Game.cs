@@ -24,11 +24,16 @@ namespace GameService
         private void OnGameOver()
         {
             _failScreen.Open();
+            PauseGame();
         }
 
         private void OnCompleteLevel()
         {
             _completeScreen.Open();
+            PauseGame();
         }
+
+        private void PauseGame() =>
+            Time.timeScale = 0f;
     }
 }
