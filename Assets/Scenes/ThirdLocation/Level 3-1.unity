@@ -314,6 +314,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 567b12a18d0096f44b4cd3bba2799b62, type: 3}
+--- !u!114 &113215910 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5237379477497701098, guid: 567b12a18d0096f44b4cd3bba2799b62, type: 3}
+  m_PrefabInstance: {fileID: 113215909}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfa91d9787d6ea44fbdb8045c5b485f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &123249708
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1802,6 +1813,8 @@ MonoBehaviour:
   _player: {fileID: 6015851530543644971}
   _failScreen: {fileID: 1514579166}
   _completeScreen: {fileID: 69493946}
+  _comboCounter: {fileID: 113215910}
+  _coinsPerLevel: 150
 --- !u!1 &969069727 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 114038, guid: 0845aa8b2ce753145ab9bacc42062661, type: 3}
@@ -3680,6 +3693,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 86057757603412055, guid: 376648952eb57f744b7d0f3ff7dd47b1, type: 3}
+      propertyPath: _game
+      value: 
+      objectReference: {fileID: 963194230}
     - target: {fileID: 3283729078664161797, guid: 376648952eb57f744b7d0f3ff7dd47b1, type: 3}
       propertyPath: m_Name
       value: Canvas

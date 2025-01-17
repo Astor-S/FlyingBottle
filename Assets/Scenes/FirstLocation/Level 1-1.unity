@@ -1349,6 +1349,8 @@ MonoBehaviour:
   _player: {fileID: 6015851530543644971}
   _failScreen: {fileID: 1514579166}
   _completeScreen: {fileID: 69493946}
+  _comboCounter: {fileID: 2126210390}
+  _coinsPerLevel: 50
 --- !u!1001 &1081756690
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2570,6 +2572,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b714c74f078a0974d8c4f5507b35799e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2126210390 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5237379477497701098, guid: 567b12a18d0096f44b4cd3bba2799b62, type: 3}
+  m_PrefabInstance: {fileID: 8044432789446494605}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfa91d9787d6ea44fbdb8045c5b485f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1065993003895323385
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2581,6 +2594,14 @@ PrefabInstance:
     - target: {fileID: 78268148619517419, guid: 376648952eb57f744b7d0f3ff7dd47b1, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 86057757603412055, guid: 376648952eb57f744b7d0f3ff7dd47b1, type: 3}
+      propertyPath: _game
+      value: 
+      objectReference: {fileID: 963194230}
+    - target: {fileID: 2289576827011655729, guid: 376648952eb57f744b7d0f3ff7dd47b1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3283729078664161797, guid: 376648952eb57f744b7d0f3ff7dd47b1, type: 3}
       propertyPath: m_Name

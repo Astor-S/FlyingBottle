@@ -15,6 +15,8 @@ namespace GameService
 
         private int _totalCoins;
 
+        public int TotalCoins => _totalCoins;
+
         private void OnEnable()
         {
             _player.GameOver += OnGameOver;
@@ -46,7 +48,6 @@ namespace GameService
         private void AwardCoins()
         {
             _totalCoins += _coinsPerLevel + _comboCounter.TotalComboCount;
-            Debug.Log($"Level Complete! Awarded: {_coinsPerLevel} + {_comboCounter.TotalComboCount} coins. Total coins: {_totalCoins}");
         }
     }
 }
