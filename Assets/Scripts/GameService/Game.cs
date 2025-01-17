@@ -1,6 +1,7 @@
 using UnityEngine;
 using UI.Screens.LevelScreens;
 using GameService.ComboCounterService;
+using System.Collections;
 
 namespace GameService
 {
@@ -13,9 +14,17 @@ namespace GameService
 
         [SerializeField] private int _coinsPerLevel;
 
+        private WaitForSeconds _waitPauseDelayForSeconds;
+
+        private float _pauseDelayForSeconds = 0.1f;
         private int _totalCoins;
 
         public int TotalCoins => _totalCoins;
+
+        private void Awake()
+        {
+            _waitPauseDelayForSeconds = new WaitForSeconds(_pauseDelayForSeconds);
+        }
 
         private void OnEnable()
         {
@@ -32,18 +41,27 @@ namespace GameService
         private void OnGameOver()
         {
             _failScreen.Open();
-            PauseGame();
+            
+            StartCoroutine(PauseGameDelayed());
         }
 
         private void OnCompleteLevel()
         {
             AwardCoins();
             _completeScreen.Open();
-            PauseGame();
+            StartCoroutine(PauseGameDelayed());
         }
 
         private void PauseGame() =>
             Time.timeScale = 0f;
+
+        private IEnumerator PauseGameDelayed()
+        {
+            yield return _waitPauseDelayForSeconds;
+
+            PauseGame();
+        }
+
 
         private void AwardCoins()
         {

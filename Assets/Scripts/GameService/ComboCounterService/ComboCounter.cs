@@ -11,7 +11,7 @@ namespace GameService.ComboCounterService
         [SerializeField] private float _comboResetTime = 1.5f;
 
         private Coroutine _resetCoroutine;
-        private WaitForSeconds _waitForSeconds;
+        private WaitForSeconds _waitComborResetForSeconds;
 
         private int _currentComboCount;
         private int _totalComboCount;
@@ -21,7 +21,7 @@ namespace GameService.ComboCounterService
 
         private void Awake()
         {
-            _waitForSeconds = new WaitForSeconds(_comboResetTime);
+            _waitComborResetForSeconds = new WaitForSeconds(_comboResetTime);
         }
 
         private void OnEnable()
@@ -49,7 +49,7 @@ namespace GameService.ComboCounterService
 
         private IEnumerator ResetComboAfterDelay()
         {
-            yield return _waitForSeconds;
+            yield return _waitComborResetForSeconds;
 
             _currentComboCount = 0;
             _comboCounterView.HideCombo();
