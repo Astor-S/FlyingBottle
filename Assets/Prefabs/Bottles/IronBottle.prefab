@@ -4846,7 +4846,7 @@ GameObject:
   - component: {fileID: 6626606033515533410}
   - component: {fileID: 2082087640855178319}
   m_Layer: 0
-  m_Name: IronManBottle
+  m_Name: IronBottle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
