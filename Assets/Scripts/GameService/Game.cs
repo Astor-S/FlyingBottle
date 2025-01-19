@@ -2,6 +2,7 @@ using UnityEngine;
 using UI.Screens.LevelScreens;
 using GameService.ComboCounterService;
 using System.Collections;
+using YG;
 
 namespace GameService
 {
@@ -14,6 +15,8 @@ namespace GameService
 
         [SerializeField] private int _coinsPerLevel;
 
+        private SavesYG _savesYG;
+
         private WaitForSeconds _waitPauseDelayForSeconds;
 
         private float _pauseDelayForSeconds = 0.1f;
@@ -24,6 +27,11 @@ namespace GameService
         private void Awake()
         {
             _waitPauseDelayForSeconds = new WaitForSeconds(_pauseDelayForSeconds);
+        }
+
+        private void Start()
+        {
+            _savesYG = YandexGame.savesData;
         }
 
         private void OnEnable()
@@ -66,6 +74,9 @@ namespace GameService
         private void AwardCoins()
         {
             _totalCoins += _coinsPerLevel + _comboCounter.TotalComboCount;
+            _savesYG.balanceMoney += _totalCoins;
+            _savesYG.score += _totalCoins;
+            YandexGame.SaveProgress();
         }
     }
 }
