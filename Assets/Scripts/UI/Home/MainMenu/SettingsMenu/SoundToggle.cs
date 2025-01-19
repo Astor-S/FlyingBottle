@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using YG;
 
 namespace UI.Home.MainMenu.SettingsMenu
 {
@@ -9,7 +10,8 @@ namespace UI.Home.MainMenu.SettingsMenu
 
         private void Awake()
         {
-            UpdateSoundSettings();
+            LoadSoundSettings();
+            AudioService.InitializeAudio();
         }
 
         public void OnValueChanged()
@@ -19,8 +21,14 @@ namespace UI.Home.MainMenu.SettingsMenu
 
         private void UpdateSoundSettings()
         {
-            AudioService.IsSoundEnabled = _toggle.isOn;
-            AudioService.UpdateAllAudioSources();
+            AudioService.SetSoundState(_toggle.isOn);
+        }
+
+        private void LoadSoundSettings()
+        {
+            SavesYG saves = YandexGame.savesData;
+
+            _toggle.isOn = saves.isSoundOn;
         }
     }
 }

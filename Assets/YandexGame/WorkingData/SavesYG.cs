@@ -21,6 +21,7 @@ namespace YG
         public int balanceMoney;
         public int score;
 
+        public bool isSoundOn;
         // ...
 
         // Поля (сохранения) можно удалять и создавать новые. При обновлении игры сохранения ломаться не должны
@@ -30,7 +31,7 @@ namespace YG
         public SavesYG()
         {
             // Допустим, задать значения по умолчанию для отдельных элементов массива
-
+            isSoundOn = true;
             openLevels[1] = true;
         }
     }
