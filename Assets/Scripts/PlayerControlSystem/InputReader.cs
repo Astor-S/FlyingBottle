@@ -29,12 +29,18 @@ namespace PlayerControlSystem
 
         private void OnJumpPerformed(InputAction.CallbackContext _)
         {
-            Moving?.Invoke();
+            OnMove();
         }
 
         private void OnTouchPerformed(InputAction.CallbackContext _)
         {
-            Moving.Invoke();
+            OnMove();
+        }
+
+        private void OnMove()
+        {
+            if (Time.timeScale == 1f)
+                Moving?.Invoke();
         }
     }
 }
