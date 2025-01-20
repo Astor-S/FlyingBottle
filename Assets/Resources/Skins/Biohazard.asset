@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Biohazard
   m_EditorClassIdentifier: 
   <Model>k__BackingField: {fileID: 3064274545953187794, guid: 1f10ddc06db7f5b498ab99f491b66792, type: 3}
-  <Image>k__BackingField: {fileID: 0}
+  <Image>k__BackingField: {fileID: 21300000, guid: aea38ccdaca571f4fb2820166f6efb15, type: 3}
   <Price>k__BackingField: 2000
   <SkinType>k__BackingField: 0
