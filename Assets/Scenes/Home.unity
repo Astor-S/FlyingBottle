@@ -193,7 +193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3872040199180556680, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -752
+      value: -462
       objectReference: {fileID: 0}
     - target: {fileID: 3872040199180556680, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -211,6 +211,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4095057000772928750, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 08737ca665af86c4db18d2bd49b40e44, type: 3}
     - target: {fileID: 7250789378626491517, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_Name
       value: ShopCell (7)
@@ -956,7 +960,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3872040199180556680, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -462
+      value: -754
       objectReference: {fileID: 0}
     - target: {fileID: 3872040199180556680, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -974,6 +978,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4095057000772928750, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2238585c80e201a4b909c2657a0a3cff, type: 3}
     - target: {fileID: 7250789378626491517, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_Name
       value: ShopCell (6)
@@ -6144,6 +6152,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4095057000772928750, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7d60b7186b315d443857e4affb097b3d, type: 3}
     - target: {fileID: 7250789378626491517, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_Name
       value: ShopCell (9)
@@ -13341,6 +13353,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4095057000772928750, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 329f69daa74018d48942b2b013d7a555, type: 3}
     - target: {fileID: 7250789378626491517, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_Name
       value: ShopCell (11)
@@ -21226,6 +21242,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4095057000772928750, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 20673b0360be2da4db2c50ad7da05cc4, type: 3}
     - target: {fileID: 7250789378626491517, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_Name
       value: ShopCell (8)
@@ -21463,6 +21483,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4095057000772928750, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 29c4eb9174faa574f830acd58388fd5f, type: 3}
     - target: {fileID: 7250789378626491517, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_Name
       value: ShopCell (10)
@@ -22635,7 +22659,7 @@ PrefabInstance:
     - target: {fileID: 4095057000772928750, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: f92150b5a756f204da844ee87925fd8a, type: 3}
+      objectReference: {fileID: 21300000, guid: 7ea7d75f00d65cc4092d89ddd5a45d31, type: 3}
     - target: {fileID: 5719574010884813103, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: _itemImage
       value: 
@@ -22976,7 +23000,7 @@ PrefabInstance:
     - target: {fileID: 4095057000772928750, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b76f87f8987b05e439f40bb831cf67e7, type: 3}
+      objectReference: {fileID: 21300000, guid: 20a6b7ee684fd38499d704737daedc9b, type: 3}
     - target: {fileID: 7250789378626491517, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_Name
       value: ShopCell (3)
