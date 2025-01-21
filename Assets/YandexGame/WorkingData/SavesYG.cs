@@ -1,4 +1,6 @@
-﻿
+﻿using GameService;
+using System.Collections.Generic;
+
 namespace YG
 {
     [System.Serializable]
@@ -18,6 +20,9 @@ namespace YG
 
         // Ваши сохранения
         
+        public List<Skins> ownedSkins = new List<Skins>();
+        public Skins selectedSkin; 
+
         public int balanceMoney;
         public int score;
 
@@ -33,6 +38,9 @@ namespace YG
             // Допустим, задать значения по умолчанию для отдельных элементов массива
             isSoundOn = true;
             openLevels[1] = true;
+
+            ownedSkins.Add(Skins.Water);
+            selectedSkin = Skins.Water;
         }
     }
 }
