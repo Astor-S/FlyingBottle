@@ -28,19 +28,16 @@ namespace Shop
             SkinItem[] loadedSkins = Resources.LoadAll<SkinItem>("ShopItems");
             
             foreach (var item in loadedSkins)
-            {
                 _allSkins.Add(item);
-            }
 
             _availableSkins = new List<Skins>() { Skins.Water}; 
             _selectedSkin = _allSkins.Find(skin => skin.SkinType == Skins.Water);
-
-            Debug.Log($"Загружено скинов: {_allSkins.Count}");
         }
 
         private void HandleItemClick(ShopItemCell cell)
         {
             var item = cell.GetSkinItem();
+            
             Debug.Log($"Clicked on {item.SkinType}");
 
             if (_selectedSkin != null)
@@ -58,8 +55,6 @@ namespace Shop
         {
             _shopCells = new List<ShopItemCell>(_shopContainer.GetComponentsInChildren<ShopItemCell>(true));
 
-            Debug.Log($"Найдено ячеек на сцене: {_shopCells.Count}");
-
             for (int i = 0; i < _shopCells.Count; i++)
             {
                 if (i < _allSkins.Count)
@@ -69,20 +64,11 @@ namespace Shop
 
                     bool isAvailable = _availableSkins.Contains(item.SkinType);
                     bool isSelected = _selectedSkin != null && _selectedSkin.SkinType == item.SkinType;
+                    
                     cell.Initialize(item, isAvailable, isSelected);
                     cell.OnCellClicked += HandleItemClick;
                 }
-                else
-                {
-                    Debug.LogWarning("Количество ячеек в иерархии превышает количество загруженных скинов. Добавьте скины или удалите лишние ячейки");
-                }
             }
-
-            if (_shopCells.Count < _allSkins.Count)
-            {
-                Debug.LogWarning("Количество ячеек в иерархии меньше количества загруженных скинов. Некоторые скины не будут отображены");
-            }
-
         }
 
         private ShopItemCell FindCell(SkinItem item)
@@ -92,15 +78,12 @@ namespace Shop
                 ShopItemCell cell = child.GetComponent<ShopItemCell>();
                 
                 if (cell == null)
-                {
                     continue;
-                }
-
+                
                 if (cell.GetSkinItem() == item)
-                {
-                    return cell;
-                }
+                    return cell;   
             }
+
             return null;
         }
     }
