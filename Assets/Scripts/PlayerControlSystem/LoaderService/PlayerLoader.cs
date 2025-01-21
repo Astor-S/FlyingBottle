@@ -10,6 +10,8 @@ namespace PlayerControlSystem.LoaderService
         [SerializeField] private List<SkinPrefab> _skinPrefabs;
         [SerializeField] private Transform _loadingPoint;
 
+        public static Player Instance;
+
         private Dictionary<Skins, Player> _skinPrefabDictionary;
 
         private void Awake()
@@ -36,7 +38,7 @@ namespace PlayerControlSystem.LoaderService
         private void LoadPlayerPrefab(Skins skin)
         {
             if (_skinPrefabDictionary.TryGetValue(skin, out Player prefab))
-                Instantiate(prefab, _loadingPoint.position, _loadingPoint.rotation); 
+                Instance = Instantiate(prefab, _loadingPoint.position, _loadingPoint.rotation);
         }
     }
 }

@@ -22,14 +22,19 @@ namespace PlayerControlSystem
 
         private void AddListeners()
         {
-            _collisionDetector.FailedCollide += GameOver;
-            _collisionDetector.FinishedCollide += LevelComplete;
+            _collisionDetector.FailedCollide += OnFailedCollide;
+            _collisionDetector.FinishedCollide += OnFinishedCollide;
         }
 
         private void RemoveListeners()
         {
-            _collisionDetector.FailedCollide -= GameOver;
-            _collisionDetector.FinishedCollide -= LevelComplete;
+            _collisionDetector.FailedCollide -= OnFailedCollide;
+            _collisionDetector.FinishedCollide -= OnFinishedCollide;
         }
+        private void OnFailedCollide() =>
+            GameOver?.Invoke();
+
+        private void OnFinishedCollide() =>
+            LevelComplete?.Invoke();
     }
 }

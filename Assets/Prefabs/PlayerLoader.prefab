@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2308589485713978488
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3799802082388227871}
+  - component: {fileID: 8602679241269341328}
+  m_Layer: 0
+  m_Name: PlayerLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3799802082388227871
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2308589485713978488}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.482087, y: -4.771305, z: 0.13439941}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8602679241269341328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2308589485713978488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d942512d8daef04b9c25cab83e5a092, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _skinPrefabs:
+  - skin: 0
+    prefab: {fileID: 7759711850826154819, guid: 1f10ddc06db7f5b498ab99f491b66792, type: 3}
+  - skin: 1
+    prefab: {fileID: 7719402508171941423, guid: 00a7359f54dd39b42bc87f9293b2a448, type: 3}
+  - skin: 2
+    prefab: {fileID: 7393159267460460810, guid: 0a30ae2f85b803f4aa372169734d13fa, type: 3}
+  - skin: 3
+    prefab: {fileID: 4976172847919928957, guid: 23dcb4be7de540b40a829174820a601e, type: 3}
+  - skin: 4
+    prefab: {fileID: 5031129040164420028, guid: 8b2dd3ad0a82f45478df3a402fd6318f, type: 3}
+  - skin: 5
+    prefab: {fileID: 4445627076656969398, guid: 872193dc1dd59ca48a1d4580b31ea0f6, type: 3}
+  - skin: 6
+    prefab: {fileID: 4410624680008977827, guid: a66f1733c93aee44c9c2940377602c00, type: 3}
+  - skin: 7
+    prefab: {fileID: 2802485309868549202, guid: b33e4afa0192b5742af595410fc18827, type: 3}
+  - skin: 8
+    prefab: {fileID: 2499395082273268321, guid: d7475e78f21f60441bfc5b45319a3455, type: 3}
+  - skin: 9
+    prefab: {fileID: 7589789389920432441, guid: 64a07db83f0d3ce42badd781acc7d624, type: 3}
+  - skin: 10
+    prefab: {fileID: 6958825801123679896, guid: 575e77b83640e4e47a4be76d496ef6f4, type: 3}
+  - skin: 11
+    prefab: {fileID: 2240429931557165149, guid: f2d8909ed6d04de4386bb002d43556a4, type: 3}
+  _loadingPoint: {fileID: 0}

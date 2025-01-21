@@ -1,14 +1,15 @@
 using UnityEngine;
+using System.Collections;
 using UI.Screens.LevelScreens;
 using GameService.ComboCounterService;
-using System.Collections;
+using PlayerControlSystem;
 using YG;
 
 namespace GameService
 {
     public class Game : MonoBehaviour
     {
-        [SerializeField] private PlayerControlSystem.Player _player;
+        [SerializeField] private PlayerControlSystem.LoaderService.PlayerLoader _playerLoader;
         [SerializeField] private FailScreen _failScreen;
         [SerializeField] private CompleteScreen _completeScreen;
         [SerializeField] private ComboCounter _comboCounter;
@@ -16,7 +17,7 @@ namespace GameService
         [SerializeField] private int _coinsPerLevel;
 
         private SavesYG _savesYG;
-
+        private Player _player;
         private WaitForSeconds _waitPauseDelayForSeconds;
 
         private float _pauseDelayForSeconds = 0.1f;
@@ -32,18 +33,53 @@ namespace GameService
         private void Start()
         {
             _savesYG = YandexGame.savesData;
+            StartCoroutine(WaitForPlayer());
         }
 
-        private void OnEnable()
+        private void Update()
         {
-            _player.GameOver += OnGameOver;
-            _player.LevelComplete += OnCompleteLevel;
+            if (_player != null)
+            {
+                SubscribeToPlayerEvents();
+            }
+            else
+            {
+                UnsubscribeFromPlayerEvents();
+            }
         }
 
         private void OnDisable()
         {
-            _player.GameOver -= OnGameOver;
-            _player.LevelComplete -= OnCompleteLevel;
+            UnsubscribeFromPlayerEvents();
+        }
+
+        private void SubscribeToPlayerEvents()
+        {
+            if (_player != null)
+            {
+                _player.GameOver += OnGameOver;
+                _player.LevelComplete += OnCompleteLevel;
+            }
+
+        }
+
+        private void UnsubscribeFromPlayerEvents()
+        {
+            if (_player != null)
+            {
+                _player.GameOver -= OnGameOver;
+                _player.LevelComplete -= OnCompleteLevel;
+            }
+        }
+
+        private IEnumerator WaitForPlayer()
+        {
+            while (PlayerControlSystem.LoaderService.PlayerLoader.Instance == null)
+            {
+                yield return null;
+            }
+
+            _player = PlayerControlSystem.LoaderService.PlayerLoader.Instance;
         }
 
         private void OnGameOver()

@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -7,7 +8,23 @@ namespace GameService.ReviveService
     public class Reviver : MonoBehaviour
     {
         [SerializeField] private List<RevivePoint> _revivePoints = new List<RevivePoint> ();
-        [SerializeField] private Transform _playerTransform;
+        
+        private Transform _playerTransform;
+
+        private void Start()
+        {
+            StartCoroutine(WaitForPlayer());
+        }
+
+        private IEnumerator WaitForPlayer()
+        {
+            while (PlayerControlSystem.LoaderService.PlayerLoader.Instance == null)
+            {
+                yield return null;
+            }
+
+            _playerTransform = PlayerControlSystem.LoaderService.PlayerLoader.Instance.transform;
+        }
 
         public void Revived()
         {
