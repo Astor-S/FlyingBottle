@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60b7aab6bb64c254c99a8dba0bc6a8da, type: 3}
-  m_Name: CandySoda
+  m_Name: Lemonade
   m_EditorClassIdentifier: 
-  <Model>k__BackingField: {fileID: 2967025807444106188, guid: 0a30ae2f85b803f4aa372169734d13fa, type: 3}
-  <Image>k__BackingField: {fileID: 0}
+  <Model>k__BackingField: {fileID: 6297245569236614762, guid: b33e4afa0192b5742af595410fc18827, type: 3}
+  <Image>k__BackingField: {fileID: 21300000, guid: 08737ca665af86c4db18d2bd49b40e44, type: 3}
   <Price>k__BackingField: 0
-  <SkinType>k__BackingField: 2
+  <SkinType>k__BackingField: 7

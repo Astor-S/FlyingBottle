@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UI.Home.ShopMenu;
 using UnityEngine;
@@ -19,6 +20,8 @@ namespace Shop
         private bool _isAvailable;
         private bool _isSelected;
 
+        public Action<ShopItemCell> OnCellClicked;
+
         public void Initialize(SkinItem skinItem, bool isAvailable, bool isSelected)
         {
             _skinItem = skinItem;
@@ -32,6 +35,15 @@ namespace Shop
         {
             _isAvailable = isAvailable;
             UpdateVisual();
+        }
+        public void OnCellClick()
+        {
+            OnCellClicked?.Invoke(this);
+        }
+
+        public SkinItem GetSkinItem()
+        {
+            return _skinItem;
         }
 
         public void SetSelected(bool isSelected)
@@ -61,6 +73,7 @@ namespace Shop
                 _priceText.text = _skinItem.Price.ToString();
             }
         }
+
 
         public void OnButtonClick()
         {

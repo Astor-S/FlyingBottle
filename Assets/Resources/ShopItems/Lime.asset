@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Lime
   m_EditorClassIdentifier: 
   <Model>k__BackingField: {fileID: 1559867107511451817, guid: d7475e78f21f60441bfc5b45319a3455, type: 3}
-  <Image>k__BackingField: {fileID: 0}
+  <Image>k__BackingField: {fileID: 21300000, guid: 20673b0360be2da4db2c50ad7da05cc4, type: 3}
   <Price>k__BackingField: 0
   <SkinType>k__BackingField: 8

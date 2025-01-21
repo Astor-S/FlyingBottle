@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Demon
   m_EditorClassIdentifier: 
   <Model>k__BackingField: {fileID: 3754699210277026831, guid: 23dcb4be7de540b40a829174820a601e, type: 3}
-  <Image>k__BackingField: {fileID: 0}
+  <Image>k__BackingField: {fileID: 21300000, guid: 20a6b7ee684fd38499d704737daedc9b, type: 3}
   <Price>k__BackingField: 0
   <SkinType>k__BackingField: 3

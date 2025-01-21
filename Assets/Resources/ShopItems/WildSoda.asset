@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: WildSoda
   m_EditorClassIdentifier: 
   <Model>k__BackingField: {fileID: 5422152754117496968, guid: f2d8909ed6d04de4386bb002d43556a4, type: 3}
-  <Image>k__BackingField: {fileID: 0}
+  <Image>k__BackingField: {fileID: 21300000, guid: 329f69daa74018d48942b2b013d7a555, type: 3}
   <Price>k__BackingField: 0
   <SkinType>k__BackingField: 11

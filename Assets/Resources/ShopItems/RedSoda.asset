@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60b7aab6bb64c254c99a8dba0bc6a8da, type: 3}
-  m_Name: Water
+  m_Name: RedSoda
   m_EditorClassIdentifier: 
-  <Model>k__BackingField: {fileID: 2839072002276475562, guid: 575e77b83640e4e47a4be76d496ef6f4, type: 3}
-  <Image>k__BackingField: {fileID: 0}
+  <Model>k__BackingField: {fileID: 409308436660257781, guid: 64a07db83f0d3ce42badd781acc7d624, type: 3}
+  <Image>k__BackingField: {fileID: 21300000, guid: 7d60b7186b315d443857e4affb097b3d, type: 3}
   <Price>k__BackingField: 0
-  <SkinType>k__BackingField: 10
+  <SkinType>k__BackingField: 9

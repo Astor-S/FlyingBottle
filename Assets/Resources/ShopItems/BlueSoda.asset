@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: BlueSoda
   m_EditorClassIdentifier: 
   <Model>k__BackingField: {fileID: 811883624102552502, guid: 00a7359f54dd39b42bc87f9293b2a448, type: 3}
-  <Image>k__BackingField: {fileID: 0}
+  <Image>k__BackingField: {fileID: 21300000, guid: d6e7e74e1fb4a064290ac100edbea66a, type: 3}
   <Price>k__BackingField: 0
   <SkinType>k__BackingField: 1
