@@ -27,7 +27,10 @@ namespace UI.Screens.LevelScreens
         private void Rewarded(int id) =>
             AddDoubleAwards();
 
-        private void AddDoubleAwards() =>
+        private void AddDoubleAwards()
+        {
             OnDoubleAwards?.Invoke();
+            gameObject.SetActive(false);
+        }
     }
 }
