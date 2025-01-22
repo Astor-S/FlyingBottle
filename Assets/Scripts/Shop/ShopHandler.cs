@@ -13,6 +13,7 @@ namespace Shop
 
         private List<SkinItem> _allSkins = new();
         private List<ShopItemCell> _shopCells = new();
+
         private void Start()
         {
             LoadSkins();
@@ -36,9 +37,10 @@ namespace Shop
         private void HandleItemClick(ShopItemCell cell)
         {
             var item = cell.GetSkinItem();
-            
-            Debug.Log($"Clicked on {item.SkinType}");
 
+            if (_savesYG.ownedSkins.Contains(item.SkinType) == false)
+                return;
+            
             if (_savesYG.selectedSkin != null)
             {
                 var prevSelectedCell = FindCell(_allSkins.Find(skin =>
