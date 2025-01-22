@@ -36,6 +36,7 @@ namespace Shop
             _isAvailable = isAvailable;
             UpdateVisual();
         }
+
         public void OnCellClick()
         {
             OnCellClicked?.Invoke(this);
@@ -70,14 +71,7 @@ namespace Shop
             if (_skinItem != null)
             {
                 _itemImage.sprite = _skinItem.Image;
-                _priceText.text = _skinItem.Price.ToString();
             }
-        }
-
-
-        public void OnButtonClick()
-        {
-            Debug.Log($"Нажата ячейка с предметом: {_skinItem.SkinType}");
         }
     }
 }
