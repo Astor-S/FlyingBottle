@@ -36,18 +36,6 @@ namespace GameService
             StartCoroutine(WaitForPlayer());
         }
 
-        private void Update()
-        {
-            if (_player != null)
-            {
-                SubscribeToPlayerEvents();
-            }
-            else
-            {
-                UnsubscribeFromPlayerEvents();
-            }
-        }
-
         private void OnDisable()
         {
             UnsubscribeFromPlayerEvents();
@@ -80,6 +68,7 @@ namespace GameService
             }
 
             _player = PlayerControlSystem.LoaderService.PlayerLoader.Instance;
+            SubscribeToPlayerEvents();
         }
 
         private void OnGameOver()
