@@ -13,6 +13,7 @@ namespace GameService
         [SerializeField] private FailScreen _failScreen;
         [SerializeField] private CompleteScreen _completeScreen;
         [SerializeField] private ComboCounter _comboCounter;
+        [SerializeField] private CoinDoublingButton _coinDoubling;
 
         [SerializeField] private int _coinsPerLevel;
 
@@ -22,6 +23,7 @@ namespace GameService
 
         private float _pauseDelayForSeconds = 0.1f;
         private int _totalCoins;
+        private int _levelCoins;
 
         public int TotalCoins => _totalCoins;
 
@@ -36,9 +38,15 @@ namespace GameService
             StartCoroutine(WaitForPlayer());
         }
 
+        private void OnEnable()
+        {
+            _coinDoubling.OnDoubleAwards += HandleDoubleAwardRequest;
+        }
+
         private void OnDisable()
         {
             UnsubscribeFromPlayerEvents();
+            _coinDoubling.OnDoubleAwards -= HandleDoubleAwardRequest;
         }
 
         private void SubscribeToPlayerEvents()
@@ -95,12 +103,23 @@ namespace GameService
             PauseGame();
         }
 
-
         private void AwardCoins()
         {
-            _totalCoins += _coinsPerLevel + _comboCounter.TotalComboCount;
-            _savesYG.balanceMoney += _totalCoins;
-            _savesYG.score += _totalCoins;
+            _levelCoins = _coinsPerLevel + _comboCounter.TotalComboCount;
+            _totalCoins += _levelCoins;
+            SaveProgress();
+        }
+
+        private void HandleDoubleAwardRequest()
+        {
+            _totalCoins += _levelCoins;
+            SaveProgress();
+        }
+
+        private void SaveProgress()
+        {
+            _savesYG.balanceMoney += _levelCoins;
+            _savesYG.score += _levelCoins;
             YandexGame.SaveProgress();
         }
     }

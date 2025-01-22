@@ -520,6 +520,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d81df1aa9193a704c8b748581173174d, type: 3}
+--- !u!114 &221115024 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8602679241269341328, guid: d81df1aa9193a704c8b748581173174d, type: 3}
+  m_PrefabInstance: {fileID: 221115023}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d942512d8daef04b9c25cab83e5a092, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &273203787
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1652,7 +1663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb08f8aabc2da1a4ba15df32d0823610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerLoader: {fileID: 0}
+  _playerLoader: {fileID: 221115024}
   _xOffset: 1
 --- !u!114 &963194230
 MonoBehaviour:
@@ -1666,10 +1677,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffc9e00ecb8c1b64f8aa3ffa4c8bf6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerLoader: {fileID: 0}
+  _playerLoader: {fileID: 221115024}
   _failScreen: {fileID: 1514579166}
   _completeScreen: {fileID: 69493946}
   _comboCounter: {fileID: 1497636379}
+  _coinDoubling: {fileID: 1065993003895323387}
   _coinsPerLevel: 200
 --- !u!1001 &974429259
 PrefabInstance:
@@ -3701,6 +3713,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c32bcea42ce3bc40b81364a852bfbcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1065993003895323387 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6641557370298093511, guid: 376648952eb57f744b7d0f3ff7dd47b1, type: 3}
+  m_PrefabInstance: {fileID: 1065993003895323385}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dd238e7253b517438d415d0c238443d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807

@@ -1668,6 +1668,7 @@ MonoBehaviour:
   _failScreen: {fileID: 1514579166}
   _completeScreen: {fileID: 69493946}
   _comboCounter: {fileID: 869875036}
+  _coinDoubling: {fileID: 1065993003895323386}
   _coinsPerLevel: 50
 --- !u!1001 &1050636961
 PrefabInstance:
@@ -2724,6 +2725,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 376648952eb57f744b7d0f3ff7dd47b1, type: 3}
+--- !u!114 &1065993003895323386 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6641557370298093511, guid: 376648952eb57f744b7d0f3ff7dd47b1, type: 3}
+  m_PrefabInstance: {fileID: 1065993003895323385}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dd238e7253b517438d415d0c238443d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8950216067472369250
 PrefabInstance:
   m_ObjectHideFlags: 0
