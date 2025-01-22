@@ -1,5 +1,6 @@
 using GameService.ReviveService;
 using UnityEngine;
+using YG;
 
 namespace UI.Screens.LevelScreens.ScreenButtons
 {
@@ -8,8 +9,24 @@ namespace UI.Screens.LevelScreens.ScreenButtons
         [SerializeField] private Reviver _reviver;
         [SerializeField] private FailScreen _failScreen;
 
+        private void OnEnable()
+        {
+            YandexGame.RewardVideoEvent += Rewarded;
+        }
+
+        private void OnDisable()
+        {
+            YandexGame.RewardVideoEvent -= Rewarded;
+        }
+
         public void OnReviveClick() =>
-            OnRevive();
+           OpenRewardAd(0);
+
+        private void OpenRewardAd(int id) =>
+           YandexGame.RewVideoShow(id);
+
+        private void Rewarded(int id) =>
+           OnRevive();
 
         private void OnRevive()
         {
