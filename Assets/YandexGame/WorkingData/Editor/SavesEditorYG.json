@@ -1,0 +1,20 @@
+{
+    "idSave": 3,
+    "isFirstSession": false,
+    "language": "ru",
+    "promptDone": false,
+    "money": 1,
+    "newPlayerName": "Hello!",
+    "openLevels": [
+        false,
+        true,
+        false
+    ],
+    "ownedSkins": [
+        10
+    ],
+    "selectedSkin": 10,
+    "balanceMoney": 600,
+    "score": 0,
+    "isSoundOn": true
+}
