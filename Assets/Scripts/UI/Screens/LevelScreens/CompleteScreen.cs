@@ -9,5 +9,11 @@ namespace UI.Screens.LevelScreens
         [SerializeField] private Button _nextLevelButton;
 
         public event Action NextLeveleButtonClicked;
+        public event Action OnScreenActivated;
+
+        private void OnEnable()
+        {
+            OnScreenActivated?.Invoke();
+        }
     }
 }
