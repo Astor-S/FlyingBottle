@@ -10,6 +10,8 @@ namespace UI.Home.ShopMenu
         [SerializeField] private GameService.Skins _skinToBuy;
         [SerializeField] private int _skinCost;
         [SerializeField] private TextMeshProUGUI _priceText;
+        [SerializeField] private BalanceDisplay _balanceDisplayShop;
+        [SerializeField] private BalanceDisplay _balanceDisplayMain;
 
         private SavesYG _savesYG;
 
@@ -45,6 +47,8 @@ namespace UI.Home.ShopMenu
             _savesYG.ownedSkins.Add(_skinToBuy);
             YandexGame.SaveProgress();
             gameObject.SetActive(false);
+            _balanceDisplayShop.RefreshBalance();
+            _balanceDisplayMain.RefreshBalance();
         }
 
         private void UpdatePriceText() =>

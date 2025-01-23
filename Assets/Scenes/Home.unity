@@ -456,6 +456,7 @@ GameObject:
   - component: {fileID: 79311406}
   - component: {fileID: 79311405}
   - component: {fileID: 79311404}
+  - component: {fileID: 79311407}
   m_Layer: 5
   m_Name: LeaderBoardButton
   m_TagString: Untagged
@@ -527,7 +528,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 79311405}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 79311407}
+        m_TargetAssemblyTypeName: YG.Example.OpenAuthorizationDialog, Assembly-CSharp
+        m_MethodName: OpenAuthDialog
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &79311405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -566,6 +579,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 79311402}
   m_CullTransparentMesh: 0
+--- !u!114 &79311407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79311402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03d6155703367b243854979962e2d980, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &131481724
 GameObject:
   m_ObjectHideFlags: 0
@@ -887,11 +912,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b884003fb8edfda44a3ff9e4a835b218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelCells:
-  - {fileID: 11400000, guid: 3531aa32ffd37034e8a4714dc2123a78, type: 2}
-  - {fileID: 11400000, guid: 2b6591671646a1049b2dd79861dead22, type: 2}
-  - {fileID: 11400000, guid: 9d3dd33ff23eb994a8bb2668d0fd1df0, type: 2}
-  - {fileID: 11400000, guid: 063747d2f7ba58d41b33ee95e4384ca6, type: 2}
+  _levelCells: []
   _button: {fileID: 144804562}
 --- !u!1001 &159594382
 PrefabInstance:
@@ -18684,6 +18705,14 @@ PrefabInstance:
       propertyPath: _skinToBuy
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1398763721525192389, guid: b55763cb41efa1e409012387d542cf50, type: 3}
+      propertyPath: _balanceDisplayMain
+      value: 
+      objectReference: {fileID: 1335581359}
+    - target: {fileID: 1398763721525192389, guid: b55763cb41efa1e409012387d542cf50, type: 3}
+      propertyPath: _balanceDisplayShop
+      value: 
+      objectReference: {fileID: 1407427581}
     - target: {fileID: 4972860452214384526, guid: b55763cb41efa1e409012387d542cf50, type: 3}
       propertyPath: m_Name
       value: BuyButton
@@ -19048,6 +19077,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afedb0a226e4cdc43adb26262b24924c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _balanceDisplayShop: {fileID: 1407427581}
+  _balanceDisplayMain: {fileID: 1335581359}
 --- !u!1 &1181102600
 GameObject:
   m_ObjectHideFlags: 0
@@ -19807,7 +19838,7 @@ GameObject:
   - component: {fileID: 1407427582}
   - component: {fileID: 1407427581}
   m_Layer: 5
-  m_Name: CoinsStatus
+  m_Name: CoinsStatusShop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20168,6 +20199,14 @@ PrefabInstance:
       propertyPath: _skinToBuy
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1398763721525192389, guid: b55763cb41efa1e409012387d542cf50, type: 3}
+      propertyPath: _balanceDisplayMain
+      value: 
+      objectReference: {fileID: 1335581359}
+    - target: {fileID: 1398763721525192389, guid: b55763cb41efa1e409012387d542cf50, type: 3}
+      propertyPath: _balanceDisplayShop
+      value: 
+      objectReference: {fileID: 1407427581}
     - target: {fileID: 4972860452214384526, guid: b55763cb41efa1e409012387d542cf50, type: 3}
       propertyPath: m_Name
       value: BuyButton
@@ -21679,6 +21718,14 @@ PrefabInstance:
       propertyPath: _skinToBuy
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 1398763721525192389, guid: b55763cb41efa1e409012387d542cf50, type: 3}
+      propertyPath: _balanceDisplayMain
+      value: 
+      objectReference: {fileID: 1335581359}
+    - target: {fileID: 1398763721525192389, guid: b55763cb41efa1e409012387d542cf50, type: 3}
+      propertyPath: _balanceDisplayShop
+      value: 
+      objectReference: {fileID: 1407427581}
     - target: {fileID: 4972860452214384526, guid: b55763cb41efa1e409012387d542cf50, type: 3}
       propertyPath: m_Name
       value: BuyButton
@@ -21907,11 +21954,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b884003fb8edfda44a3ff9e4a835b218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelCells:
-  - {fileID: 11400000, guid: d582083ce086cf346ac52a416a8285d2, type: 2}
-  - {fileID: 11400000, guid: 420a38c1598b353499c94433f65693f6, type: 2}
-  - {fileID: 11400000, guid: d38a83c827f681d42ab743cb67e3b817, type: 2}
-  - {fileID: 11400000, guid: bdbb7859da9ddee4b9e31d8621791e5f, type: 2}
+  _levelCells: []
   _button: {fileID: 1740333481}
 --- !u!1001 &1746809522
 PrefabInstance:
@@ -22435,11 +22478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b884003fb8edfda44a3ff9e4a835b218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelCells:
-  - {fileID: 11400000, guid: 020a6adca1ba71d4197c6727d0f58de7, type: 2}
-  - {fileID: 11400000, guid: 61a26941ff3af60489521e3ebba6c4fe, type: 2}
-  - {fileID: 11400000, guid: 420886667df48ed42b3f46460004b7b9, type: 2}
-  - {fileID: 11400000, guid: 45e3a7e98785a6047b48ccf790458f8c, type: 2}
+  _levelCells: []
   _button: {fileID: 1870977195}
 --- !u!224 &1894189978 stripped
 RectTransform:
@@ -22647,11 +22686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b884003fb8edfda44a3ff9e4a835b218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelCells:
-  - {fileID: 11400000, guid: a54b75b324c252340817c78949d00683, type: 2}
-  - {fileID: 11400000, guid: f0ef1d9edaabfdf4e9a806daacce1910, type: 2}
-  - {fileID: 11400000, guid: bc9b4bc4016757143a41659686b59973, type: 2}
-  - {fileID: 11400000, guid: cf2599f093687164cbc1034c6816e475, type: 2}
+  _levelCells: []
   _button: {fileID: 1926068385}
 --- !u!1 &1926283767
 GameObject:
@@ -22787,11 +22822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b884003fb8edfda44a3ff9e4a835b218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelCells:
-  - {fileID: 11400000, guid: 3c142b68b1e23994480379fe29bebcc9, type: 2}
-  - {fileID: 11400000, guid: b97e599685789f943a91bf1c6ebd2556, type: 2}
-  - {fileID: 11400000, guid: 8fd51a167b37cb54a89cc9c355b403e8, type: 2}
-  - {fileID: 11400000, guid: b181341081d67dd459e29e8f55c244f2, type: 2}
+  _levelCells: []
   _button: {fileID: 1926283769}
 --- !u!1 &1980526610
 GameObject:
@@ -23015,6 +23046,14 @@ PrefabInstance:
       propertyPath: _skinToBuy
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1398763721525192389, guid: b55763cb41efa1e409012387d542cf50, type: 3}
+      propertyPath: _balanceDisplayMain
+      value: 
+      objectReference: {fileID: 1335581359}
+    - target: {fileID: 1398763721525192389, guid: b55763cb41efa1e409012387d542cf50, type: 3}
+      propertyPath: _balanceDisplayShop
+      value: 
+      objectReference: {fileID: 1407427581}
     - target: {fileID: 4972860452214384526, guid: b55763cb41efa1e409012387d542cf50, type: 3}
       propertyPath: m_Name
       value: BuyButton
@@ -28629,6 +28668,14 @@ PrefabInstance:
       propertyPath: _skinToBuy
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 1398763721525192389, guid: b55763cb41efa1e409012387d542cf50, type: 3}
+      propertyPath: _balanceDisplayMain
+      value: 
+      objectReference: {fileID: 1335581359}
+    - target: {fileID: 1398763721525192389, guid: b55763cb41efa1e409012387d542cf50, type: 3}
+      propertyPath: _balanceDisplayShop
+      value: 
+      objectReference: {fileID: 1407427581}
     - target: {fileID: 4972860452214384526, guid: b55763cb41efa1e409012387d542cf50, type: 3}
       propertyPath: m_Name
       value: BuyButton
@@ -28741,6 +28788,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2123186266}
     m_Modifications:
+    - target: {fileID: 1398763721525192389, guid: b55763cb41efa1e409012387d542cf50, type: 3}
+      propertyPath: _balanceDisplayMain
+      value: 
+      objectReference: {fileID: 1335581359}
+    - target: {fileID: 1398763721525192389, guid: b55763cb41efa1e409012387d542cf50, type: 3}
+      propertyPath: _balanceDisplayShop
+      value: 
+      objectReference: {fileID: 1407427581}
     - target: {fileID: 4972860452214384526, guid: b55763cb41efa1e409012387d542cf50, type: 3}
       propertyPath: m_Name
       value: BuyButton

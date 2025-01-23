@@ -6,6 +6,9 @@ namespace UI.Home.ShopMenu
 {
     public class AddMoneyButton : MonoBehaviour, IMenuButton
     {
+        [SerializeField] private BalanceDisplay _balanceDisplayShop;
+        [SerializeField] private BalanceDisplay _balanceDisplayMain;
+
         private SavesYG _savesYG;
 
         private int _coinsFofWathAD = 200;
@@ -38,6 +41,8 @@ namespace UI.Home.ShopMenu
         {
             _savesYG.balanceMoney += _coinsFofWathAD;
             YandexGame.SaveProgress();
+            _balanceDisplayShop.RefreshBalance();
+            _balanceDisplayMain.RefreshBalance();
         }
     }
 
