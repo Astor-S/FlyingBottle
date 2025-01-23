@@ -21,6 +21,7 @@ namespace YG
         // Ваши сохранения
         
         public List<Skins> ownedSkins = new List<Skins>();
+        public List<Levels> openedLevels = new List<Levels>();
         public Skins selectedSkin; 
 
         public int balanceMoney;
@@ -41,6 +42,7 @@ namespace YG
 
             ownedSkins.Add(Skins.Water);
             selectedSkin = Skins.Water;
+            openedLevels.Add(Levels.Level1);
         }
     }
 }
