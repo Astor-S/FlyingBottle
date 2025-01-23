@@ -44,5 +44,10 @@ namespace YG
             selectedSkin = Skins.Water;
             openedLevels.Add(Levels.Level1);
         }
+
+        public bool IsLevelOpen(Levels level)
+        {
+            return openedLevels.Contains(level);
+        }
     }
 }
