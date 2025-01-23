@@ -6,6 +6,5 @@ namespace UI.Home.ShopMenu
     {
         [field: SerializeField] public GameObject Model {  get; private set; }
         [field: SerializeField] public Sprite Image { get; private set; }
-        [field: SerializeField, Range(0, 5000)] public int Price { get; private set; }
     }
 }

@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37753e8fa309d1f46850b46db6fb60ae, type: 3}
   m_Name: SixthLevel
   m_EditorClassIdentifier: 
+  <LevelsType>k__BackingField: 5
   _sceneToLoad: Level 2-1
   _cellIndex: 5
