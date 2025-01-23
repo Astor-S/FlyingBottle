@@ -10,8 +10,9 @@ namespace UI.Home.LevelMenu
         [SerializeField] private LevelCell[] _levelCells;
         [SerializeField] private Button _button;
         
-        private int _currentLevelIndex;
         private SavesYG _savesYG;
+        
+        private int _currentLevelIndex;
 
         private void Awake()
         {
