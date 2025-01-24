@@ -8,8 +8,10 @@ namespace UI.Home
         [SerializeField] private MainMenuService _mainMenuService;
         [SerializeField] private SelectLevel _selectLevel;
         [SerializeField] private SelectShop _selectShop;
+        [SerializeField] private SelectLeaderboard _selectLeaderboard;
         [SerializeField] private LevelMenu.LevelMenuService _levelMenuService;
         [SerializeField] private ShopMenu.ShopMenuService _shopMenuService;
+        [SerializeField] private LeadearboardMenu.LeadearboardService _leadearboardService;
         [SerializeField] private LevelMenu.CloseLevelMenuButton _closeLevelMenuButton;
         [SerializeField] private ShopMenu.CloseShopButton _closeShopButton;
 
@@ -17,6 +19,7 @@ namespace UI.Home
         {
             _selectLevel.OnOpenLevelMenu += HandleOpenLevelMenu;
             _selectShop.OnOpenShop += HandleOpenShop;
+            _selectLeaderboard.OnOpenLeadearboard += HandleOpenLeaderboard;
             _closeLevelMenuButton.OnCloseLevelMenu += HandleCloseLevelMenu;
             _closeShopButton.OnCloseShop += HandleCloseShop;
         }
@@ -25,8 +28,15 @@ namespace UI.Home
         {
             _selectLevel.OnOpenLevelMenu -= HandleOpenLevelMenu;
             _selectShop.OnOpenShop -= HandleOpenShop;
+            _selectLeaderboard.OnOpenLeadearboard -= HandleOpenLeaderboard;
             _closeLevelMenuButton.OnCloseLevelMenu -= HandleCloseLevelMenu;
             _closeShopButton.OnCloseShop -= HandleCloseShop;
+        }
+
+        private void HandleOpenLeaderboard()
+        {
+            _leadearboardService.Open();
+            _mainMenuService.Close();
         }
 
         private void HandleOpenLevelMenu()

@@ -135,6 +135,13 @@ namespace GameService
             _savesYG.balanceMoney += _levelCoins;
             _savesYG.score += _levelCoins;
             YandexGame.SaveProgress();
+            AddNewLeaderboardScores();
+        }
+
+        private void AddNewLeaderboardScores()
+        {
+            int score = _savesYG.score;
+            YandexGame.NewLeaderboardScores("BestPlayers", score);
         }
     }
 }
