@@ -3017,6 +3017,7 @@ MonoBehaviour:
   _completeScreen: {fileID: 69493946}
   _comboCounter: {fileID: 475692986}
   _coinDoubling: {fileID: 1065993003895323386}
+  _levelsToOpen: 9
   _coinsPerLevel: 100
 --- !u!1001 &969487245
 PrefabInstance:

@@ -1887,6 +1887,7 @@ MonoBehaviour:
   _completeScreen: {fileID: 69493946}
   _comboCounter: {fileID: 113215910}
   _coinDoubling: {fileID: 1065993003895323387}
+  _levelsToOpen: 11
   _coinsPerLevel: 150
 --- !u!1 &969069727 stripped
 GameObject:
