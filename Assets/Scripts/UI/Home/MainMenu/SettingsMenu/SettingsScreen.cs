@@ -1,48 +1,6 @@
-using System;
-using UnityEngine;
-using UnityEngine.UI;
+using UI.Home.MainMenu.Screens;
 
 namespace UI.Home.MainMenu.SettingsMenu
 {
-    public class SettingsScreen : MonoBehaviour
-    {
-        [SerializeField] private Button _openButton;
-        [SerializeField] private Button _closeButton;
-
-        public event Action OpenButtonClicked;
-        public event Action CloseButtonClicked;
-
-        private void Awake()
-        {
-            gameObject.SetActive(false);
-        }
-
-        private void OnEnable()
-        {
-            _openButton.onClick.AddListener(OnOpenButtonClick);
-            _closeButton.onClick.AddListener(OnCloseButtonClick);
-        }
-
-        private void OnDisable()
-        {
-            _openButton.onClick.RemoveListener(OnOpenButtonClick);
-            _closeButton.onClick.RemoveListener(OnCloseButtonClick);
-        }
-
-        public void Open()
-        {
-            gameObject.SetActive(true);
-        }
-
-        public void Close()
-        {
-            gameObject.SetActive(false);
-        }
-
-        private void OnOpenButtonClick() =>
-            OpenButtonClicked?.Invoke();
-
-        private void OnCloseButtonClick() =>
-            CloseButtonClicked?.Invoke();
-    }
+    public class SettingsScreen : ScreenInMainMenu { }
 }
