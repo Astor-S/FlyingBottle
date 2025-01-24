@@ -1,4 +1,7 @@
+using UI.Home.LeadearboardMenu;
 using UI.Home.MainMenu;
+using UI.Home.LevelMenu;
+using UI.Home.ShopMenu;
 using UnityEngine;
 
 namespace UI.Home
@@ -9,11 +12,12 @@ namespace UI.Home
         [SerializeField] private SelectLevel _selectLevel;
         [SerializeField] private SelectShop _selectShop;
         [SerializeField] private SelectLeaderboard _selectLeaderboard;
-        [SerializeField] private LevelMenu.LevelMenuService _levelMenuService;
-        [SerializeField] private ShopMenu.ShopMenuService _shopMenuService;
-        [SerializeField] private LeadearboardMenu.LeadearboardService _leadearboardService;
-        [SerializeField] private LevelMenu.CloseLevelMenuButton _closeLevelMenuButton;
-        [SerializeField] private ShopMenu.CloseShopButton _closeShopButton;
+        [SerializeField] private LevelMenuService _levelMenuService;
+        [SerializeField] private ShopMenuService _shopMenuService;
+        [SerializeField] private LeadearboardService _leadearboardService;
+        [SerializeField] private CloseLevelMenuButton _closeLevelMenuButton;
+        [SerializeField] private CloseShopButton _closeShopButton;
+        [SerializeField] private CloseLeadearBoardButton _closeLeadearBoardButton;
 
         private void OnEnable()
         {
@@ -22,6 +26,7 @@ namespace UI.Home
             _selectLeaderboard.OnOpenLeadearboard += HandleOpenLeaderboard;
             _closeLevelMenuButton.OnCloseLevelMenu += HandleCloseLevelMenu;
             _closeShopButton.OnCloseShop += HandleCloseShop;
+            _closeLeadearBoardButton.OnCloseLeadearboard += HandleCloseLeadearboard;
         }
 
         private void OnDisable()
@@ -31,6 +36,7 @@ namespace UI.Home
             _selectLeaderboard.OnOpenLeadearboard -= HandleOpenLeaderboard;
             _closeLevelMenuButton.OnCloseLevelMenu -= HandleCloseLevelMenu;
             _closeShopButton.OnCloseShop -= HandleCloseShop;
+            _closeLeadearBoardButton.OnCloseLeadearboard -= HandleCloseLeadearboard;
         }
 
         private void HandleOpenLeaderboard()
@@ -61,6 +67,12 @@ namespace UI.Home
         {
             _mainMenuService.Open();
             _shopMenuService.Close();
+        }
+
+        private void HandleCloseLeadearboard() 
+        { 
+            _leadearboardService.Close();
+            _mainMenuService.Open();
         }
     }
 }
