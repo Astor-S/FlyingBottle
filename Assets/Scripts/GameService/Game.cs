@@ -14,6 +14,7 @@ namespace GameService
         [SerializeField] private CompleteScreen _completeScreen;
         [SerializeField] private ComboCounter _comboCounter;
         [SerializeField] private CoinDoublingButton _coinDoubling;
+        [SerializeField] private Levels _levelsToOpen;
 
         [SerializeField] private int _coinsPerLevel;
 
@@ -89,6 +90,7 @@ namespace GameService
         private void OnCompleteLevel()
         {
             AwardCoins();
+            RequestToOpenLevel();
             _completeScreen.Open();
             StartCoroutine(PauseGameDelayed());
         }
@@ -114,6 +116,18 @@ namespace GameService
         {
             _totalCoins += _levelCoins;
             SaveProgress();
+        }
+
+        private void RequestToOpenLevel()
+        {
+            if (_savesYG.openedLevels.Contains(_levelsToOpen) == false)
+                OpenLevel();
+        }
+
+        private void OpenLevel()
+        {
+            _savesYG.openedLevels.Add(_levelsToOpen);
+            YandexGame.SaveProgress();
         }
 
         private void SaveProgress()
