@@ -1,5 +1,5 @@
 {
-    "idSave": 72,
+    "idSave": 78,
     "isFirstSession": false,
     "language": "ru",
     "promptDone": false,
@@ -24,10 +24,11 @@
     "openedLevels": [
         0,
         1,
-        2
+        2,
+        3
     ],
     "selectedSkin": 0,
-    "balanceMoney": 354,
-    "score": 3754,
+    "balanceMoney": 647,
+    "score": 4047,
     "isSoundOn": true
 }
