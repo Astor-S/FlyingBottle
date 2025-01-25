@@ -1,5 +1,8 @@
 using GameService;
+using NaughtyAttributes;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using YG;
@@ -8,11 +11,22 @@ namespace UI.Home.MainMenu
 {
     public class PlayButton : MonoBehaviour
     {
+        [Scene]
+        [SerializeField] private List<string> _levelScenes = new();
+
         private SavesYG _savesYG;
+
+        private Dictionary<Levels, string> _levelToSceneName = new();
+
+        private void Awake()
+        {
+            InitializeDictionary();
+        }     
 
         private void Start()
         {
             _savesYG = YandexGame.savesData;
+            UpdateLevelToSceneNameFromList();
         }
 
         public void OnPlayButtonClick()
@@ -23,42 +37,60 @@ namespace UI.Home.MainMenu
                 StartCoroutine(LoadLevelAsync(sceneNameToLoad));
         }
 
+        private void InitializeDictionary()
+        {
+            _levelToSceneName = new Dictionary<Levels, string>()
+            {
+                { Levels.Level1,  ""},
+                { Levels.Level2,  ""},
+                { Levels.Level3,  ""},
+                { Levels.Level4,  ""},
+                { Levels.Level5,  ""},
+                { Levels.Level6,  ""},
+                { Levels.Level7,  ""},
+                { Levels.Level8,  ""},
+                { Levels.Level9,  ""},
+                { Levels.Level10, ""},
+                { Levels.Level11, ""},
+                { Levels.Level12, ""},
+                { Levels.Level13, ""},
+                { Levels.Level14, ""},
+                { Levels.Level15, ""},
+                { Levels.Level16, ""},
+                { Levels.Level17, ""},
+                { Levels.Level18, ""},
+                { Levels.Level19, ""},
+                { Levels.Level20, ""}
+            };
+        }
+
+        private void UpdateLevelToSceneNameFromList()
+        {
+            if (_levelScenes == null || _levelScenes.Count == 0)
+                return;
+            
+            var updatedValues = _levelToSceneName.Keys.Zip(_levelScenes, (key, sceneName) => (key, sceneName)).ToList();
+
+            foreach (var (key, sceneName) in updatedValues)
+                _levelToSceneName[key] = sceneName; 
+        }
+
         private string GetSceneNameForLastOpenedLevel()
         {
-            if (_savesYG.openedLevels.Count == 0)
+            if (_savesYG.openedLevels == null || _savesYG.openedLevels.Count == 0)
                 return null;
-
-            Levels lastOpenedLevel = _savesYG.openedLevels[_savesYG.openedLevels.Count - 1];
+            
+            Levels lastOpenedLevel = _savesYG.openedLevels[^1];
 
             return GetSceneNameFromLevel(lastOpenedLevel);
         }
 
         private string GetSceneNameFromLevel(Levels level)
         {
-            return level switch
-            {
-                Levels.Level1 => "Level 1-1",
-                Levels.Level2 => "Level 1-2",
-                Levels.Level3 => "Level 1-3",
-                Levels.Level4 => "Level 1-4",
-                Levels.Level5 => "Level 1-5",
-                Levels.Level6 => "Level 2-1",
-                Levels.Level7 => "Level 2-2",
-                Levels.Level8 => "Level 2-3",
-                Levels.Level9 => "Level 2-4",
-                Levels.Level10 => "Level 2-5",
-                Levels.Level11 => "Level 3-1",
-                Levels.Level12 => "Level 3-2",
-                Levels.Level13 => "Level 3-3",
-                Levels.Level14 => "Level 3-4",
-                Levels.Level15 => "Level 3-5",
-                Levels.Level16 => "Level 4-1",
-                Levels.Level17 => "Level 4-2",
-                Levels.Level18 => "Level 4-3",
-                Levels.Level19 => "Level 4-4",
-                Levels.Level20 => "Level 4-5",
-                _ => null,
-            };
+            if (_levelToSceneName.TryGetValue(level, out string sceneName))
+                return sceneName;
+            
+            return null;
         }
 
         private IEnumerator LoadLevelAsync(string sceneName)
