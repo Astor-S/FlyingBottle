@@ -12356,8 +12356,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -202}
-  m_SizeDelta: {x: 500, y: 150}
+  m_AnchoredPosition: {x: 0, y: -178.2}
+  m_SizeDelta: {x: 400, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &691809282
 MonoBehaviour:
@@ -12404,7 +12404,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 691809285}
-        m_TargetAssemblyTypeName: UI.MainMenu.PlayButton, Assembly-CSharp
+        m_TargetAssemblyTypeName: UI.Home.MainMenu.PlayButton, Assembly-CSharp
         m_MethodName: OnPlayButtonClick
         m_Mode: 1
         m_Arguments:
@@ -14330,7 +14330,7 @@ MonoBehaviour:
   advanced: 1
   rootSpawnPlayersData: {fileID: 1286568505}
   playerDataPrefab: {fileID: 7442660659306160117, guid: c66c7bac89f010b47979344bbb77584b, type: 3}
-  playerPhoto: 1
+  playerPhoto: 2
   isHiddenPlayerPhoto: {fileID: 0}
   timeTypeConvert: 0
   decimalSize: 1
@@ -19880,8 +19880,8 @@ RectTransform:
   - {fileID: 1335581355}
   - {fileID: 1181102601}
   - {fileID: 1213671482}
-  - {fileID: 79311403}
   - {fileID: 691809281}
+  - {fileID: 79311403}
   - {fileID: 2062480238}
   - {fileID: 1797776732}
   - {fileID: 509869400}
@@ -20565,7 +20565,7 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 1840, y: 49}
+  m_CellSize: {x: 920, y: 98}
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
