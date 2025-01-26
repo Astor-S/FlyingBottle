@@ -11,26 +11,36 @@ namespace GameService.ReviveService
         
         private Transform _playerTransform;
 
-        private void Start()
+        private void Awake()
         {
-            StartCoroutine(WaitForPlayer());
+            FindPlayerTransform();
         }
 
-        private IEnumerator WaitForPlayer()
+        public void Revived() =>
+            StartCoroutine(WaitForPlayerAndRevive());
+
+        private IEnumerator WaitForPlayerAndRevive()
         {
-            while (PlayerControlSystem.LoaderService.PlayerLoader.Instance == null)
+            while (_playerTransform == null)
             {
-                yield return null;
+                FindPlayerTransform();
+
+                if (_playerTransform != null)
+                    break;
+
+                yield return null; 
             }
 
-            _playerTransform = PlayerControlSystem.LoaderService.PlayerLoader.Instance.transform;
-        }
-
-        public void Revived()
-        {
             RevivePoint closestPoint = FindClosestRevivePoint();
 
-            _playerTransform.position = closestPoint.transform.position;
+            if (closestPoint != null)
+                _playerTransform.position = closestPoint.transform.position;
+        }
+
+        private void FindPlayerTransform()
+        {
+            if (PlayerControlSystem.LoaderService.PlayerLoader.Instance != null)
+                _playerTransform = PlayerControlSystem.LoaderService.PlayerLoader.Instance.transform;    
         }
 
         private RevivePoint FindClosestRevivePoint()
