@@ -8,8 +8,10 @@ namespace GameService.ReviveService
     public class Reviver : MonoBehaviour
     {
         [SerializeField] private List<RevivePoint> _revivePoints = new List<RevivePoint> ();
-        
+        [SerializeField] private float _delayTime = 0.1f;
+
         private Transform _playerTransform;
+        private Rigidbody _playerRigidbody;
 
         private void Awake()
         {
@@ -17,30 +19,39 @@ namespace GameService.ReviveService
         }
 
         public void Revived() =>
-            StartCoroutine(WaitForPlayerAndRevive());
+            StartCoroutine(WaitForRevive());
 
-        private IEnumerator WaitForPlayerAndRevive()
+        private IEnumerator WaitForRevive()
         {
-            while (_playerTransform == null)
-            {
+            yield return null;
+            
+            if (_playerTransform == null)
                 FindPlayerTransform();
 
-                if (_playerTransform != null)
-                    break;
+            if (_playerTransform == null)
+                yield break;
+            
 
-                yield return null; 
-            }
+            yield return new WaitForSeconds(_delayTime);
 
             RevivePoint closestPoint = FindClosestRevivePoint();
 
             if (closestPoint != null)
-                _playerTransform.position = closestPoint.transform.position;
+            {
+                if (_playerRigidbody != null)
+                    _playerRigidbody.MovePosition(closestPoint.transform.position);
+                else
+                    _playerTransform.position = closestPoint.transform.position;
+            }
         }
 
         private void FindPlayerTransform()
         {
             if (PlayerControlSystem.LoaderService.PlayerLoader.Instance != null)
-                _playerTransform = PlayerControlSystem.LoaderService.PlayerLoader.Instance.transform;    
+            {
+                _playerTransform = PlayerControlSystem.LoaderService.PlayerLoader.Instance.transform;
+                _playerRigidbody = _playerTransform.GetComponent<Rigidbody>();
+            }
         }
 
         private RevivePoint FindClosestRevivePoint()
