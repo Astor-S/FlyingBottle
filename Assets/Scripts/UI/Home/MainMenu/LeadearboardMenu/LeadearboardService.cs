@@ -1,7 +1,7 @@
 using UI.Home.Interfaces;
 using UnityEngine;
 
-namespace UI.Home.LeadearboardMenu
+namespace UI.Home.MainMenu.LeadearboardMenu
 {
     public class LeadearboardService : MonoBehaviour, IMenuService
     {

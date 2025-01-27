@@ -1,13 +1,13 @@
-using System;
+using UI.Home.MainMenu.LeadearboardMenu;
 using UnityEngine;
 
 namespace UI.Home.LeadearboardMenu
 {
     public class CloseLeadearBoardButton : MonoBehaviour, Interfaces.IMenuButton
     {
-        public event Action OnCloseLeadearboard;
+        [SerializeField] LeadearboardService _leadearboardService;
 
         public void OnButtonClick() =>
-            OnCloseLeadearboard?.Invoke();
+            _leadearboardService.Close();
     }
 }
