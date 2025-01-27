@@ -10,9 +10,9 @@ namespace PlayerControlSystem.LoaderService
         [SerializeField] private List<SkinPrefab> _skinPrefabs;
         [SerializeField] private Transform _loadingPoint;
 
-        public static Player Instance;
-
         private Dictionary<Skins, Player> _skinPrefabDictionary;
+
+        public static Player Instance { get; private set; }
 
         private void Awake()
         {
