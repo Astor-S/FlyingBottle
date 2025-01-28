@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60b7aab6bb64c254c99a8dba0bc6a8da, type: 3}
-  m_Name: CandySoda
+  m_Name: E
   m_EditorClassIdentifier: 
   <Model>k__BackingField: {fileID: 2967025807444106188, guid: 0a30ae2f85b803f4aa372169734d13fa, type: 3}
   <Image>k__BackingField: {fileID: 21300000, guid: 7ea7d75f00d65cc4092d89ddd5a45d31, type: 3}

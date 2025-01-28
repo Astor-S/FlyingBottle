@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60b7aab6bb64c254c99a8dba0bc6a8da, type: 3}
-  m_Name: Dew
+  m_Name: D
   m_EditorClassIdentifier: 
-  <Model>k__BackingField: {fileID: 5960727751279299441, guid: 8b2dd3ad0a82f45478df3a402fd6318f, type: 3}
-  <Image>k__BackingField: {fileID: 21300000, guid: 2eaaa60f78ed34a45b18402cda606547, type: 3}
+  <Model>k__BackingField: {fileID: 3754699210277026831, guid: 23dcb4be7de540b40a829174820a601e, type: 3}
+  <Image>k__BackingField: {fileID: 21300000, guid: 20a6b7ee684fd38499d704737daedc9b, type: 3}
   <Price>k__BackingField: 0
-  <SkinType>k__BackingField: 4
+  <SkinType>k__BackingField: 3

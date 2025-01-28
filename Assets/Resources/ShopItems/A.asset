@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60b7aab6bb64c254c99a8dba0bc6a8da, type: 3}
-  m_Name: Lemonade
+  m_Name: A
   m_EditorClassIdentifier: 
-  <Model>k__BackingField: {fileID: 6297245569236614762, guid: b33e4afa0192b5742af595410fc18827, type: 3}
-  <Image>k__BackingField: {fileID: 21300000, guid: 08737ca665af86c4db18d2bd49b40e44, type: 3}
+  <Model>k__BackingField: {fileID: 4713000147486682583, guid: a66f1733c93aee44c9c2940377602c00, type: 3}
+  <Image>k__BackingField: {fileID: 21300000, guid: 2238585c80e201a4b909c2657a0a3cff, type: 3}
   <Price>k__BackingField: 0
-  <SkinType>k__BackingField: 7
+  <SkinType>k__BackingField: 6

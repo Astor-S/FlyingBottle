@@ -193,7 +193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3872040199180556680, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -440.99997
+      value: 140
       objectReference: {fileID: 0}
     - target: {fileID: 3872040199180556680, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -217,7 +217,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 08737ca665af86c4db18d2bd49b40e44, type: 3}
     - target: {fileID: 7250789378626491517, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_Name
-      value: ShopCell (7)
+      value: ShopCell10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -482,7 +482,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 420, y: -434}
+  m_AnchoredPosition: {x: 420, y: -396}
   m_SizeDelta: {x: 250, y: 210}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &79311404
@@ -1080,11 +1080,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3872040199180556680, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -732.99994
+      value: -730
       objectReference: {fileID: 0}
     - target: {fileID: 3872040199180556680, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -199.99997
+      value: 183
       objectReference: {fileID: 0}
     - target: {fileID: 3872040199180556680, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1104,7 +1104,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 2238585c80e201a4b909c2657a0a3cff, type: 3}
     - target: {fileID: 7250789378626491517, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_Name
-      value: ShopCell (6)
+      value: ShopCell1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6440,11 +6440,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3872040199180556680, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 139.00003
+      value: -153
       objectReference: {fileID: 0}
     - target: {fileID: 3872040199180556680, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -199.99997
+      value: 183
       objectReference: {fileID: 0}
     - target: {fileID: 3872040199180556680, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6464,7 +6464,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 7d60b7186b315d443857e4affb097b3d, type: 3}
     - target: {fileID: 7250789378626491517, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_Name
-      value: ShopCell (9)
+      value: ShopCell3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14775,7 +14775,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3872040199180556680, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 719.00006
+      value: 720
       objectReference: {fileID: 0}
     - target: {fileID: 3872040199180556680, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -14799,7 +14799,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 329f69daa74018d48942b2b013d7a555, type: 3}
     - target: {fileID: 7250789378626491517, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_Name
-      value: ShopCell (11)
+      value: ShopCell12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14929,7 +14929,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3872040199180556680, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 429.00003
+      value: 720
       objectReference: {fileID: 0}
     - target: {fileID: 3872040199180556680, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -14953,7 +14953,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 2eaaa60f78ed34a45b18402cda606547, type: 3}
     - target: {fileID: 7250789378626491517, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_Name
-      value: ShopCell (4)
+      value: ShopCell6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20810,7 +20810,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -725, y: -434}
+  m_AnchoredPosition: {x: -725, y: -396}
   m_SizeDelta: {x: 250, y: 210}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1181102602
@@ -21053,7 +21053,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 725, y: -434}
+  m_AnchoredPosition: {x: 725, y: -396}
   m_SizeDelta: {x: 250, y: 210}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1213671483
@@ -23225,11 +23225,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3872040199180556680, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 719.00006
+      value: -158
       objectReference: {fileID: 0}
     - target: {fileID: 3872040199180556680, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 183
+      value: -200
       objectReference: {fileID: 0}
     - target: {fileID: 3872040199180556680, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -23249,7 +23249,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 421bd6808fd451648b473371ac99a5a4, type: 3}
     - target: {fileID: 7250789378626491517, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_Name
-      value: ShopCell (5)
+      value: ShopCell9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23341,7 +23341,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3872040199180556680, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 183
+      value: -205
       objectReference: {fileID: 0}
     - target: {fileID: 3872040199180556680, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -23361,7 +23361,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: d6e7e74e1fb4a064290ac100edbea66a, type: 3}
     - target: {fileID: 7250789378626491517, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_Name
-      value: ShopCell (1)
+      value: ShopCell8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24274,7 +24274,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3872040199180556680, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -150.99997
+      value: 432
       objectReference: {fileID: 0}
     - target: {fileID: 3872040199180556680, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -24298,7 +24298,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 20673b0360be2da4db2c50ad7da05cc4, type: 3}
     - target: {fileID: 7250789378626491517, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_Name
-      value: ShopCell (8)
+      value: ShopCell 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24707,11 +24707,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3872040199180556680, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 429.00003
+      value: -440
       objectReference: {fileID: 0}
     - target: {fileID: 3872040199180556680, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -199.99997
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 3872040199180556680, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -24731,7 +24731,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 29c4eb9174faa574f830acd58388fd5f, type: 3}
     - target: {fileID: 7250789378626491517, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_Name
-      value: ShopCell (10)
+      value: ShopCell2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -26290,7 +26290,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3872040199180556680, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -150.99997
+      value: 432
       objectReference: {fileID: 0}
     - target: {fileID: 3872040199180556680, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -26318,7 +26318,7 @@ PrefabInstance:
       objectReference: {fileID: 2023634120}
     - target: {fileID: 7250789378626491517, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_Name
-      value: ShopCell (2)
+      value: ShopCell5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -26388,7 +26388,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -150, y: -434}
+  m_AnchoredPosition: {x: -150, y: -396}
   m_SizeDelta: {x: 750, y: 210}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2062480239
@@ -26603,17 +26603,17 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1894189978}
+  - {fileID: 435750001}
+  - {fileID: 769149738}
+  - {fileID: 1510976352}
+  - {fileID: 638952391}
+  - {fileID: 741441179}
   - {fileID: 2123186266}
   - {fileID: 1771466859}
-  - {fileID: 638952391}
-  - {fileID: 1510976352}
-  - {fileID: 741441179}
   - {fileID: 955460134}
-  - {fileID: 1894189978}
   - {fileID: 1521685545}
   - {fileID: 2145867723}
-  - {fileID: 769149738}
-  - {fileID: 435750001}
   - {fileID: 1671265022}
   m_Father: {fileID: 1330351405}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -26791,7 +26791,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 20a6b7ee684fd38499d704737daedc9b, type: 3}
     - target: {fileID: 7250789378626491517, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_Name
-      value: ShopCell (3)
+      value: ShopCell4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -32207,11 +32207,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3872040199180556680, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -731
+      value: -730
       objectReference: {fileID: 0}
     - target: {fileID: 3872040199180556680, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 183
+      value: -200
       objectReference: {fileID: 0}
     - target: {fileID: 3872040199180556680, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -32231,7 +32231,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: d90345d907101b942b0c017616a4e817, type: 3}
     - target: {fileID: 7250789378626491517, guid: 6134dd4e11a88604189b284752648cb4, type: 3}
       propertyPath: m_Name
-      value: ShopCell
+      value: ShopCell7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

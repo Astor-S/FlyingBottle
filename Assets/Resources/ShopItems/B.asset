@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60b7aab6bb64c254c99a8dba0bc6a8da, type: 3}
-  m_Name: WildSoda
+  m_Name: B
   m_EditorClassIdentifier: 
-  <Model>k__BackingField: {fileID: 5422152754117496968, guid: f2d8909ed6d04de4386bb002d43556a4, type: 3}
-  <Image>k__BackingField: {fileID: 21300000, guid: 329f69daa74018d48942b2b013d7a555, type: 3}
+  <Model>k__BackingField: {fileID: 2839072002276475562, guid: 575e77b83640e4e47a4be76d496ef6f4, type: 3}
+  <Image>k__BackingField: {fileID: 21300000, guid: 29c4eb9174faa574f830acd58388fd5f, type: 3}
   <Price>k__BackingField: 0
-  <SkinType>k__BackingField: 11
+  <SkinType>k__BackingField: 10

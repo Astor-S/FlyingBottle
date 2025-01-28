@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60b7aab6bb64c254c99a8dba0bc6a8da, type: 3}
-  m_Name: IronBottle
+  m_Name: K
   m_EditorClassIdentifier: 
-  <Model>k__BackingField: {fileID: 4713000147486682583, guid: a66f1733c93aee44c9c2940377602c00, type: 3}
-  <Image>k__BackingField: {fileID: 21300000, guid: 2238585c80e201a4b909c2657a0a3cff, type: 3}
-  <Price>k__BackingField: 0
-  <SkinType>k__BackingField: 6
+  <Model>k__BackingField: {fileID: 4261282021013590205, guid: 872193dc1dd59ca48a1d4580b31ea0f6, type: 3}
+  <Image>k__BackingField: {fileID: 21300000, guid: 421bd6808fd451648b473371ac99a5a4, type: 3}
+  <SkinType>k__BackingField: 5
