@@ -1,2 +1,2 @@
 Build path: G:/Repos/YandexGames/FlyingBottle
-Build number: 34
+Build number: 35
