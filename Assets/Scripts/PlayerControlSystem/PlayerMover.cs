@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -43,6 +44,8 @@ namespace PlayerControlSystem
         private bool _isRotating;
         private bool _isSurfaced;
         private bool _canDoubleJump;
+
+        public event Action Moved;
 
         private void Awake()
         {
@@ -95,7 +98,8 @@ namespace PlayerControlSystem
             ResetJump();
             
             _moveCoroutine = StartCoroutine(Moving());
-            
+
+            Moved?.Invoke();
             PlayJumpSound();
             
             if (_isSurfaced == false)

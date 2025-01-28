@@ -9,7 +9,7 @@ namespace GameService.ComboCounterService
         [SerializeField] private ComboCounterView _comboCounterView;
         [SerializeField] private float _comboResetTime = 1.5f;
 
-        private InputReader _inputReader;
+        private PlayerMover _playerMover;
 
         private Coroutine _resetCoroutine;
         private WaitForSeconds _waitComborResetForSeconds;
@@ -32,9 +32,9 @@ namespace GameService.ComboCounterService
 
         private void OnDisable()
         {
-            if (_inputReader != null)
+            if (_playerMover != null)
             {
-                _inputReader.Moving -= OnMove;
+                _playerMover.Moved -= OnMove;
             }
             StopResetCoroutine();
         }
@@ -46,17 +46,10 @@ namespace GameService.ComboCounterService
                 yield return null;
             }
 
-            _inputReader = PlayerControlSystem.LoaderService.PlayerLoader.Instance.GetComponent<InputReader>();
+            _playerMover = PlayerControlSystem.LoaderService.PlayerLoader.Instance.GetComponent<PlayerMover>();
             
-            if (_inputReader != null)
-            {
-                _inputReader.Moving += OnMove;
-            }
-            else
-            {
-                Debug.LogError("InputReader не найден!");
-            }
-
+            if (_playerMover != null)
+                _playerMover.Moved += OnMove; 
         }
 
         private void OnMove()
