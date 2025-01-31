@@ -220,9 +220,34 @@ MonoBehaviour:
       uniqueID: 321
     - rank: 6
       name: Player this
-      score: 11000
+      score: 110000
       photo: https://justplaygames.ru/public/icon_player.png
       uniqueID: 000
+    - rank: 2
+      name: Player6
+      score: 340000
+      photo: https://justplaygames.ru/public/icon_player.png
+      uniqueID: 321
+    - rank: 2
+      name: Player6
+      score: 340000
+      photo: https://justplaygames.ru/public/icon_player.png
+      uniqueID: 321
+    - rank: 2
+      name: Player6
+      score: 340000
+      photo: https://justplaygames.ru/public/icon_player.png
+      uniqueID: 321
+    - rank: 2
+      name: Player6
+      score: 340000
+      photo: https://justplaygames.ru/public/icon_player.png
+      uniqueID: 321
+    - rank: 2
+      name: Player6
+      score: 340000
+      photo: https://justplaygames.ru/public/icon_player.png
+      uniqueID: 321
     - rank: 2
       name: Player6
       score: 340000
