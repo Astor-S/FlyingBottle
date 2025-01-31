@@ -5156,6 +5156,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 234225615}
     m_Modifications:
+    - target: {fileID: 257733273278172038, guid: 66174d8dd8279d142bdcf8b5842e7632, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 257733273278172038, guid: 66174d8dd8279d142bdcf8b5842e7632, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 167.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4422958404264086168, guid: 66174d8dd8279d142bdcf8b5842e7632, type: 3}
       propertyPath: m_Name
       value: AwardScreen
