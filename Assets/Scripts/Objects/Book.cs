@@ -11,9 +11,7 @@ namespace Objects
             _rigidbody = GetComponent<Rigidbody>();
         }
 
-        public void Reawaken()
-        {
+        public void Reawaken() =>
             _rigidbody.WakeUp();
-        }
     }
 }

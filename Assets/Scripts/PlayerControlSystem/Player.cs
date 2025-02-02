@@ -31,6 +31,7 @@ namespace PlayerControlSystem
             _collisionDetector.FailedCollide -= OnFailedCollide;
             _collisionDetector.FinishedCollide -= OnFinishedCollide;
         }
+
         private void OnFailedCollide() =>
             GameOver?.Invoke();
 

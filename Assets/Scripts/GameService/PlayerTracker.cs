@@ -32,6 +32,7 @@ namespace GameService
             {
                 yield return null;
             }
+
             _player = PlayerControlSystem.LoaderService.PlayerLoader.Instance;
         }
     }

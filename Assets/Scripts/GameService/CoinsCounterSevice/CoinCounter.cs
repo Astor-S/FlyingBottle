@@ -18,9 +18,7 @@ namespace GameService.ComboCounterService
             UpdateCoinText();
         }
 
-        private void UpdateCoinText()
-        {
+        private void UpdateCoinText() =>
             _coinText.text = "+" + _game.TotalCoins.ToString();
-        }
     }
 }

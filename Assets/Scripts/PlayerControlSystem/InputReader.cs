@@ -27,15 +27,11 @@ namespace PlayerControlSystem
             _playerInput.Disable();
         }
 
-        private void OnJumpPerformed(InputAction.CallbackContext _)
-        {
+        private void OnJumpPerformed(InputAction.CallbackContext _) =>
             OnMove();
-        }
 
-        private void OnTouchPerformed(InputAction.CallbackContext _)
-        {
+        private void OnTouchPerformed(InputAction.CallbackContext _) =>
             OnMove();
-        }
 
         private void OnMove()
         {

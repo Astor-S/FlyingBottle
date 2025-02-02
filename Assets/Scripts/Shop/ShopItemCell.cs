@@ -17,6 +17,7 @@ namespace Shop
         [SerializeField] private Sprite _unavailableBackground;
 
         private SkinItem _skinItem;
+
         private bool _isAvailable;
         private bool _isSelected;
 

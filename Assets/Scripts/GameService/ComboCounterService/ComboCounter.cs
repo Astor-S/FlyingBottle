@@ -17,7 +17,6 @@ namespace GameService.ComboCounterService
         private int _currentComboCount;
         private int _totalComboCount;
 
-        public int CurrentComboCount => _currentComboCount;
         public int TotalComboCount => _totalComboCount;
 
         private void Awake()
@@ -33,9 +32,8 @@ namespace GameService.ComboCounterService
         private void OnDisable()
         {
             if (_playerMover != null)
-            {
                 _playerMover.Moved -= OnMove;
-            }
+            
             StopResetCoroutine();
         }
 
@@ -84,9 +82,7 @@ namespace GameService.ComboCounterService
             }
         }
 
-        private void UpdateComboText()
-        {
+        private void UpdateComboText() =>
             _comboCounterView.SetComboText($" {_currentComboCount}");
-        }
     }
 }
