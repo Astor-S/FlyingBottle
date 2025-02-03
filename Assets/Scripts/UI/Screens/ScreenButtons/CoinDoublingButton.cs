@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using YG;
 
-namespace UI.Screens.LevelScreens
+namespace UI.Screens.ScreenButtons
 {
     public class CoinDoublingButton : MonoBehaviour
     {

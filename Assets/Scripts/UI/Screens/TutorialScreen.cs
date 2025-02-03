@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace UI.Screens.LevelScreens
+namespace UI.Screens
 {
     public class TutorialScreen : MonoBehaviour
     {

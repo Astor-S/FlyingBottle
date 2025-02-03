@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI.Screens.LevelScreens
+namespace UI.Screens
 {
     public abstract class Window : MonoBehaviour
     {

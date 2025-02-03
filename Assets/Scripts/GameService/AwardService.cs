@@ -1,4 +1,4 @@
-using UI.Screens.LevelScreens;
+using UI.Screens;
 using UnityEngine;
 
 namespace GameService

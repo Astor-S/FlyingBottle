@@ -2,7 +2,7 @@ using GameService;
 using UnityEngine;
 using YG;
 
-namespace UI.Screens.LevelScreens
+namespace UI.Screens
 {
     public class AwardScreen : MonoBehaviour
     {
