@@ -8,7 +8,6 @@ namespace UI.Screens
     {
         [SerializeField] private Button _nextLevelButton;
 
-        public event Action NextLeveleButtonClicked;
         public event Action OnScreenActivated;
 
         private void OnEnable()

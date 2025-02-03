@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,8 +7,5 @@ namespace UI.Screens
     {
         [SerializeField] private Button _reviveButton;
         [SerializeField] private Button _replayButton;
-
-        public event Action ReviveButtonClicked;
-        public event Action ReplayButtonClicked;
     }
 }
