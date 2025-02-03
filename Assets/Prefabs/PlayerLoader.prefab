@@ -45,28 +45,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _skinPrefabs:
-  - skin: 0
-    prefab: {fileID: 7759711850826154819, guid: 1f10ddc06db7f5b498ab99f491b66792, type: 3}
-  - skin: 1
-    prefab: {fileID: 7719402508171941423, guid: 00a7359f54dd39b42bc87f9293b2a448, type: 3}
-  - skin: 2
-    prefab: {fileID: 7393159267460460810, guid: 0a30ae2f85b803f4aa372169734d13fa, type: 3}
-  - skin: 3
-    prefab: {fileID: 4976172847919928957, guid: 23dcb4be7de540b40a829174820a601e, type: 3}
-  - skin: 4
-    prefab: {fileID: 5031129040164420028, guid: 8b2dd3ad0a82f45478df3a402fd6318f, type: 3}
-  - skin: 5
-    prefab: {fileID: 4445627076656969398, guid: 872193dc1dd59ca48a1d4580b31ea0f6, type: 3}
-  - skin: 6
-    prefab: {fileID: 4410624680008977827, guid: a66f1733c93aee44c9c2940377602c00, type: 3}
-  - skin: 7
-    prefab: {fileID: 2802485309868549202, guid: b33e4afa0192b5742af595410fc18827, type: 3}
-  - skin: 8
-    prefab: {fileID: 2499395082273268321, guid: d7475e78f21f60441bfc5b45319a3455, type: 3}
-  - skin: 9
-    prefab: {fileID: 7589789389920432441, guid: 64a07db83f0d3ce42badd781acc7d624, type: 3}
-  - skin: 10
-    prefab: {fileID: 6958825801123679896, guid: 575e77b83640e4e47a4be76d496ef6f4, type: 3}
-  - skin: 11
-    prefab: {fileID: 2240429931557165149, guid: f2d8909ed6d04de4386bb002d43556a4, type: 3}
+  - _skin: 0
+    _prefab: {fileID: 7759711850826154819, guid: 1f10ddc06db7f5b498ab99f491b66792, type: 3}
+  - _skin: 1
+    _prefab: {fileID: 7719402508171941423, guid: 00a7359f54dd39b42bc87f9293b2a448, type: 3}
+  - _skin: 2
+    _prefab: {fileID: 7393159267460460810, guid: 0a30ae2f85b803f4aa372169734d13fa, type: 3}
+  - _skin: 3
+    _prefab: {fileID: 4976172847919928957, guid: 23dcb4be7de540b40a829174820a601e, type: 3}
+  - _skin: 4
+    _prefab: {fileID: 0}
+  - _skin: 5
+    _prefab: {fileID: 4445627076656969398, guid: 872193dc1dd59ca48a1d4580b31ea0f6, type: 3}
+  - _skin: 6
+    _prefab: {fileID: 4410624680008977827, guid: a66f1733c93aee44c9c2940377602c00, type: 3}
+  - _skin: 7
+    _prefab: {fileID: 2802485309868549202, guid: b33e4afa0192b5742af595410fc18827, type: 3}
+  - _skin: 8
+    _prefab: {fileID: 2499395082273268321, guid: d7475e78f21f60441bfc5b45319a3455, type: 3}
+  - _skin: 9
+    _prefab: {fileID: 7589789389920432441, guid: 64a07db83f0d3ce42badd781acc7d624, type: 3}
+  - _skin: 10
+    _prefab: {fileID: 6958825801123679896, guid: 575e77b83640e4e47a4be76d496ef6f4, type: 3}
+  - _skin: 11
+    _prefab: {fileID: 2240429931557165149, guid: f2d8909ed6d04de4386bb002d43556a4, type: 3}
   _loadingPoint: {fileID: 0}

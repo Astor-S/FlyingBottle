@@ -11,8 +11,13 @@ namespace PlayerControlSystem.LoaderService
         [SerializeField] private Transform _loadingPoint;
 
         private Dictionary<Skins, Player> _skinPrefabDictionary;
+        private static Player _instance;
 
-        public static Player Instance { get; private set; }
+        public static Player Instance
+        {
+            get => _instance;
+            private set => _instance = value;
+        }
 
         private void Awake()
         {
@@ -23,8 +28,8 @@ namespace PlayerControlSystem.LoaderService
 
             foreach (SkinPrefab skinPrefab in _skinPrefabs)
             {
-                if (_skinPrefabDictionary.ContainsKey(skinPrefab.skin) == false)
-                    _skinPrefabDictionary.Add(skinPrefab.skin, skinPrefab.prefab); 
+                if (_skinPrefabDictionary.ContainsKey(skinPrefab.Skin) == false)
+                    _skinPrefabDictionary.Add(skinPrefab.Skin, skinPrefab.Prefab); 
             }
         }
 
