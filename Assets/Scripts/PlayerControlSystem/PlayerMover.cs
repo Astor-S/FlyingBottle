@@ -25,6 +25,7 @@ namespace PlayerControlSystem
         [SerializeField] private float _jumpDuration = 1f;
         [SerializeField] private float _jumpHeight = 2f;
         [SerializeField] private float _jumpDistanceX = 2f;
+        [SerializeField] private float _boxCastExtentsMultiplier = 0.5f;
         [SerializeField][Range(0, 1)] private float _rotationStartTime = 0.2f;
         [SerializeField][Range(0, 1)] private float _rotationEndTime = 0.8f;
         [SerializeField] private Transform _rotationAnchor;
@@ -39,7 +40,6 @@ namespace PlayerControlSystem
         private GroundChecker _groundChecker;
 
         private float _currentRotationAngle;
-        private float _currentJumpTime; 
         
         private bool _isRotating;
         private bool _isSurfaced;
@@ -87,13 +87,13 @@ namespace PlayerControlSystem
             if (_isSurfaced || _canDoubleJump)
             {
                 if (_isSurfaced || (_isRotating == false && _canDoubleJump))
-                    StartJump();
+                    HandleJump();
                 else if (_isSurfaced == false && _canDoubleJump && _isRotating)
                     ActivateWaitingDoubleJump();
             }
         }
 
-        private void StartJump()
+        private void HandleJump()
         {
             ResetJump();
             
@@ -128,7 +128,7 @@ namespace PlayerControlSystem
                 yield return null;
             }
             
-            StartJump();
+            HandleJump();
 
             _waitingDoubleJumpCoroutine = null;
         }
@@ -141,8 +141,7 @@ namespace PlayerControlSystem
             float maxPositionX = startPositionX + _jumpDistanceX;
 
             float time = 0f;
-            _currentJumpTime = 0f;
-           
+
             float normalTime;
             _isRotating = false;
 
@@ -163,8 +162,7 @@ namespace PlayerControlSystem
                 _rigidbody.MovePosition(position);
 
                 time += Time.deltaTime;
-                _currentJumpTime = time;
-
+                
                 yield return new WaitForFixedUpdate();
             }
 
@@ -187,7 +185,7 @@ namespace PlayerControlSystem
 
                 int count = Physics.BoxCastNonAlloc(
                     _boxCollider.bounds.center,
-                    _boxCollider.bounds.extents * 0.5f,
+                    _boxCollider.bounds.extents * _boxCastExtentsMultiplier,
                     direction,
                     _hits,
                     _bottle.transform.rotation,
