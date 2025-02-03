@@ -45,9 +45,7 @@ namespace YG
             openedLevels.Add(Levels.Level1);
         }
 
-        public bool IsLevelOpen(Levels level)
-        {
-            return openedLevels.Contains(level);
-        }
+        public bool IsLevelOpen(Levels level) =>
+            openedLevels.Contains(level);
     }
 }
