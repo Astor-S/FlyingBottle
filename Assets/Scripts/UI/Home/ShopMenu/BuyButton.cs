@@ -1,3 +1,4 @@
+using Shop;
 using TMPro;
 using UI.Home.Interfaces;
 using UnityEngine;
@@ -14,10 +15,13 @@ namespace UI.Home.ShopMenu
         [SerializeField] private BalanceDisplay _balanceDisplayMain;
 
         private SavesYG _savesYG;
+        private ShopItemCell _shopItemCell;
 
         private void Start()
         {
             _savesYG = YandexGame.savesData;
+
+            _shopItemCell = GetComponentInParent<ShopItemCell>();
 
             if (_savesYG.ownedSkins.Contains(_skinToBuy) == false)
                 gameObject.SetActive(true);
@@ -46,9 +50,14 @@ namespace UI.Home.ShopMenu
         {
             _savesYG.ownedSkins.Add(_skinToBuy);
             YandexGame.SaveProgress();
+            
             gameObject.SetActive(false);
+            
             _balanceDisplayShop.RefreshBalance();
             _balanceDisplayMain.RefreshBalance();
+            
+            if (_shopItemCell != null)
+                _shopItemCell.SetAvailable(true);
         }
 
         private void UpdatePriceText() =>

@@ -23,6 +23,12 @@ namespace Shop
 
         public Action<ShopItemCell> OnCellClicked;
 
+        public void OnCellClick() =>
+            OnCellClicked?.Invoke(this);
+
+        public SkinItem GetSkinItem() =>
+            _skinItem;
+
         public void Initialize(SkinItem skinItem, bool isAvailable, bool isSelected)
         {
             _skinItem = skinItem;
@@ -36,16 +42,6 @@ namespace Shop
         {
             _isAvailable = isAvailable;
             UpdateVisual();
-        }
-
-        public void OnCellClick()
-        {
-            OnCellClicked?.Invoke(this);
-        }
-
-        public SkinItem GetSkinItem()
-        {
-            return _skinItem;
         }
 
         public void SetSelected(bool isSelected)
