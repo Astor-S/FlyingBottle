@@ -8,7 +8,7 @@ using YG;
 
 namespace GameService
 {
-    public class Game : MonoBehaviour
+    public class GameHandler : MonoBehaviour
     {
         [SerializeField] private PlayerControlSystem.LoaderService.PlayerLoader _playerLoader;
         [SerializeField] private FailScreen _failScreen;
