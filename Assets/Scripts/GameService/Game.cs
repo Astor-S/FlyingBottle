@@ -18,12 +18,13 @@ namespace GameService
         [SerializeField] private Levels _levelsToOpen;
 
         [SerializeField] private int _coinsPerLevel;
+        
+        private readonly float _pauseDelayForSeconds = 0.1f;
 
         private SavesYG _savesYG;
         private Player _player;
         private WaitForSeconds _waitPauseDelayForSeconds;
 
-        private float _pauseDelayForSeconds = 0.1f;
         private int _totalCoins;
         private int _levelCoins;
 

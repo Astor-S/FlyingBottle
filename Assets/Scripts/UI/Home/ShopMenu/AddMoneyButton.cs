@@ -8,10 +8,10 @@ namespace UI.Home.ShopMenu
     {
         [SerializeField] private BalanceDisplay _balanceDisplayShop;
         [SerializeField] private BalanceDisplay _balanceDisplayMain;
+        
+        private readonly int _coinsForWathAD = 200;
 
         private SavesYG _savesYG;
-
-        private int _coinsFofWathAD = 200;
 
         private void Start()
         {
@@ -39,7 +39,7 @@ namespace UI.Home.ShopMenu
 
         private void AddMoney()
         {
-            _savesYG.balanceMoney += _coinsFofWathAD;
+            _savesYG.balanceMoney += _coinsForWathAD;
             YandexGame.SaveProgress();
             _balanceDisplayShop.RefreshBalance();
             _balanceDisplayMain.RefreshBalance();
