@@ -6,10 +6,10 @@ using YG;
 
 namespace UI.Home.MainMenu
 {
-    public class SelectLeaderboard : MonoBehaviour, IMenuButton
+    public class LeaderboardButton : MonoBehaviour, IMenuButton
     {
-        [SerializeField] AuthorizationRequestScreen _requestScreen;
-        [SerializeField] LeadearboardService _leadearboardService;
+        [SerializeField] private AuthorizationRequestScreen _requestScreen;
+        [SerializeField] private LeadearboardService _leadearboardService;
 
         public void OnButtonClick()
         {
