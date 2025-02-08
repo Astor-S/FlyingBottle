@@ -60,7 +60,9 @@ namespace Shop
 
         private void InitializeCells()
         {
-            _shopCells = new List<ShopItemCell>(_shopContainer.GetComponentsInChildren<ShopItemCell>(true));
+            _shopCells = new List<ShopItemCell>(
+                _shopContainer.GetComponentsInChildren<ShopItemCell>(true)
+                );
 
             for (int i = 0; i < _shopCells.Count; i++)
             {
