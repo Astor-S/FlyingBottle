@@ -8,8 +8,8 @@ namespace UI.Home
     public class MenuSwitcher : MonoBehaviour
     {
         [SerializeField] private MainMenuService _mainMenuService;
-        [SerializeField] private SelectLevel _selectLevel;
-        [SerializeField] private SelectShop _selectShop;
+        [SerializeField] private LevelMenuButton _selectLevel;
+        [SerializeField] private ShopMenuButton _selectShop;
         [SerializeField] private LevelMenuService _levelMenuService;
         [SerializeField] private ShopMenuService _shopMenuService;
         [SerializeField] private CloseLevelMenuButton _closeLevelMenuButton;
