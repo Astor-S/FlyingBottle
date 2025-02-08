@@ -9,7 +9,7 @@ namespace PlayerControlSystem.LoaderService
         [SerializeField] private Skins _skin;
         [SerializeField] private Player _prefab;
 
-        public Skins Skin => _skin;
-        public Player Prefab => _prefab;
+        public readonly Skins Skin => _skin;
+        public readonly Player Prefab => _prefab;
     }
 }
