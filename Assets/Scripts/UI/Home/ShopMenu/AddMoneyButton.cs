@@ -45,6 +45,4 @@ namespace UI.Home.ShopMenu
             _balanceDisplayMain.RefreshBalance();
         }
     }
-
-
 }

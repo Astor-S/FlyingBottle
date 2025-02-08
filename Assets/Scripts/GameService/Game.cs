@@ -58,7 +58,6 @@ namespace GameService
                 _player.GameOver += OnGameOver;
                 _player.LevelComplete += OnCompleteLevel;
             }
-
         }
 
         private void UnsubscribeFromPlayerEvents()
