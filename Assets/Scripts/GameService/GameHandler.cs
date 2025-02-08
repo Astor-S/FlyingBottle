@@ -4,6 +4,7 @@ using UI.Screens;
 using UI.Screens.ScreenButtons;
 using GameService.ComboCounterService;
 using PlayerControlSystem;
+using PlayerControlSystem.LoaderService;
 using YG;
 
 namespace GameService
@@ -72,12 +73,12 @@ namespace GameService
 
         private IEnumerator WaitForPlayer()
         {
-            while (PlayerControlSystem.LoaderService.PlayerLoader.Instance == null)
+            while (PlayerLoader.Instance == null)
             {
                 yield return null;
             }
 
-            _player = PlayerControlSystem.LoaderService.PlayerLoader.Instance;
+            _player = PlayerLoader.Instance;
             SubscribeToPlayerEvents();
         }
 

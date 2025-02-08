@@ -1,7 +1,8 @@
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
+using PlayerControlSystem.LoaderService;
 
 namespace GameService.ReviveService
 {
@@ -44,9 +45,9 @@ namespace GameService.ReviveService
 
         private void FindPlayerRigidbody()
         {
-            if (PlayerControlSystem.LoaderService.PlayerLoader.Instance != null)
+            if (PlayerLoader.Instance != null)
             {
-                Transform playerTransform = PlayerControlSystem.LoaderService.PlayerLoader.Instance.transform;
+                Transform playerTransform = PlayerLoader.Instance.transform;
                 _playerRigidbody = playerTransform.GetComponent<Rigidbody>();
             }
         }
@@ -61,7 +62,7 @@ namespace GameService.ReviveService
             if (_playerRigidbody != null)
                 playerPosition = _playerRigidbody.position;
             else
-                playerPosition = PlayerControlSystem.LoaderService.PlayerLoader.Instance.transform.position;
+                playerPosition = PlayerLoader.Instance.transform.position;
             
             return _revivePoints.OrderBy(point =>
                 (playerPosition - point.transform.position).sqrMagnitude).FirstOrDefault();

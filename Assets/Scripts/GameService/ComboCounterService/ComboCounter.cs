@@ -1,5 +1,6 @@
 using UnityEngine;
 using PlayerControlSystem;
+using PlayerControlSystem.LoaderService;
 using System.Collections;
 
 namespace GameService.ComboCounterService
@@ -39,12 +40,12 @@ namespace GameService.ComboCounterService
 
         private IEnumerator WaitForPlayer()
         {
-            while (PlayerControlSystem.LoaderService.PlayerLoader.Instance == null)
+            while (PlayerLoader.Instance == null)
             {
                 yield return null;
             }
 
-            _playerMover = PlayerControlSystem.LoaderService.PlayerLoader.Instance.GetComponent<PlayerMover>();
+            _playerMover = PlayerLoader.Instance.GetComponent<PlayerMover>();
             
             if (_playerMover != null)
                 _playerMover.Moved += OnMove; 
