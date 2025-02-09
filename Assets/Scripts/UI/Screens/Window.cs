@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,23 +7,9 @@ namespace UI.Screens
     {
         [SerializeField] private Button _homeButton;
 
-        public event Action HomeButtonClicked;
-
-        protected Button HomeButton => _homeButton;
-
         private void Awake()
         {
             gameObject.SetActive(false);
-        }
-
-        private void OnEnable()
-        {
-            _homeButton.onClick.AddListener(OnHomeButtonClick);
-        }
-
-        private void OnDisable()
-        {
-            _homeButton.onClick.RemoveListener(OnHomeButtonClick);
         }
 
         public void Close()
@@ -35,11 +20,6 @@ namespace UI.Screens
         public void Open()
         {
             gameObject.SetActive(true);
-        }
-
-        private void OnHomeButtonClick()
-        {
-            HomeButtonClicked?.Invoke();
         }
     }
 }
