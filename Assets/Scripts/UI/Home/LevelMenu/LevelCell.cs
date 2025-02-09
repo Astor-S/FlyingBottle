@@ -14,9 +14,6 @@ namespace UI.Home.LevelMenu
         [SerializeField] private string _sceneToLoad;
         [SerializeField] private int _cellIndex;
 
-        public string SceneToLoad => _sceneToLoad;
-        public int CellIndex => _cellIndex;
-
         public void LoadScene()
         {
             if (string.IsNullOrEmpty(_sceneToLoad) == false)
