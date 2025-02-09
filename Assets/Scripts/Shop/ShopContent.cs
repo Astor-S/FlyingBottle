@@ -11,8 +11,6 @@ namespace Shop
     {
         [SerializeField] private List<SkinItem> _skinItems;
 
-        public IEnumerable<SkinItem> SkinItems => _skinItems;
-
         private void OnValidate()
         {
             var skinsDuplicates = _skinItems.GroupBy(item => item.SkinType)
