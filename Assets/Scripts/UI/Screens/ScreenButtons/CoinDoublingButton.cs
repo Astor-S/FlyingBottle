@@ -24,7 +24,7 @@ namespace UI.Screens.ScreenButtons
         private void OpenRewardAd(int id) =>
             YandexGame.RewVideoShow(id);
 
-        private void Rewarded(int id) =>
+        private void Rewarded(int _) =>
             AddDoubleAwards();
 
         private void AddDoubleAwards()

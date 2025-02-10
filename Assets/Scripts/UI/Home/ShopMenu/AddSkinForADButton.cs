@@ -36,7 +36,7 @@ namespace UI.Home.ShopMenu
         private void OpenRewardAd(int id) =>
             YandexGame.RewVideoShow(id);
 
-        private void Rewarded(int id) => 
+        private void Rewarded(int _) => 
             AddSkin();
 
         private void AddSkin()

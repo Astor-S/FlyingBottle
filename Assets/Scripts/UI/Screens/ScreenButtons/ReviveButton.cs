@@ -25,7 +25,7 @@ namespace UI.Screens.LevelScreens.ScreenButtons
         private void OpenRewardAd(int id) =>
            YandexGame.RewVideoShow(id);
 
-        private void Rewarded(int id) =>
+        private void Rewarded(int _) =>
            OnRevive();
 
         private void OnRevive()
