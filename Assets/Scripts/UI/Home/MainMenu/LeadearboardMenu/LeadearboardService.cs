@@ -1,23 +1,6 @@
-using UI.Home.Interfaces;
-using UnityEngine;
+using UI.Home.TypesServiceMenus;
 
 namespace UI.Home.MainMenu.LeadearboardMenu
 {
-    public class LeadearboardService : MonoBehaviour, IMenuService
-    {
-        private void Awake()
-        {
-            gameObject.SetActive(false);
-        }
-
-        public void Close()
-        {
-            gameObject.SetActive(false);
-        }
-
-        public void Open()
-        {
-            gameObject.SetActive(true);
-        }
-    }
+    public class LeadearboardService : InitiallyInactiveService {}
 }
