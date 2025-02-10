@@ -5,14 +5,6 @@ namespace UI.Home
 {
     public static class AudioService
     {
-        public static void ToggleSound()
-        {
-            SavesYG saves = YandexGame.savesData; 
-            saves.isSoundOn = saves.isSoundOn == false; 
-            UpdateAllAudioSources();
-            YandexGame.SaveProgress(); 
-        }
-
         public static void SetSoundState(bool state)
         {
             SavesYG saves = YandexGame.savesData;
