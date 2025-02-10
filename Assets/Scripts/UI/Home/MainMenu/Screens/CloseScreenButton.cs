@@ -1,15 +1,12 @@
-using UI.Home.Interfaces;
 using UnityEngine;
 
 namespace UI.Home.MainMenu.Screens
 {
-    public class CloseScreenButton : MonoBehaviour, IMenuButton
+    public class CloseScreenButton : MenuButton
     {
         [SerializeField] private ScreenInMainMenu _screenMainMenu;
 
-        public void OnButtonClick()
-        {
+        public override void OnButtonClick() =>
             _screenMainMenu.Close();
-        }
     }
 }

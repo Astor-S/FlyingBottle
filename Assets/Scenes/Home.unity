@@ -8269,8 +8269,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 769874403}
-        m_TargetAssemblyTypeName: UI.LevelMenu.CloseButton, Assembly-CSharp
-        m_MethodName: OnCloseLevelButton
+        m_TargetAssemblyTypeName: UI.Home.LevelMenu.CloseLevelMenuButton, Assembly-CSharp
+        m_MethodName: OnButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16127,7 +16127,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4993989438198226694, guid: c66c7bac89f010b47979344bbb77584b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 78.62282
+      value: 78.62279
       objectReference: {fileID: 0}
     - target: {fileID: 7442660659306160117, guid: c66c7bac89f010b47979344bbb77584b, type: 3}
       propertyPath: m_Name
@@ -17156,7 +17156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.49166858, y: 0.29249877}
   m_AnchorMax: {x: 0.72, y: 0.6474988}
-  m_AnchoredPosition: {x: 23.562027, y: -28.613008}
+  m_AnchoredPosition: {x: 23.562027, y: -28.613007}
   m_SizeDelta: {x: -50.43701, y: -40.964996}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1425549195
@@ -21313,7 +21313,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2062480242}
         m_TargetAssemblyTypeName: UI.Home.MainMenu.LevelMenuButton, Assembly-CSharp
-        m_MethodName: OnSelectLevelButton
+        m_MethodName: OnButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -1,15 +1,12 @@
-using UI.Home.Interfaces;
 using UnityEngine;
 
 namespace UI.Home.MainMenu.SettingsMenu
 {
-    public class CloseSettings : MonoBehaviour, IMenuButton
+    public class CloseSettings : MenuButton
     {
         [SerializeField] private SettingsScreen _settingsMenu;
 
-        public void OnButtonClick()
-        {
+        public override void OnButtonClick() =>
             _settingsMenu.Close();
-        }
     }
 }

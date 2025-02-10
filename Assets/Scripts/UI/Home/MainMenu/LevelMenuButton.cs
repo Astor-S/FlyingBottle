@@ -1,16 +1,12 @@
 using System;
-using UnityEngine;
 
 namespace UI.Home.MainMenu
 {
-    public class LevelMenuButton : MonoBehaviour, Interfaces.IMenuButton
+    public class LevelMenuButton : MenuButton
     {
         public event Action OnOpenLevelMenu;
 
-        public void OnButtonClick() =>
+        public override void OnButtonClick() =>
             OnOpenLevelMenu?.Invoke();
-
-        public void OnSelectLevelButton() =>
-            OnButtonClick();
     }
 }

@@ -1,13 +1,12 @@
 using System;
-using UnityEngine;
 
 namespace UI.Home.MainMenu
 {
-    public class ShopMenuButton : MonoBehaviour, Interfaces.IMenuButton
+    public class ShopMenuButton : MenuButton
     {
         public event Action OnOpenShop;
 
-        public void OnButtonClick() =>
+        public override void OnButtonClick() =>
             OnOpenShop?.Invoke();
     }
 }

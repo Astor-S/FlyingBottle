@@ -1,10 +1,9 @@
-using UI.Home.Interfaces;
 using UnityEngine;
 using YG;
 
 namespace UI.Home.ShopMenu
 {
-    public class AddSkinForADButton : MonoBehaviour, IMenuButton
+    public class AddSkinForADButton : MenuButton
     {
         [SerializeField] private GameService.Skins _skinToAdd;
 
@@ -30,7 +29,7 @@ namespace UI.Home.ShopMenu
             YandexGame.RewardVideoEvent -= Rewarded;
         }
 
-        public void OnButtonClick() =>
+        public override void OnButtonClick() =>
            OpenRewardAd(0);
 
         private void OpenRewardAd(int id) =>

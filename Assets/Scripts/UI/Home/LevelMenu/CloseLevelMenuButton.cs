@@ -1,16 +1,12 @@
 using System;
-using UnityEngine;
 
 namespace UI.Home.LevelMenu
 {
-    public class CloseLevelMenuButton : MonoBehaviour, Home.Interfaces.IMenuButton
+    public class CloseLevelMenuButton : MenuButton
     {
         public event Action OnCloseLevelMenu;
 
-        public void OnButtonClick() =>
+        public override void OnButtonClick() =>
             OnCloseLevelMenu?.Invoke();
-
-        public void OnCloseLevelButton() =>
-            OnButtonClick();
     }
 }

@@ -1,13 +1,12 @@
 using System;
-using UnityEngine;
 
 namespace UI.Home.ShopMenu
 {
-    public class CloseShopButton : MonoBehaviour, Interfaces.IMenuButton
+    public class CloseShopButton : MenuButton
     {
         public event Action OnCloseShop;
 
-        public void OnButtonClick() =>
+        public override void OnButtonClick() =>
             OnCloseShop?.Invoke();
     }
 }

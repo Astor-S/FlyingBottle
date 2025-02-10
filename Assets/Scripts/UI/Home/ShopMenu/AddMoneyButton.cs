@@ -1,10 +1,9 @@
-using UI.Home.Interfaces;
 using UnityEngine;
 using YG;
 
 namespace UI.Home.ShopMenu
 {
-    public class AddMoneyButton : MonoBehaviour, IMenuButton
+    public class AddMoneyButton : MenuButton
     {
         [SerializeField] private BalanceDisplay _balanceDisplayShop;
         [SerializeField] private BalanceDisplay _balanceDisplayMain;
@@ -28,7 +27,7 @@ namespace UI.Home.ShopMenu
             YandexGame.RewardVideoEvent -= Rewarded;
         }
 
-        public void OnButtonClick() =>
+        public override void  OnButtonClick() =>
             OpenRewardAd(0);
 
         private void OpenRewardAd(int id) =>

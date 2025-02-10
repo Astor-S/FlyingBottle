@@ -1,12 +1,11 @@
 using Shop;
 using TMPro;
-using UI.Home.Interfaces;
 using UnityEngine;
 using YG;
 
 namespace UI.Home.ShopMenu
 {
-    public class BuyButton : MonoBehaviour, IMenuButton
+    public class BuyButton : MenuButton
     {
         [SerializeField] private GameService.Skins _skinToBuy;
         [SerializeField] private int _skinCost;
@@ -31,7 +30,7 @@ namespace UI.Home.ShopMenu
             UpdatePriceText();
         }
 
-        public void OnButtonClick() =>
+        public override void OnButtonClick() =>
             PurchaseRequest();
 
         private void PurchaseRequest()
