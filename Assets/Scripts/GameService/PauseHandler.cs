@@ -1,3 +1,4 @@
+using System.Collections;
 using UI.Screens.LevelScreens.ScreenButtons;
 using UnityEngine;
 
@@ -7,6 +8,15 @@ namespace GameService
     {
         [SerializeField] private ReviveButton _reviveButton;
 
+        private WaitForSeconds _waitPauseDelayForSeconds;
+
+        private readonly float _pauseDelayForSeconds = 0.1f;
+
+        private void Awake()
+        {
+            _waitPauseDelayForSeconds = new WaitForSeconds(_pauseDelayForSeconds);
+        }
+
         private void OnEnable()
         {
             _reviveButton.OnGameContinue += ContinueGame;
@@ -15,6 +25,13 @@ namespace GameService
         private void OnDisable()
         {
             _reviveButton.OnGameContinue -= ContinueGame;
+        }
+
+        public IEnumerator PauseGameDelayed()
+        {
+            yield return _waitPauseDelayForSeconds;
+
+            PauseGame();
         }
 
         private void PauseGame() =>

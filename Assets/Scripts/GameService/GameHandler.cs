@@ -12,6 +12,7 @@ namespace GameService
 {
     public class GameHandler : MonoBehaviour
     {
+        [SerializeField] private PauseHandler _pauseHandler;
         [SerializeField] private FailScreen _failScreen;
         [SerializeField] private CompleteScreen _completeScreen;
         [SerializeField] private ComboCounter _comboCounter;
@@ -19,22 +20,14 @@ namespace GameService
         [SerializeField] private Levels _levelsToOpen;
         [SerializeField] private int _coinsPerLevel;
         [Inject] private readonly PlayerLoader _playerLoader;
-        
-        private readonly float _pauseDelayForSeconds = 0.1f;
 
         private SavesYG _savesYG;
         private Player _player;
-        private WaitForSeconds _waitPauseDelayForSeconds;
 
         private int _totalCoins;
         private int _levelCoins;
 
         public int TotalCoins => _totalCoins;
-
-        private void Awake()
-        {
-            _waitPauseDelayForSeconds = new WaitForSeconds(_pauseDelayForSeconds);
-        }
 
         private void Start()
         {
@@ -86,7 +79,7 @@ namespace GameService
         {
             _failScreen.Open();
             
-            StartCoroutine(PauseGameDelayed());
+            StartCoroutine(_pauseHandler.PauseGameDelayed());
         }
 
         private void OnCompleteLevel()
@@ -94,17 +87,7 @@ namespace GameService
             AwardCoins();
             RequestToOpenLevel();
             _completeScreen.Open();
-            StartCoroutine(PauseGameDelayed());
-        }
-
-        private void PauseGame() =>
-            Time.timeScale = 0f;
-
-        private IEnumerator PauseGameDelayed()
-        {
-            yield return _waitPauseDelayForSeconds;
-
-            PauseGame();
+            StartCoroutine(_pauseHandler.PauseGameDelayed());
         }
 
         private void AwardCoins()
