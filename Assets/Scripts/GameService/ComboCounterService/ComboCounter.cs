@@ -2,6 +2,7 @@ using UnityEngine;
 using PlayerControlSystem;
 using PlayerControlSystem.LoaderService;
 using System.Collections;
+using Zenject;
 
 namespace GameService.ComboCounterService
 {
@@ -9,6 +10,7 @@ namespace GameService.ComboCounterService
     {
         [SerializeField] private ComboCounterView _comboCounterView;
         [SerializeField] private float _comboResetTime = 1.5f;
+        [Inject] private PlayerLoader _playerLoader;
 
         private PlayerMover _playerMover;
 
@@ -40,12 +42,12 @@ namespace GameService.ComboCounterService
 
         private IEnumerator WaitForPlayer()
         {
-            while (PlayerLoader.Instance == null)
+            while (_playerLoader == null)
             {
                 yield return null;
             }
 
-            _playerMover = PlayerLoader.Instance.GetComponent<PlayerMover>();
+            _playerMover = _playerLoader.GetPlayer().GetComponent<PlayerMover>();
             
             if (_playerMover != null)
                 _playerMover.Moved += OnMove; 

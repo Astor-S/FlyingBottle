@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using PlayerControlSystem.LoaderService;
+using Zenject;
 
 namespace GameService.ReviveService
 {
@@ -10,10 +11,11 @@ namespace GameService.ReviveService
     {
         [SerializeField] private List<RevivePoint> _revivePoints = new List<RevivePoint> ();
         [SerializeField] private float _delayTime = 0.1f;
+        [Inject] private PlayerLoader _playerLoader;
 
         private Rigidbody _playerRigidbody;
 
-        private void Awake()
+        private void Start()
         {
             FindPlayerRigidbody();
         }
@@ -45,9 +47,9 @@ namespace GameService.ReviveService
 
         private void FindPlayerRigidbody()
         {
-            if (PlayerLoader.Instance != null)
+            if (_playerLoader != null)
             {
-                Transform playerTransform = PlayerLoader.Instance.transform;
+                Transform playerTransform =_playerLoader.GetPlayer().transform;
                 _playerRigidbody = playerTransform.GetComponent<Rigidbody>();
             }
         }
@@ -62,7 +64,7 @@ namespace GameService.ReviveService
             if (_playerRigidbody != null)
                 playerPosition = _playerRigidbody.position;
             else
-                playerPosition = PlayerLoader.Instance.transform.position;
+                playerPosition = _playerLoader.GetPlayer().transform.position;
             
             return _revivePoints.OrderBy(point =>
                 (playerPosition - point.transform.position).sqrMagnitude).FirstOrDefault();

@@ -2,13 +2,14 @@ using UnityEngine;
 using System.Collections;
 using PlayerControlSystem;
 using PlayerControlSystem.LoaderService;
+using Zenject;
 
 namespace GameService
 {
     public class PlayerTracker : MonoBehaviour
     {
-        [SerializeField] private PlayerControlSystem.LoaderService.PlayerLoader _playerLoader;
         [SerializeField] private float _xOffset;
+        [Inject] private PlayerLoader _playerLoader;
 
         private Player _player;
 
@@ -29,12 +30,12 @@ namespace GameService
 
         private IEnumerator WaitForPlayer()
         {
-            while (PlayerLoader.Instance == null)
+            while (_playerLoader == null)
             {
                 yield return null;
             }
 
-            _player = PlayerLoader.Instance;
+            _player =_playerLoader.GetPlayer();
         }
     }
 }

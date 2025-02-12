@@ -5,13 +5,15 @@ using UI.Screens.ScreenButtons;
 using GameService.ComboCounterService;
 using PlayerControlSystem;
 using PlayerControlSystem.LoaderService;
+using Zenject;
 using YG;
 
 namespace GameService
 {
     public class GameHandler : MonoBehaviour
     {
-        [SerializeField] private PlayerControlSystem.LoaderService.PlayerLoader _playerLoader;
+        [Inject] private PlayerLoader _playerLoader;
+        //[SerializeField] private PlayerLoader _playerLoader;
         [SerializeField] private FailScreen _failScreen;
         [SerializeField] private CompleteScreen _completeScreen;
         [SerializeField] private ComboCounter _comboCounter;
@@ -73,12 +75,12 @@ namespace GameService
 
         private IEnumerator WaitForPlayer()
         {
-            while (PlayerLoader.Instance == null)
+            while (_playerLoader == null)
             {
                 yield return null;
             }
 
-            _player = PlayerLoader.Instance;
+            _player = _playerLoader.GetPlayer();
             SubscribeToPlayerEvents();
         }
 
