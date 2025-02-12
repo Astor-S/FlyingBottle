@@ -11,7 +11,7 @@ namespace GameService.ReviveService
     {
         [SerializeField] private List<RevivePoint> _revivePoints = new List<RevivePoint> ();
         [SerializeField] private float _delayTime = 0.1f;
-        [Inject] private PlayerLoader _playerLoader;
+        [Inject] private readonly PlayerLoader _playerLoader;
 
         private Rigidbody _playerRigidbody;
 

@@ -10,7 +10,7 @@ namespace GameService.ComboCounterService
     {
         [SerializeField] private ComboCounterView _comboCounterView;
         [SerializeField] private float _comboResetTime = 1.5f;
-        [Inject] private PlayerLoader _playerLoader;
+        [Inject] private readonly PlayerLoader _playerLoader;
 
         private PlayerMover _playerMover;
 
