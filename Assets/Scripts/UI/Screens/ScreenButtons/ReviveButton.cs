@@ -1,4 +1,5 @@
 using GameService.ReviveService;
+using System;
 using UnityEngine;
 using YG;
 
@@ -8,6 +9,8 @@ namespace UI.Screens.LevelScreens.ScreenButtons
     {
         [SerializeField] private Reviver _reviver;
         [SerializeField] private FailScreen _failScreen;
+
+        public event Action OnGameContinue;
 
         private void OnEnable()
         {
@@ -31,11 +34,8 @@ namespace UI.Screens.LevelScreens.ScreenButtons
         private void OnRevive()
         {
             _failScreen.Close();
-            ContinueGame();
+            OnGameContinue?.Invoke();
             _reviver.Revived();
         }
-
-        private void ContinueGame() =>
-            Time.timeScale = 1f;
     }
 }
