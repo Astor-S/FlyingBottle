@@ -9,9 +9,9 @@ namespace GameService.ReviveService
 {
     public class Reviver : MonoBehaviour
     {
-        [SerializeField] private List<RevivePoint> _revivePoints = new List<RevivePoint> ();
-        [SerializeField] private float _delayTime = 0.1f;
         [Inject] private readonly PlayerLoader _playerLoader;
+        [SerializeField] private List<RevivePoint> _revivePoints = new();
+        [SerializeField] private float _delayTime = 0.1f;
 
         private Rigidbody _playerRigidbody;
 

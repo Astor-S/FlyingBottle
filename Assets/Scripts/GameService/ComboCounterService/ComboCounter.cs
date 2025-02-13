@@ -8,9 +8,9 @@ namespace GameService.ComboCounterService
 {
     public class ComboCounter : MonoBehaviour
     {
+        [Inject] private readonly PlayerLoader _playerLoader;
         [SerializeField] private ComboCounterView _comboCounterView;
         [SerializeField] private float _comboResetTime = 1.5f;
-        [Inject] private readonly PlayerLoader _playerLoader;
 
         private PlayerMover _playerMover;
 

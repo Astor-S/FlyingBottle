@@ -12,6 +12,7 @@ namespace GameService
 {
     public class GameHandler : MonoBehaviour
     {
+        [Inject] private readonly PlayerLoader _playerLoader;
         [SerializeField] private PauseHandler _pauseHandler;
         [SerializeField] private FailScreen _failScreen;
         [SerializeField] private CompleteScreen _completeScreen;
@@ -19,7 +20,6 @@ namespace GameService
         [SerializeField] private CoinDoublingButton _coinDoubling;
         [SerializeField] private Levels _levelsToOpen;
         [SerializeField] private int _coinsPerLevel;
-        [Inject] private readonly PlayerLoader _playerLoader;
 
         private SavesYG _savesYG;
         private Player _player;

@@ -8,8 +8,8 @@ namespace GameService
 {
     public class PlayerTracker : MonoBehaviour
     {
-        [SerializeField] private float _xOffset;
         [Inject] private readonly PlayerLoader _playerLoader;
+        [SerializeField] private float _xOffset;
 
         private Player _player;
 
