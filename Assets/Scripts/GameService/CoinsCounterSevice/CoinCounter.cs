@@ -1,12 +1,13 @@
 using UnityEngine;
 using TMPro;
+using GameService.GameHandlerSystem;
 
 namespace GameService.ComboCounterService
 {
     public class CoinCounter : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI _coinText;
-        [SerializeField] private GameHandler _gameHandler;
+        [SerializeField] private LevelRewarder _levelRewarder;
 
         private void OnEnable()
         {
@@ -19,6 +20,6 @@ namespace GameService.ComboCounterService
         }
 
         private void UpdateCoinText() =>
-            _coinText.text = "+" + _gameHandler.TotalCoins.ToString();
+            _coinText.text = "+" + _levelRewarder.TotalCoins.ToString();
     }
 }

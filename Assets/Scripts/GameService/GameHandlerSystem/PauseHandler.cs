@@ -2,7 +2,7 @@ using System.Collections;
 using UI.Screens.LevelScreens.ScreenButtons;
 using UnityEngine;
 
-namespace GameService
+namespace GameService.GameHandlerSystem
 {
     public class PauseHandler : MonoBehaviour
     {
