@@ -21,7 +21,7 @@ namespace GameService
         public void ShowRewardAd(int id) =>
             YandexGame.RewVideoShow(id);
 
-        private void Rewarded(int id) =>
+        private void Rewarded(int _) =>
             OnRewardReceived?.Invoke();
     }
 }
