@@ -5,11 +5,11 @@ namespace UI.Home.ShopMenu
 {
     public class AddMoneyButton : MenuButton
     {
+        private readonly int _coinsForWathAD = 200;
+
         [SerializeField] private BalanceDisplay _balanceDisplayShop;
         [SerializeField] private BalanceDisplay _balanceDisplayMain;
         
-        private readonly int _coinsForWathAD = 200;
-
         private SavesYG _savesYG;
 
         private void Start()
