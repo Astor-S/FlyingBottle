@@ -1,4 +1,5 @@
 using NaughtyAttributes;
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,10 +11,12 @@ namespace UI.Screens.LevelScreens.ScreenButtons
         [Scene]
         [SerializeField] private string _sceneToLoad;
 
+        public event Action OnGameContinue;
+
         public void OnButtonClick()
         {
             StartCoroutine(LoadingScene(_sceneToLoad));
-            ContinueGame();
+            OnGameContinue?.Invoke();
         }
 
         private IEnumerator LoadingScene(string sceneName)
@@ -25,8 +28,5 @@ namespace UI.Screens.LevelScreens.ScreenButtons
                 yield return null;
             }
         }
-
-        private void ContinueGame() =>
-            Time.timeScale = 1f;
     }
 }

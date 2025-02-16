@@ -1,12 +1,14 @@
 using System.Collections;
-using UI.Screens.LevelScreens.ScreenButtons;
+using System.Collections.Generic;
 using UnityEngine;
+using UI.Screens.LevelScreens.ScreenButtons;
 
 namespace GameService.GameHandlerSystem
 {
     public class PauseHandler : MonoBehaviour
     {
         [SerializeField] private ReviveButton _reviveButton;
+        [SerializeField] private List<LoadSceneButton> _loadSceneButtons;
 
         private WaitForSeconds _waitPauseDelayForSeconds;
 
@@ -20,11 +22,17 @@ namespace GameService.GameHandlerSystem
         private void OnEnable()
         {
             _reviveButton.OnGameContinue += ContinueGame;
+            
+            foreach (var button in _loadSceneButtons)
+                button.OnGameContinue += ContinueGame; 
         }
 
         private void OnDisable()
         {
             _reviveButton.OnGameContinue -= ContinueGame;
+            
+            foreach (var button in _loadSceneButtons)
+                button.OnGameContinue -= ContinueGame;
         }
 
         public IEnumerator PauseGameDelayed()
