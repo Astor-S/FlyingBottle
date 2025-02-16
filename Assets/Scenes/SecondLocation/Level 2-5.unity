@@ -10123,6 +10123,50 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e85d1506bb7a5c48bf1c391515f5261, type: 3}
+--- !u!1 &1648191906
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1648191908}
+  - component: {fileID: 1648191907}
+  m_Layer: 0
+  m_Name: RewardADService
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1648191907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1648191906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7472b8852af59d43add20636bbdd513, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1648191908
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1648191906}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.3447886, y: 1.1653391, z: -3.9929082}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1695662097
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13365,6 +13409,10 @@ PrefabInstance:
       propertyPath: _failScreen
       value: 
       objectReference: {fileID: 1514579166}
+    - target: {fileID: 2434114636808136397, guid: 376648952eb57f744b7d0f3ff7dd47b1, type: 3}
+      propertyPath: _rewardAdService
+      value: 
+      objectReference: {fileID: 1648191907}
     - target: {fileID: 3283729078664161797, guid: 376648952eb57f744b7d0f3ff7dd47b1, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -13461,6 +13509,10 @@ PrefabInstance:
       propertyPath: _sceneToLoad
       value: Level 3-1
       objectReference: {fileID: 0}
+    - target: {fileID: 6641557370298093511, guid: 376648952eb57f744b7d0f3ff7dd47b1, type: 3}
+      propertyPath: _rewardAdService
+      value: 
+      objectReference: {fileID: 1648191907}
     - target: {fileID: 8267761021215446344, guid: 376648952eb57f744b7d0f3ff7dd47b1, type: 3}
       propertyPath: m_Camera
       value: 
@@ -13715,3 +13767,4 @@ SceneRoots:
   - {fileID: 1284940394}
   - {fileID: 880788057}
   - {fileID: 921910642}
+  - {fileID: 1648191908}
