@@ -1,31 +1,27 @@
+using GameService;
 using System;
 using UnityEngine;
-using YG;
 
 namespace UI.Screens.ScreenButtons
 {
     public class CoinDoublingButton : MonoBehaviour
     {
+        [SerializeField] private RewardAdService _rewardAdService;
+
         public Action OnDoubleAwards;
 
         private void OnEnable()
         {
-            YandexGame.RewardVideoEvent += Rewarded;
+            _rewardAdService.OnRewardReceived += AddDoubleAwards;
         }
 
         private void OnDisable()
         {
-            YandexGame.RewardVideoEvent -= Rewarded;
+            _rewardAdService.OnRewardReceived += AddDoubleAwards;
         }
 
         public void OnButtonClick() =>
-            OpenRewardAd(0);
-
-        private void OpenRewardAd(int id) =>
-            YandexGame.RewVideoShow(id);
-
-        private void Rewarded(int _) =>
-            AddDoubleAwards();
+            _rewardAdService.ShowRewardAd(0);
 
         private void AddDoubleAwards()
         {

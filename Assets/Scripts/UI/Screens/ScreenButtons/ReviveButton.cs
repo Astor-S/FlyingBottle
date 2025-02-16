@@ -1,7 +1,7 @@
+using GameService;
 using GameService.ReviveService;
 using System;
 using UnityEngine;
-using YG;
 
 namespace UI.Screens.LevelScreens.ScreenButtons
 {
@@ -9,27 +9,22 @@ namespace UI.Screens.LevelScreens.ScreenButtons
     {
         [SerializeField] private Reviver _reviver;
         [SerializeField] private FailScreen _failScreen;
+        [SerializeField] private RewardAdService _rewardAdService;
 
         public event Action OnGameContinue;
 
         private void OnEnable()
         {
-            YandexGame.RewardVideoEvent += Rewarded;
+            _rewardAdService.OnRewardReceived += OnRevive;
         }
 
         private void OnDisable()
         {
-            YandexGame.RewardVideoEvent -= Rewarded;
+            _rewardAdService.OnRewardReceived -= OnRevive;
         }
 
         public void OnReviveClick() =>
-           OpenRewardAd(0);
-
-        private void OpenRewardAd(int id) =>
-           YandexGame.RewVideoShow(id);
-
-        private void Rewarded(int _) =>
-           OnRevive();
+            _rewardAdService.ShowRewardAd(0);
 
         private void OnRevive()
         {

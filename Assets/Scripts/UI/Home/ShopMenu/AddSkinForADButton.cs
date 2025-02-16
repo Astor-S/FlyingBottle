@@ -1,3 +1,4 @@
+using GameService;
 using UnityEngine;
 using YG;
 
@@ -5,7 +6,8 @@ namespace UI.Home.ShopMenu
 {
     public class AddSkinForADButton : MenuButton
     {
-        [SerializeField] private GameService.Skins _skinToAdd;
+        [SerializeField] private Skins _skinToAdd;
+        [SerializeField] private RewardAdService _rewardAdService;
 
         private SavesYG _savesYG;
 
@@ -21,22 +23,16 @@ namespace UI.Home.ShopMenu
 
         private void OnEnable()
         {
-            YandexGame.RewardVideoEvent += Rewarded;
+            _rewardAdService.OnRewardReceived += AddSkin;
         }
 
         private void OnDisable()
         {
-            YandexGame.RewardVideoEvent -= Rewarded;
+            _rewardAdService.OnRewardReceived -= AddSkin;
         }
 
         public override void OnButtonClick() =>
-           OpenRewardAd(0);
-
-        private void OpenRewardAd(int id) =>
-            YandexGame.RewVideoShow(id);
-
-        private void Rewarded(int _) => 
-            AddSkin();
+            _rewardAdService.ShowRewardAd(0);
 
         private void AddSkin()
         {

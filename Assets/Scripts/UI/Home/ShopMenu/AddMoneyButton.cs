@@ -1,3 +1,4 @@
+using GameService;
 using UnityEngine;
 using YG;
 
@@ -9,7 +10,8 @@ namespace UI.Home.ShopMenu
 
         [SerializeField] private BalanceDisplay _balanceDisplayShop;
         [SerializeField] private BalanceDisplay _balanceDisplayMain;
-        
+        [SerializeField] private RewardAdService _rewardAdService;
+
         private SavesYG _savesYG;
 
         private void Start()
@@ -19,22 +21,16 @@ namespace UI.Home.ShopMenu
 
         private void OnEnable()
         {
-            YandexGame.RewardVideoEvent += Rewarded;
+            _rewardAdService.OnRewardReceived += AddMoney;
         }
 
         private void OnDisable()
         {
-            YandexGame.RewardVideoEvent -= Rewarded;
+            _rewardAdService.OnRewardReceived -= AddMoney;
         }
 
         public override void  OnButtonClick() =>
-            OpenRewardAd(0);
-
-        private void OpenRewardAd(int id) =>
-            YandexGame.RewVideoShow(id);
-
-        private void Rewarded(int _) =>
-            AddMoney();
+            _rewardAdService.ShowRewardAd(0);
 
         private void AddMoney()
         {

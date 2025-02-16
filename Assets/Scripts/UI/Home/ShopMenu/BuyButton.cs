@@ -2,12 +2,13 @@ using Shop;
 using TMPro;
 using UnityEngine;
 using YG;
+using GameService;
 
 namespace UI.Home.ShopMenu
 {
     public class BuyButton : MenuButton
     {
-        [SerializeField] private GameService.Skins _skinToBuy;
+        [SerializeField] private Skins _skinToBuy;
         [SerializeField] private int _skinCost;
         [SerializeField] private TextMeshProUGUI _priceText;
         [SerializeField] private BalanceDisplay _balanceDisplayShop;
