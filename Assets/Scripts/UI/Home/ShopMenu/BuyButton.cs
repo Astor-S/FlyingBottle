@@ -14,7 +14,6 @@ namespace UI.Home.ShopMenu
         [SerializeField] private PurchaseHandler _purchaseHandler;
 
         private SavesYG _savesYG;
-        private ShopItemCell _shopItemCell;
 
         public Skins SkinToBuy => _skinToBuy;
         public int SkinCost => _skinCost;
@@ -22,8 +21,6 @@ namespace UI.Home.ShopMenu
         private void Start()
         {
             _savesYG = YandexGame.savesData;
-
-            _shopItemCell = GetComponentInParent<ShopItemCell>();
 
             if (_savesYG.ownedSkins.Contains(_skinToBuy) == false)
                 gameObject.SetActive(true);
