@@ -1,7 +1,7 @@
+using UnityEngine;
 using System.Collections.Generic;
 using UI.Home;
 using UI.Home.ShopMenu;
-using UnityEngine;
 using YG;
 
 namespace Shop

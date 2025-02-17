@@ -1,17 +1,16 @@
-using Shop;
-using TMPro;
 using UnityEngine;
-using YG;
 using GameService;
+using Shop;
+using YG;
 
 namespace UI.Home.ShopMenu
 {
     public class BuyButton : MenuButton
     {
+        [SerializeField] private BuyButtonView _buyButtonView;
+        [SerializeField] private PurchaseHandler _purchaseHandler;
         [SerializeField] private Skins _skinToBuy;
         [SerializeField] private int _skinCost;
-        [SerializeField] private TextMeshProUGUI _priceText;
-        [SerializeField] private PurchaseHandler _purchaseHandler;
 
         private SavesYG _savesYG;
 
@@ -23,17 +22,14 @@ namespace UI.Home.ShopMenu
             _savesYG = YandexGame.savesData;
 
             if (_savesYG.ownedSkins.Contains(_skinToBuy) == false)
-                gameObject.SetActive(true);
+                _buyButtonView.ActivateVisibility(this);
             else
-                gameObject.SetActive(false);
+                _buyButtonView.DeactivateVisibility(this);
 
-            UpdatePriceText();
+            _buyButtonView.UpdatePriceText(this);
         }
 
         public override void OnButtonClick() =>
            _purchaseHandler.PurchaseRequest(this);
-
-        private void UpdatePriceText() =>
-            _priceText.text = _skinCost.ToString();
     }
 }
