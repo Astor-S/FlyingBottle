@@ -50,6 +50,7 @@ GameObject:
   - component: {fileID: 5017480877170120128}
   - component: {fileID: 3766882004470706189}
   - component: {fileID: 4731547586116106838}
+  - component: {fileID: 4242702385389835158}
   m_Layer: 0
   m_Name: DemonBottle
   m_TagString: Untagged
@@ -231,13 +232,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rotator: {fileID: 3766882004470706189}
+  _positionChecker: {fileID: 4242702385389835158}
   _sounder: {fileID: 4731547586116106838}
-  _bottle: {fileID: 2195682038708267603}
-  _boxCollider: {fileID: 6750491288679181294}
   _inputReader: {fileID: 1577349916052403803}
-  _groundMask:
-    serializedVersion: 2
-    m_Bits: 64
+  _bottle: {fileID: 2195682038708267603}
   _jumpCurve:
     serializedVersion: 2
     m_Curve:
@@ -298,7 +296,6 @@ MonoBehaviour:
   _jumpDuration: 1
   _jumpHeight: 2
   _jumpDistanceX: 2
-  _boxCastExtentsMultiplier: 0.5
 --- !u!54 &5017480877170120128
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -379,6 +376,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _jumpSound: {fileID: 8300000, guid: 59f26f921c097b549a0f427ecb597598, type: 3}
+--- !u!114 &4242702385389835158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3754699210277026831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d388a5db823bd2047a5ccbfaddf2c115, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bottle: {fileID: 2195682038708267603}
+  _rigidbody: {fileID: 5017480877170120128}
+  _boxCollider: {fileID: 6750491288679181294}
+  _groundMask:
+    serializedVersion: 2
+    m_Bits: 64
+  _boxCastExtentsMultiplier: 0.5
 --- !u!1 &6061370664916617719
 GameObject:
   m_ObjectHideFlags: 0

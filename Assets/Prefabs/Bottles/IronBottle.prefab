@@ -4847,6 +4847,7 @@ GameObject:
   - component: {fileID: 2082087640855178319}
   - component: {fileID: 3450826630996138779}
   - component: {fileID: 1008751305479561203}
+  - component: {fileID: 2257632199160405922}
   m_Layer: 0
   m_Name: IronBottle
   m_TagString: Untagged
@@ -5028,13 +5029,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rotator: {fileID: 3450826630996138779}
+  _positionChecker: {fileID: 2257632199160405922}
   _sounder: {fileID: 1008751305479561203}
-  _bottle: {fileID: 8128667500053397658}
-  _boxCollider: {fileID: 2574188687040503598}
   _inputReader: {fileID: 8739826375202140119}
-  _groundMask:
-    serializedVersion: 2
-    m_Bits: 64
+  _bottle: {fileID: 8128667500053397658}
   _jumpCurve:
     serializedVersion: 2
     m_Curve:
@@ -5095,7 +5093,6 @@ MonoBehaviour:
   _jumpDuration: 1
   _jumpHeight: 2
   _jumpDistanceX: 2
-  _boxCastExtentsMultiplier: 0.5
 --- !u!54 &2082087640855178319
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5176,6 +5173,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _jumpSound: {fileID: 8300000, guid: 59f26f921c097b549a0f427ecb597598, type: 3}
+--- !u!114 &2257632199160405922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4713000147486682583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d388a5db823bd2047a5ccbfaddf2c115, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bottle: {fileID: 8128667500053397658}
+  _rigidbody: {fileID: 2082087640855178319}
+  _boxCollider: {fileID: 2574188687040503598}
+  _groundMask:
+    serializedVersion: 2
+    m_Bits: 64
+  _boxCastExtentsMultiplier: 0.5
 --- !u!1 &8647262682748678334
 GameObject:
   m_ObjectHideFlags: 0

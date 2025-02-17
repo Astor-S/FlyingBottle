@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 2534251775882178646}
   - component: {fileID: 3232741577696045148}
   - component: {fileID: 6192593447488409077}
+  - component: {fileID: 2334099455819916107}
   m_Layer: 0
   m_Name: CandySodaBottle
   m_TagString: Untagged
@@ -199,13 +200,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rotator: {fileID: 3232741577696045148}
+  _positionChecker: {fileID: 2334099455819916107}
   _sounder: {fileID: 6192593447488409077}
-  _bottle: {fileID: 2380652153798483267}
-  _boxCollider: {fileID: 3463044722134391269}
   _inputReader: {fileID: 7174730382277273693}
-  _groundMask:
-    serializedVersion: 2
-    m_Bits: 64
+  _bottle: {fileID: 2380652153798483267}
   _jumpCurve:
     serializedVersion: 2
     m_Curve:
@@ -266,7 +264,6 @@ MonoBehaviour:
   _jumpDuration: 1
   _jumpHeight: 2
   _jumpDistanceX: 2
-  _boxCastExtentsMultiplier: 0.5
 --- !u!54 &2534251775882178646
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -347,6 +344,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _jumpSound: {fileID: 8300000, guid: 59f26f921c097b549a0f427ecb597598, type: 3}
+--- !u!114 &2334099455819916107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2967025807444106188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d388a5db823bd2047a5ccbfaddf2c115, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bottle: {fileID: 2380652153798483267}
+  _rigidbody: {fileID: 2534251775882178646}
+  _boxCollider: {fileID: 3463044722134391269}
+  _groundMask:
+    serializedVersion: 2
+    m_Bits: 64
+  _boxCastExtentsMultiplier: 0.5
 --- !u!1 &3209690705430866805
 GameObject:
   m_ObjectHideFlags: 0

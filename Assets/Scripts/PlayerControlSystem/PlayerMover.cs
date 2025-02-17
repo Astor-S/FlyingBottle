@@ -7,14 +7,11 @@ namespace PlayerControlSystem
     [RequireComponent(typeof(GroundChecker))]
     public class PlayerMover : MonoBehaviour
     {
-        private readonly RaycastHit[] _hits = new RaycastHit[1];
-
         [SerializeField] private PlayerRotator _rotator;
+        [SerializeField] private PositionChecker _positionChecker;
         [SerializeField] private PlayerSounder _sounder;
-        [SerializeField] private Bottle _bottle;
-        [SerializeField] private BoxCollider _boxCollider;
         [SerializeField] private InputReader _inputReader;
-        [SerializeField] private LayerMask _groundMask;
+        [SerializeField] private Bottle _bottle;
 
         [SerializeField] private AnimationCurve _jumpCurve;
         [SerializeField] private AnimationCurve _moveCurve;
@@ -22,7 +19,6 @@ namespace PlayerControlSystem
         [SerializeField] private float _jumpDuration = 1f;
         [SerializeField] private float _jumpHeight = 2f;
         [SerializeField] private float _jumpDistanceX = 2f;
-        [SerializeField] private float _boxCastExtentsMultiplier = 0.5f;
 
         private Rigidbody _rigidbody;
         private Vector3 _bottleStartPosition;
@@ -146,7 +142,7 @@ namespace PlayerControlSystem
                 position.y = CalculateY();
                 position.x = CalculateX();
 
-                if (CheckPosition(position) == false) 
+                if (_positionChecker.CheckPosition(position) == false) 
                    break;
 
                 _rotator.UpdateRotation(this, normalTime);
@@ -168,24 +164,7 @@ namespace PlayerControlSystem
             float CalculateX()
             {
                 return Mathf.Lerp(startPositionX, maxPositionX, _moveCurve.Evaluate(normalTime));
-            }
-
-            bool CheckPosition(Vector3 position)
-            {
-                Vector3 direction = (position - _rigidbody.position).normalized;
-                float distance = Vector3.Distance(_rigidbody.position, position);
-
-                int count = Physics.BoxCastNonAlloc(
-                    _boxCollider.bounds.center,
-                    _boxCollider.bounds.extents * _boxCastExtentsMultiplier,
-                    direction,
-                    _hits,
-                    _bottle.transform.rotation,
-                    distance,
-                    _groundMask);
-
-                return count == 0;
-            }
+            }          
         }
 
         private void ResetJump()
