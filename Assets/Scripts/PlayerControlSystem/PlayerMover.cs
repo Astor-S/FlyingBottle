@@ -74,15 +74,15 @@ namespace PlayerControlSystem
             if (_isSurfaced || _canDoubleJump)
             {
                 if (_isSurfaced || (_rotator.IsRotating == false && _canDoubleJump))
-                    HandleJump();
+                    HandleMove();
                 else if (_isSurfaced == false && _canDoubleJump && _rotator.IsRotating)
                     ActivateWaitingDoubleJump();
             }
         }
 
-        private void HandleJump()
+        private void HandleMove()
         {
-            ResetJump();
+            ResetMove();
             
             _moveCoroutine = StartCoroutine(Moving());
 
@@ -115,7 +115,7 @@ namespace PlayerControlSystem
                 yield return null;
             }
             
-            HandleJump();
+            HandleMove();
 
             _waitingDoubleJumpCoroutine = null;
         }
@@ -154,7 +154,7 @@ namespace PlayerControlSystem
                 yield return new WaitForFixedUpdate();
             }
 
-            ResetJump();
+            ResetMove();
 
             float CalculateY()
             {
@@ -167,7 +167,7 @@ namespace PlayerControlSystem
             }          
         }
 
-        private void ResetJump()
+        private void ResetMove()
         {
             if (_moveCoroutine != null)
                 StopCoroutine(_moveCoroutine);
