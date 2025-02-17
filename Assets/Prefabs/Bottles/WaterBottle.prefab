@@ -4845,6 +4845,7 @@ GameObject:
   - component: {fileID: 449271648750902761}
   - component: {fileID: 5975949038245718525}
   - component: {fileID: 7148160421350087517}
+  - component: {fileID: 6560963571137985678}
   m_Layer: 0
   m_Name: WaterBottle
   m_TagString: Untagged
@@ -5025,6 +5026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b689b794aee0d4c428704b827dea278b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rotator: {fileID: 6560963571137985678}
   _bottle: {fileID: 4422188306993290594}
   _boxCollider: {fileID: 5382907543551817363}
   _inputReader: {fileID: 4351568344334483776}
@@ -5088,37 +5090,11 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _rotationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   _jumpSound: {fileID: 8300000, guid: 59f26f921c097b549a0f427ecb597598, type: 3}
   _jumpDuration: 1
   _jumpHeight: 2
   _jumpDistanceX: 2
-  _rotationStartTime: 0.07
-  _rotationEndTime: 0.85
-  _rotationAnchor: {fileID: 5201718580437451733}
+  _boxCastExtentsMultiplier: 0.5
 --- !u!54 &7148160421350087517
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5146,6 +5122,46 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 120
   m_CollisionDetection: 1
+--- !u!114 &6560963571137985678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2839072002276475562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b99b7e3c944fce6459a83a5111dc7e1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bottle: {fileID: 4422188306993290594}
+  _rotationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _rotationAnchor: {fileID: 5201718580437451733}
+  _rotationStartTime: 0.07
+  _rotationEndTime: 0.85
 --- !u!1 &9003114155402232893
 GameObject:
   m_ObjectHideFlags: 0

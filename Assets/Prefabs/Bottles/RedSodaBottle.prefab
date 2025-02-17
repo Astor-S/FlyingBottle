@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8786324248848807279}
   - component: {fileID: 5967950153105286130}
   - component: {fileID: 958754186003071625}
+  - component: {fileID: 7927511955154886305}
   m_Layer: 0
   m_Name: RedSodaBottle
   m_TagString: Untagged
@@ -196,6 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b689b794aee0d4c428704b827dea278b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rotator: {fileID: 7927511955154886305}
   _bottle: {fileID: 2992706128387798317}
   _boxCollider: {fileID: 4445650989639738376}
   _inputReader: {fileID: 6966736314827985233}
@@ -259,37 +261,11 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _rotationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   _jumpSound: {fileID: 8300000, guid: 59f26f921c097b549a0f427ecb597598, type: 3}
   _jumpDuration: 1
   _jumpHeight: 2
   _jumpDistanceX: 2
-  _rotationStartTime: 0.07
-  _rotationEndTime: 0.85
-  _rotationAnchor: {fileID: 3398328204470989926}
+  _boxCastExtentsMultiplier: 0.5
 --- !u!54 &958754186003071625
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -317,6 +293,46 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 120
   m_CollisionDetection: 1
+--- !u!114 &7927511955154886305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409308436660257781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b99b7e3c944fce6459a83a5111dc7e1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bottle: {fileID: 2992706128387798317}
+  _rotationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _rotationAnchor: {fileID: 3398328204470989926}
+  _rotationStartTime: 0.07
+  _rotationEndTime: 0.85
 --- !u!1 &3860088542965825632
 GameObject:
   m_ObjectHideFlags: 0

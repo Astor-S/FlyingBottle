@@ -7,10 +7,9 @@ namespace PlayerControlSystem
     [RequireComponent(typeof(GroundChecker))]
     public class PlayerMover : MonoBehaviour
     {
-        private const float FullRotationDegrees = -360f;
-
         private readonly RaycastHit[] _hits = new RaycastHit[1];
 
+        [SerializeField] private PlayerRotator _rotator;
         [SerializeField] private Bottle _bottle;
         [SerializeField] private BoxCollider _boxCollider;
         [SerializeField] private InputReader _inputReader;
@@ -18,7 +17,6 @@ namespace PlayerControlSystem
 
         [SerializeField] private AnimationCurve _jumpCurve;
         [SerializeField] private AnimationCurve _moveCurve;
-        [SerializeField] private AnimationCurve _rotationCurve;
 
         [SerializeField] private AudioClip _jumpSound;
         
@@ -26,9 +24,6 @@ namespace PlayerControlSystem
         [SerializeField] private float _jumpHeight = 2f;
         [SerializeField] private float _jumpDistanceX = 2f;
         [SerializeField] private float _boxCastExtentsMultiplier = 0.5f;
-        [SerializeField][Range(0, 1)] private float _rotationStartTime = 0.2f;
-        [SerializeField][Range(0, 1)] private float _rotationEndTime = 0.8f;
-        [SerializeField] private Transform _rotationAnchor;
 
         private Rigidbody _rigidbody;
         private Vector3 _bottleStartPosition;
@@ -39,13 +34,12 @@ namespace PlayerControlSystem
         private AudioSource _audioSource;
         private GroundChecker _groundChecker;
 
-        private float _currentRotationAngle;
-        
-        private bool _isRotating;
         private bool _isSurfaced;
         private bool _canDoubleJump;
 
         public event Action Moved;
+
+        public float JumpDuration => _jumpDuration;
 
         private void Awake()
         {
@@ -86,9 +80,9 @@ namespace PlayerControlSystem
         {
             if (_isSurfaced || _canDoubleJump)
             {
-                if (_isSurfaced || (_isRotating == false && _canDoubleJump))
+                if (_isSurfaced || (_rotator.IsRotating == false && _canDoubleJump))
                     HandleJump();
-                else if (_isSurfaced == false && _canDoubleJump && _isRotating)
+                else if (_isSurfaced == false && _canDoubleJump && _rotator.IsRotating)
                     ActivateWaitingDoubleJump();
             }
         }
@@ -123,7 +117,7 @@ namespace PlayerControlSystem
 
         private IEnumerator WaitStartDoubleJump()
         {
-            while (_isRotating)
+            while (_rotator.IsRotating)
             {
                 yield return null;
             }
@@ -143,7 +137,8 @@ namespace PlayerControlSystem
             float time = 0f;
 
             float normalTime;
-            _isRotating = false;
+            
+            _rotator.StopRotation();
 
             while (time < _jumpDuration || _groundChecker.IsGrounded())
             {
@@ -157,7 +152,7 @@ namespace PlayerControlSystem
                 if (CheckPosition(position) == false) 
                    break;
 
-                UpdateRotation(normalTime);
+                _rotator.UpdateRotation(this, normalTime);
 
                 _rigidbody.MovePosition(position);
 
@@ -196,37 +191,17 @@ namespace PlayerControlSystem
             }
         }
 
-        private void UpdateRotation(float currentTime)
-        {
-            if (currentTime > _jumpDuration * _rotationStartTime && currentTime < _jumpDuration * _rotationEndTime)
-                _isRotating = true;
-            else if (currentTime >= _jumpDuration * _rotationEndTime)
-                _isRotating = false; 
-            
-            if (currentTime < _jumpDuration * _rotationStartTime || currentTime > _jumpDuration * _rotationEndTime)
-                return;
-
-            float normalizedRotationTime = Mathf.InverseLerp(_jumpDuration * _rotationStartTime, _jumpDuration * _rotationEndTime, currentTime);
-            float rotationCurveValue = _rotationCurve.Evaluate(normalizedRotationTime);
-            float rotationAngle = FullRotationDegrees * rotationCurveValue;
-            float deltaRotation = rotationAngle - _currentRotationAngle;
-            
-            _currentRotationAngle = rotationAngle;
-
-            _bottle.transform.RotateAround(_rotationAnchor.position, Vector3.forward, deltaRotation);
-        }
-
         private void ResetJump()
         {
             if (_moveCoroutine != null)
                 StopCoroutine(_moveCoroutine);
             
             _moveCoroutine = null;
-            
-            _bottle.transform.rotation = Quaternion.identity;
+
+            _rotator.ResetRotation();
             _bottle.transform.localPosition = _bottleStartPosition;
             
-            _currentRotationAngle = 0f;
+           _rotator.ResetCurrentRotationAngle();
         }
 
         private void PlayJumpSound() =>
