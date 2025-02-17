@@ -8,10 +8,15 @@ namespace GameService
 {
     public class PlayerTracker : MonoBehaviour
     {
-        [Inject] private readonly PlayerLoader _playerLoader;
         [SerializeField] private float _xOffset;
+        private PlayerLoader _playerLoader;
 
         private Player _player;
+
+        private void Awake()
+        {
+            Init(_playerLoader);
+        }
 
         private void Start()
         {
@@ -27,6 +32,10 @@ namespace GameService
                 transform.position = position;
             }
         }
+
+        [Inject]
+        private void Init(PlayerLoader playerLoader) =>
+            _playerLoader = playerLoader;
 
         private IEnumerator WaitForPlayer()
         {

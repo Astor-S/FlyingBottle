@@ -8,11 +8,16 @@ namespace GameService.GameHandlerSystem
 {
     public class GameHandler : MonoBehaviour
     {
-        [Inject] private readonly PlayerLoader _playerLoader;
         [SerializeField] private GameEnder _gameEnder;
         [SerializeField] private LevelCompletionHandler _levelCompletionHandler;
+        private  PlayerLoader _playerLoader;
 
         private Player _player;
+
+        private void Awake()
+        {
+            Init(_playerLoader);
+        }
 
         private void Start()
         {
@@ -23,6 +28,10 @@ namespace GameService.GameHandlerSystem
         {
             UnsubscribeFromPlayerEvents();
         }
+
+        [Inject]
+        private void Init(PlayerLoader playerLoader) =>
+            _playerLoader = playerLoader;
 
         private void SubscribeToPlayerEvents()
         {

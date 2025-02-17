@@ -8,10 +8,10 @@ namespace GameService.ComboCounterService
 {
     public class ComboCounter : MonoBehaviour
     {
-        [Inject] private readonly PlayerLoader _playerLoader;
         [SerializeField] private ComboCounterView _comboCounterView;
         [SerializeField] private float _comboResetTime = 1.5f;
 
+        private PlayerLoader _playerLoader;
         private PlayerMover _playerMover;
 
         private Coroutine _resetCoroutine;
@@ -24,6 +24,7 @@ namespace GameService.ComboCounterService
 
         private void Awake()
         {
+            Init(_playerLoader);
             _waitComborResetForSeconds = new WaitForSeconds(_comboResetTime);
         }
 
@@ -39,6 +40,10 @@ namespace GameService.ComboCounterService
             
             StopResetCoroutine();
         }
+
+        [Inject]
+        private void Init(PlayerLoader playerLoader) =>
+            _playerLoader = playerLoader;
 
         private IEnumerator WaitForPlayer()
         {

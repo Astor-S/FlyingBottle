@@ -9,11 +9,16 @@ namespace GameService.ReviveService
 {
     public class Reviver : MonoBehaviour
     {
-        [Inject] private readonly PlayerLoader _playerLoader;
         [SerializeField] private List<RevivePoint> _revivePoints = new();
         [SerializeField] private float _delayTime = 0.1f;
 
+        private PlayerLoader _playerLoader;
         private Rigidbody _playerRigidbody;
+
+        private void Awake()
+        {
+            Init(_playerLoader);
+        }
 
         private void Start()
         {
@@ -22,6 +27,10 @@ namespace GameService.ReviveService
 
         public void Revived() =>
             StartCoroutine(WaitForRevive());
+
+        [Inject]
+        private void Init(PlayerLoader playerLoader) =>
+            _playerLoader = playerLoader;
 
         private IEnumerator WaitForRevive()
         {
