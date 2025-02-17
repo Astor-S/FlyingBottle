@@ -10,6 +10,7 @@ namespace PlayerControlSystem
         private readonly RaycastHit[] _hits = new RaycastHit[1];
 
         [SerializeField] private PlayerRotator _rotator;
+        [SerializeField] private PlayerSounder _sounder;
         [SerializeField] private Bottle _bottle;
         [SerializeField] private BoxCollider _boxCollider;
         [SerializeField] private InputReader _inputReader;
@@ -17,8 +18,6 @@ namespace PlayerControlSystem
 
         [SerializeField] private AnimationCurve _jumpCurve;
         [SerializeField] private AnimationCurve _moveCurve;
-
-        [SerializeField] private AudioClip _jumpSound;
         
         [SerializeField] private float _jumpDuration = 1f;
         [SerializeField] private float _jumpHeight = 2f;
@@ -31,7 +30,6 @@ namespace PlayerControlSystem
         private Coroutine _moveCoroutine;
         private Coroutine _waitingDoubleJumpCoroutine;
         
-        private AudioSource _audioSource;
         private GroundChecker _groundChecker;
 
         private bool _isSurfaced;
@@ -44,7 +42,6 @@ namespace PlayerControlSystem
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody>();
-            _audioSource = GetComponent<AudioSource>();
             _groundChecker = GetComponent<GroundChecker>();
 
             _bottleStartPosition = _bottle.transform.localPosition;
@@ -94,8 +91,8 @@ namespace PlayerControlSystem
             _moveCoroutine = StartCoroutine(Moving());
 
             Moved?.Invoke();
-            PlayJumpSound();
-            
+            _sounder.PlayJumpSound();
+
             if (_isSurfaced == false)
                 _canDoubleJump = false;
         }
@@ -203,8 +200,5 @@ namespace PlayerControlSystem
             
            _rotator.ResetCurrentRotationAngle();
         }
-
-        private void PlayJumpSound() =>
-            _audioSource.PlayOneShot(_jumpSound);
     }
 }

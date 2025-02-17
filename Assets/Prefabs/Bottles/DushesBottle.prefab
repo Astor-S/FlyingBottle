@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 8195393566483054467}
   - component: {fileID: 5961322030880300572}
   - component: {fileID: 2130199361135605928}
+  - component: {fileID: 897111563817487637}
   m_Layer: 0
   m_Name: DushesBottle
   m_TagString: Untagged
@@ -198,6 +199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rotator: {fileID: 2130199361135605928}
+  _sounder: {fileID: 897111563817487637}
   _bottle: {fileID: 7578318866516840380}
   _boxCollider: {fileID: 9100730405186067975}
   _inputReader: {fileID: 4448995470319999561}
@@ -261,7 +263,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _jumpSound: {fileID: 8300000, guid: 59f26f921c097b549a0f427ecb597598, type: 3}
   _jumpDuration: 1
   _jumpHeight: 2
   _jumpDistanceX: 2
@@ -333,6 +334,19 @@ MonoBehaviour:
   _rotationAnchor: {fileID: 4013880317672617589}
   _rotationStartTime: 0.07
   _rotationEndTime: 0.85
+--- !u!114 &897111563817487637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4261282021013590205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef925ffc928d96d4da461e9cd616b5df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _jumpSound: {fileID: 8300000, guid: 59f26f921c097b549a0f427ecb597598, type: 3}
 --- !u!1 &6114174751058216693
 GameObject:
   m_ObjectHideFlags: 0

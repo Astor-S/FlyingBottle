@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 5316654342614826995}
   - component: {fileID: 8815806130308700816}
   - component: {fileID: 483974186768195407}
+  - component: {fileID: 6823532368594794008}
   m_Layer: 0
   m_Name: LimeSodaBottle
   m_TagString: Untagged
@@ -198,6 +199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rotator: {fileID: 483974186768195407}
+  _sounder: {fileID: 6823532368594794008}
   _bottle: {fileID: 2560560676376341751}
   _boxCollider: {fileID: 8482425227896511292}
   _inputReader: {fileID: 3057110856353638310}
@@ -261,7 +263,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _jumpSound: {fileID: 8300000, guid: 59f26f921c097b549a0f427ecb597598, type: 3}
   _jumpDuration: 1
   _jumpHeight: 2
   _jumpDistanceX: 2
@@ -333,6 +334,19 @@ MonoBehaviour:
   _rotationAnchor: {fileID: 9101404804578274417}
   _rotationStartTime: 0.07
   _rotationEndTime: 0.85
+--- !u!114 &6823532368594794008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1559867107511451817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef925ffc928d96d4da461e9cd616b5df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _jumpSound: {fileID: 8300000, guid: 59f26f921c097b549a0f427ecb597598, type: 3}
 --- !u!1 &2909411055772571816
 GameObject:
   m_ObjectHideFlags: 0

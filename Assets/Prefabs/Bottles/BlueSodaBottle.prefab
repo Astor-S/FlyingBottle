@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 6570566023470304671}
   - component: {fileID: 3919178477523989780}
   - component: {fileID: 3054706668999630088}
+  - component: {fileID: 7250751626979945810}
   m_Layer: 0
   m_Name: BlueSodaBottle
   m_TagString: Untagged
@@ -198,6 +199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rotator: {fileID: 3054706668999630088}
+  _sounder: {fileID: 7250751626979945810}
   _bottle: {fileID: 7970190143208215258}
   _boxCollider: {fileID: 5023109954740524184}
   _inputReader: {fileID: 5881299046435884576}
@@ -261,7 +263,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _jumpSound: {fileID: 8300000, guid: 59f26f921c097b549a0f427ecb597598, type: 3}
   _jumpDuration: 1
   _jumpHeight: 2
   _jumpDistanceX: 2
@@ -333,6 +334,19 @@ MonoBehaviour:
   _rotationAnchor: {fileID: 8268428778848125884}
   _rotationStartTime: 0.07
   _rotationEndTime: 0.85
+--- !u!114 &7250751626979945810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811883624102552502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef925ffc928d96d4da461e9cd616b5df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _jumpSound: {fileID: 8300000, guid: 59f26f921c097b549a0f427ecb597598, type: 3}
 --- !u!1 &2708154156399932611
 GameObject:
   m_ObjectHideFlags: 0

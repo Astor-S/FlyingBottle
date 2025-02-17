@@ -4846,6 +4846,7 @@ GameObject:
   - component: {fileID: 2123401732262568638}
   - component: {fileID: 7155846124174227451}
   - component: {fileID: 5239163712748970049}
+  - component: {fileID: 8411225839126776759}
   m_Layer: 0
   m_Name: 'BiohazardBottle '
   m_TagString: Untagged
@@ -5027,6 +5028,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rotator: {fileID: 5239163712748970049}
+  _sounder: {fileID: 8411225839126776759}
   _bottle: {fileID: 9119436268737871184}
   _boxCollider: {fileID: 1721565051349205611}
   _inputReader: {fileID: 3006060127826058860}
@@ -5090,7 +5092,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _jumpSound: {fileID: 8300000, guid: 59f26f921c097b549a0f427ecb597598, type: 3}
   _jumpDuration: 1
   _jumpHeight: 2
   _jumpDistanceX: 2
@@ -5162,6 +5163,19 @@ MonoBehaviour:
   _rotationAnchor: {fileID: 7807422953385858768}
   _rotationStartTime: 0.07
   _rotationEndTime: 0.85
+--- !u!114 &8411225839126776759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3064274545953187794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef925ffc928d96d4da461e9cd616b5df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _jumpSound: {fileID: 8300000, guid: 59f26f921c097b549a0f427ecb597598, type: 3}
 --- !u!1 &6423185118627632413
 GameObject:
   m_ObjectHideFlags: 0
