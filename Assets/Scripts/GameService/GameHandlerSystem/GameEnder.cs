@@ -11,7 +11,7 @@ namespace GameService.GameHandlerSystem
         public void HandleGameOver()
         {
             _failScreen.Open();
-            _pauseHandler.PauseGameDelayed();
+            StartCoroutine(_pauseHandler.PauseGameDelayed());
         }
     }
 }

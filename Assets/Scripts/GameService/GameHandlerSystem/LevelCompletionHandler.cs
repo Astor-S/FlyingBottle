@@ -15,7 +15,7 @@ namespace GameService.GameHandlerSystem
             _levelRewarder.AwardCoins();
             _levelUnlocker.RequestToOpenLevel();
             _completeScreen.Open();
-            _pauseHandler.PauseGameDelayed();
+            StartCoroutine(_pauseHandler.PauseGameDelayed());
         }
     }
 }
