@@ -1,8 +1,7 @@
 using UnityEngine;
 using System;
 using NaughtyAttributes;
-using System.Collections;
-using UnityEngine.SceneManagement;
+using UI.Home.MainMenu.PlayButtonSystem;
 
 namespace UI.Screens.LevelScreens.ScreenButtons
 {
@@ -10,18 +9,14 @@ namespace UI.Screens.LevelScreens.ScreenButtons
     {
         [Scene]
         [SerializeField] private string _sceneToLoad;
+        [SerializeField] private LevelLoader _levelLoader;
 
         public event Action GameContinued;
 
         public void OnButtonClick()
         {
-            StartCoroutine(LoadingScene(_sceneToLoad));
+            StartCoroutine(_levelLoader.LoadLevelAsync(_sceneToLoad));
             GameContinued?.Invoke();
-        }
-
-        private IEnumerator LoadingScene(string sceneName)
-        {
-            yield return SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
         }
     }
 }

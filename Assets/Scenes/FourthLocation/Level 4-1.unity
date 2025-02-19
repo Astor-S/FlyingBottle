@@ -209,6 +209,50 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 87819617}
   m_SourcePrefab: {fileID: 100100000, guid: 74ecb4ff10fc70546aa59fc2118a8502, type: 3}
+--- !u!1 &62386145
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 62386147}
+  - component: {fileID: 62386146}
+  m_Layer: 0
+  m_Name: LevelLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &62386146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62386145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b292f0ae2c6354d44af65c790df9ff67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &62386147
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62386145}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.3447886, y: 1.1653391, z: -3.9929082}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &68935824 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1303507322200158499, guid: 376648952eb57f744b7d0f3ff7dd47b1, type: 3}
@@ -1426,6 +1470,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RestartLevel
       objectReference: {fileID: 0}
+    - target: {fileID: 8638533961595022440, guid: be4fd9e99dfbb47408a5d512f663df8b, type: 3}
+      propertyPath: _levelLoader
+      value: 
+      objectReference: {fileID: 62386146}
     - target: {fileID: 8638533961595022440, guid: be4fd9e99dfbb47408a5d512f663df8b, type: 3}
       propertyPath: _sceneToLoad
       value: Level 4-1
@@ -3687,6 +3735,10 @@ PrefabInstance:
       propertyPath: _levelRewarder
       value: 
       objectReference: {fileID: 2117747577}
+    - target: {fileID: 406700058736737015, guid: 376648952eb57f744b7d0f3ff7dd47b1, type: 3}
+      propertyPath: _levelLoader
+      value: 
+      objectReference: {fileID: 62386146}
     - target: {fileID: 2434114636808136397, guid: 376648952eb57f744b7d0f3ff7dd47b1, type: 3}
       propertyPath: _reviver
       value: 
@@ -3788,9 +3840,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3469831765308282050, guid: 376648952eb57f744b7d0f3ff7dd47b1, type: 3}
+      propertyPath: _levelLoader
+      value: 
+      objectReference: {fileID: 62386146}
+    - target: {fileID: 3469831765308282050, guid: 376648952eb57f744b7d0f3ff7dd47b1, type: 3}
       propertyPath: _sceneToLoad
       value: Level 4-1
       objectReference: {fileID: 0}
+    - target: {fileID: 4559707788721291965, guid: 376648952eb57f744b7d0f3ff7dd47b1, type: 3}
+      propertyPath: _levelLoader
+      value: 
+      objectReference: {fileID: 62386146}
+    - target: {fileID: 4831526481071869188, guid: 376648952eb57f744b7d0f3ff7dd47b1, type: 3}
+      propertyPath: _levelLoader
+      value: 
+      objectReference: {fileID: 62386146}
     - target: {fileID: 4831526481071869188, guid: 376648952eb57f744b7d0f3ff7dd47b1, type: 3}
       propertyPath: _sceneToLoad
       value: Level 4-2
@@ -3799,6 +3863,10 @@ PrefabInstance:
       propertyPath: _rewardAdService
       value: 
       objectReference: {fileID: 1809499519}
+    - target: {fileID: 7560269969399984048, guid: 376648952eb57f744b7d0f3ff7dd47b1, type: 3}
+      propertyPath: _levelLoader
+      value: 
+      objectReference: {fileID: 62386146}
     - target: {fileID: 8267761021215446344, guid: 376648952eb57f744b7d0f3ff7dd47b1, type: 3}
       propertyPath: m_Camera
       value: 
@@ -3943,3 +4011,4 @@ SceneRoots:
   - {fileID: 1800861084}
   - {fileID: 2139064699}
   - {fileID: 1809499520}
+  - {fileID: 62386147}
