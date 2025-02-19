@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 using NaughtyAttributes;
-using UI.Home.MainMenu.PlayButtonSystem;
+using GameService;
 
 namespace UI.Screens.LevelScreens.ScreenButtons
 {

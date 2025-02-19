@@ -1,7 +1,7 @@
-using GameService;
-using NaughtyAttributes;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
+using NaughtyAttributes;
+using GameService;
 using YG;
 
 namespace UI.Home.MainMenu.PlayButtonSystem

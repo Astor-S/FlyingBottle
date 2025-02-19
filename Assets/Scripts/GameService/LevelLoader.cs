@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace UI.Home.MainMenu.PlayButtonSystem
+namespace GameService
 {
     public class LevelLoader : MonoBehaviour
     {
