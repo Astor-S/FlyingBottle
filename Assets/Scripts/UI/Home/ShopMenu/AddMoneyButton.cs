@@ -21,12 +21,12 @@ namespace UI.Home.ShopMenu
 
         private void OnEnable()
         {
-            _rewardAdService.OnRewardReceived += AddMoney;
+            _rewardAdService.RewardReceived += AddMoney;
         }
 
         private void OnDisable()
         {
-            _rewardAdService.OnRewardReceived -= AddMoney;
+            _rewardAdService.RewardReceived -= AddMoney;
         }
 
         public override void  OnButtonClick() =>

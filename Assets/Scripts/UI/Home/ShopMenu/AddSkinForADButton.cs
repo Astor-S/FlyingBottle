@@ -23,12 +23,12 @@ namespace UI.Home.ShopMenu
 
         private void OnEnable()
         {
-            _rewardAdService.OnRewardReceived += AddSkin;
+            _rewardAdService.RewardReceived += AddSkin;
         }
 
         private void OnDisable()
         {
-            _rewardAdService.OnRewardReceived -= AddSkin;
+            _rewardAdService.RewardReceived -= AddSkin;
         }
 
         public override void OnButtonClick() =>

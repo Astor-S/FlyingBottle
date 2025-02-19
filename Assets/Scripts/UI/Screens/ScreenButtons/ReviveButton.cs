@@ -15,12 +15,12 @@ namespace UI.Screens.LevelScreens.ScreenButtons
 
         private void OnEnable()
         {
-            _rewardAdService.OnRewardReceived += OnRevive;
+            _rewardAdService.RewardReceived += OnRevive;
         }
 
         private void OnDisable()
         {
-            _rewardAdService.OnRewardReceived -= OnRevive;
+            _rewardAdService.RewardReceived -= OnRevive;
         }
 
         public void OnReviveClick() =>

@@ -12,12 +12,12 @@ namespace UI.Screens.ScreenButtons
 
         private void OnEnable()
         {
-            _rewardAdService.OnRewardReceived += AddDoubleAwards;
+            _rewardAdService.RewardReceived += AddDoubleAwards;
         }
 
         private void OnDisable()
         {
-            _rewardAdService.OnRewardReceived += AddDoubleAwards;
+            _rewardAdService.RewardReceived += AddDoubleAwards;
         }
 
         public void OnButtonClick() =>

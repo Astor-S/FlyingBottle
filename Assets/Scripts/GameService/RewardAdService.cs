@@ -6,7 +6,7 @@ namespace GameService
 {
     public class RewardAdService : MonoBehaviour
     {
-        public event Action OnRewardReceived;
+        public event Action RewardReceived;
 
         private void OnEnable()
         {
@@ -22,6 +22,6 @@ namespace GameService
             YandexGame.RewVideoShow(id);
 
         private void Rewarded(int _) =>
-            OnRewardReceived?.Invoke();
+            RewardReceived?.Invoke();
     }
 }
