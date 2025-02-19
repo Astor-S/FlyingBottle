@@ -11,13 +11,13 @@ namespace ShelfService
         private void OnEnable()
         {
             foreach (ShelfBreaker shelfBreaker in _shelfBreakers)
-                shelfBreaker.OnShelfBreak += OnShelfBreak;
+                shelfBreaker.ShelfBreak += OnShelfBreak;
         }
 
         private void OnDisable()
         {
             foreach (ShelfBreaker shelfBreaker in _shelfBreakers)
-                shelfBreaker.OnShelfBreak -= OnShelfBreak;
+                shelfBreaker.ShelfBreak -= OnShelfBreak;
         }
 
         private void OnShelfBreak()

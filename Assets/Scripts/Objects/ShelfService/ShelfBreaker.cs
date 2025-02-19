@@ -11,7 +11,7 @@ namespace ShelfService
 
         private AudioSource _audioSource;
 
-        public event Action OnShelfBreak;
+        public event Action ShelfBreak;
 
         private void Awake()
         {
@@ -23,7 +23,7 @@ namespace ShelfService
             if (collision.gameObject.TryGetComponent<PlayerControlSystem.Player>(out _))
             {
                 _animator.SetTrigger(_breakAnimationTrigger);
-                OnShelfBreak?.Invoke();
+                ShelfBreak?.Invoke();
                 _audioSource.PlayOneShot(_shelfSound);
             }
         }
