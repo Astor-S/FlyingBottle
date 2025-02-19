@@ -19,7 +19,7 @@ namespace UI.Home
         {
             _selectLevel.OnOpenLevelMenu += HandleOpenLevelMenu;
             _selectShop.OnOpenShop += HandleOpenShop;
-            _closeLevelMenuButton.OnCloseLevelMenu += HandleCloseLevelMenu;
+            _closeLevelMenuButton.ClosedLevelMenu += HandleCloseLevelMenu;
             _closeShopButton.OnCloseShop += HandleCloseShop;
         }
 
@@ -27,7 +27,7 @@ namespace UI.Home
         {
             _selectLevel.OnOpenLevelMenu -= HandleOpenLevelMenu;
             _selectShop.OnOpenShop -= HandleOpenShop;
-            _closeLevelMenuButton.OnCloseLevelMenu -= HandleCloseLevelMenu;
+            _closeLevelMenuButton.ClosedLevelMenu -= HandleCloseLevelMenu;
             _closeShopButton.OnCloseShop -= HandleCloseShop;
         }
 

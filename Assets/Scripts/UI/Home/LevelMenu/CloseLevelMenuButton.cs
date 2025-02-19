@@ -4,9 +4,9 @@ namespace UI.Home.LevelMenu
 {
     public class CloseLevelMenuButton : MenuButton
     {
-        public event Action OnCloseLevelMenu;
+        public event Action ClosedLevelMenu;
 
         public override void OnButtonClick() =>
-            OnCloseLevelMenu?.Invoke();
+            ClosedLevelMenu?.Invoke();
     }
 }
