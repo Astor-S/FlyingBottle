@@ -8,12 +8,7 @@ namespace UI.Home.MainMenu.PlayButtonSystem
     {
         public IEnumerator LoadLevelAsync(string sceneName)
         {
-            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
-
-            while (asyncLoad.isDone == false)
-            {
-                yield return null;
-            }
+            yield return SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
         }
     }
 }

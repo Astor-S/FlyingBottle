@@ -1,7 +1,7 @@
-using NaughtyAttributes;
-using System;
-using System.Collections;
 using UnityEngine;
+using System;
+using NaughtyAttributes;
+using System.Collections;
 using UnityEngine.SceneManagement;
 
 namespace UI.Screens.LevelScreens.ScreenButtons
@@ -21,12 +21,7 @@ namespace UI.Screens.LevelScreens.ScreenButtons
 
         private IEnumerator LoadingScene(string sceneName)
         {
-            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
-
-            while (asyncLoad.isDone == false)
-            {
-                yield return null;
-            }
+            yield return SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
         }
     }
 }
