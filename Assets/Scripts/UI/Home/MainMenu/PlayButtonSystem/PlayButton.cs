@@ -2,7 +2,6 @@ using GameService;
 using NaughtyAttributes;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using YG;
 
 namespace UI.Home.MainMenu.PlayButtonSystem
