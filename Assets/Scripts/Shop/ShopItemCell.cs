@@ -1,8 +1,8 @@
 using System;
-using TMPro;
-using UI.Home.ShopMenu;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using UI.Home.ShopMenu;
 
 namespace Shop
 {
@@ -21,10 +21,10 @@ namespace Shop
         private bool _isAvailable;
         private bool _isSelected;
 
-        public Action<ShopItemCell> OnCellClicked;
+        public event Action<ShopItemCell> CellClicked;
 
         public void OnCellClick() =>
-            OnCellClicked?.Invoke(this);
+            CellClicked?.Invoke(this);
 
         public SkinItem GetSkinItem() =>
             _skinItem;
@@ -53,22 +53,14 @@ namespace Shop
         private void UpdateVisual()
         {
             if (_isSelected)
-            {
                 _background.sprite = _selectedBackground;
-            }
             else if (_isAvailable)
-            {
                 _background.sprite = _availableBackground;
-            }
             else
-            {
                 _background.sprite = _unavailableBackground;
-            }
 
             if (_skinItem != null)
-            {
                 _itemImage.sprite = _skinItem.Image;
-            }
         }
     }
 }

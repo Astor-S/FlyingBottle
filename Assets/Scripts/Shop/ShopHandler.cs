@@ -75,7 +75,7 @@ namespace Shop
                     bool isSelected = _savesYG.selectedSkin == item.SkinType;
 
                     cell.Initialize(item, isAvailable, isSelected);
-                    cell.OnCellClicked += HandleItemClick;
+                    cell.CellClicked += HandleItemClick;
                 }
             }
         }
