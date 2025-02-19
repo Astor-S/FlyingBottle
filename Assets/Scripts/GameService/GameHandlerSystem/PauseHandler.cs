@@ -7,12 +7,12 @@ namespace GameService.GameHandlerSystem
 {
     public class PauseHandler : MonoBehaviour
     {
+        private readonly float _pauseDelayForSeconds = 0.1f;
+
         [SerializeField] private ReviveButton _reviveButton;
         [SerializeField] private List<LoadSceneButton> _loadSceneButtons;
 
         private WaitForSeconds _waitPauseDelayForSeconds;
-
-        private readonly float _pauseDelayForSeconds = 0.1f;
 
         private void Awake()
         {
