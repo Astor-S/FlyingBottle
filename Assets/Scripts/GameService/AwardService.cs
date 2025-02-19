@@ -10,12 +10,12 @@ namespace GameService
 
         private void OnEnable()
         {
-            _completeScreen.OnScreenActivated += HandleScreenActivated;
+            _completeScreen.ScreenActivated += HandleScreenActivated;
         }
 
         private void OnDisable()
         {
-            _completeScreen.OnScreenActivated -= HandleScreenActivated;
+            _completeScreen.ScreenActivated -= HandleScreenActivated;
         }
 
         private void HandleScreenActivated() =>

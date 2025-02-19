@@ -11,12 +11,12 @@ namespace UI.Screens.LevelScreens.ScreenButtons
         [Scene]
         [SerializeField] private string _sceneToLoad;
 
-        public event Action OnGameContinue;
+        public event Action GameContinued;
 
         public void OnButtonClick()
         {
             StartCoroutine(LoadingScene(_sceneToLoad));
-            OnGameContinue?.Invoke();
+            GameContinued?.Invoke();
         }
 
         private IEnumerator LoadingScene(string sceneName)

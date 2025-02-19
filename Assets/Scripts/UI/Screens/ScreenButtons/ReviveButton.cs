@@ -11,7 +11,7 @@ namespace UI.Screens.LevelScreens.ScreenButtons
         [SerializeField] private FailScreen _failScreen;
         [SerializeField] private RewardAdService _rewardAdService;
 
-        public event Action OnGameContinue;
+        public event Action GameContinued;
 
         private void OnEnable()
         {
@@ -29,7 +29,7 @@ namespace UI.Screens.LevelScreens.ScreenButtons
         private void OnRevive()
         {
             _failScreen.Close();
-            OnGameContinue?.Invoke();
+            GameContinued?.Invoke();
             _reviver.Revived();
         }
     }

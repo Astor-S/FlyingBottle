@@ -8,11 +8,11 @@ namespace UI.Screens
     {
         [SerializeField] private Button _nextLevelButton;
 
-        public event Action OnScreenActivated;
+        public event Action ScreenActivated;
 
         private void OnEnable()
         {
-            OnScreenActivated?.Invoke();
+            ScreenActivated?.Invoke();
         }
     }
 }

@@ -4,9 +4,9 @@ namespace UI.Home.MainMenu
 {
     public class LevelMenuButton : MenuButton
     {
-        public event Action OnOpenLevelMenu;
+        public event Action OpenedLevelMenu;
 
         public override void OnButtonClick() =>
-            OnOpenLevelMenu?.Invoke();
+            OpenedLevelMenu?.Invoke();
     }
 }

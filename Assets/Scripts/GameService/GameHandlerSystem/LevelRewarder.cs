@@ -25,12 +25,12 @@ namespace GameService.GameHandlerSystem
 
         private void OnEnable()
         {
-            _coinDoubling.OnDoubleAwards += HandleDoubleAwardRequest;
+            _coinDoubling.DoubledAwards += HandleDoubleAwardRequest;
         }
 
         private void OnDisable()
         {
-            _coinDoubling.OnDoubleAwards -= HandleDoubleAwardRequest;
+            _coinDoubling.DoubledAwards -= HandleDoubleAwardRequest;
         }
 
         public void AwardCoins()

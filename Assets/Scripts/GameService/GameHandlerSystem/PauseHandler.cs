@@ -21,18 +21,18 @@ namespace GameService.GameHandlerSystem
 
         private void OnEnable()
         {
-            _reviveButton.OnGameContinue += ContinueGame;
+            _reviveButton.GameContinued += ContinueGame;
             
             foreach (var button in _loadSceneButtons)
-                button.OnGameContinue += ContinueGame; 
+                button.GameContinued += ContinueGame; 
         }
 
         private void OnDisable()
         {
-            _reviveButton.OnGameContinue -= ContinueGame;
+            _reviveButton.GameContinued -= ContinueGame;
             
             foreach (var button in _loadSceneButtons)
-                button.OnGameContinue -= ContinueGame;
+                button.GameContinued -= ContinueGame;
         }
 
         public IEnumerator PauseGameDelayed()

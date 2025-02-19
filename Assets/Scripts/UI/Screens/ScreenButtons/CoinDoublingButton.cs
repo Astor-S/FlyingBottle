@@ -8,7 +8,7 @@ namespace UI.Screens.ScreenButtons
     {
         [SerializeField] private RewardAdService _rewardAdService;
 
-        public Action OnDoubleAwards;
+        public event Action DoubledAwards;
 
         private void OnEnable()
         {
@@ -25,7 +25,7 @@ namespace UI.Screens.ScreenButtons
 
         private void AddDoubleAwards()
         {
-            OnDoubleAwards?.Invoke();
+            DoubledAwards?.Invoke();
             gameObject.SetActive(false);
         }
     }

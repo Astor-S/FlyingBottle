@@ -17,18 +17,18 @@ namespace UI.Home
 
         private void OnEnable()
         {
-            _selectLevel.OnOpenLevelMenu += HandleOpenLevelMenu;
-            _selectShop.OnOpenShop += HandleOpenShop;
+            _selectLevel.OpenedLevelMenu += HandleOpenLevelMenu;
+            _selectShop.OpenedShop += HandleOpenShop;
             _closeLevelMenuButton.ClosedLevelMenu += HandleCloseLevelMenu;
-            _closeShopButton.OnCloseShop += HandleCloseShop;
+            _closeShopButton.ClosedShop += HandleCloseShop;
         }
 
         private void OnDisable()
         {
-            _selectLevel.OnOpenLevelMenu -= HandleOpenLevelMenu;
-            _selectShop.OnOpenShop -= HandleOpenShop;
+            _selectLevel.OpenedLevelMenu -= HandleOpenLevelMenu;
+            _selectShop.OpenedShop -= HandleOpenShop;
             _closeLevelMenuButton.ClosedLevelMenu -= HandleCloseLevelMenu;
-            _closeShopButton.OnCloseShop -= HandleCloseShop;
+            _closeShopButton.ClosedShop -= HandleCloseShop;
         }
 
         private void HandleOpenLevelMenu()

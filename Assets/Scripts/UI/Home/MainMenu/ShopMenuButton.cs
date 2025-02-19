@@ -4,9 +4,9 @@ namespace UI.Home.MainMenu
 {
     public class ShopMenuButton : MenuButton
     {
-        public event Action OnOpenShop;
+        public event Action OpenedShop;
 
         public override void OnButtonClick() =>
-            OnOpenShop?.Invoke();
+            OpenedShop?.Invoke();
     }
 }
