@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace UI.Home
+namespace UI.Home.AudioSystem
 {
     public class GlobalAudioListener : MonoBehaviour
     {
@@ -16,7 +16,7 @@ namespace UI.Home
         private void Start()
         {
             SceneManager.sceneLoaded += OnSceneLoaded;
-            AudioService.UpdateAllAudioSources();
+            AudioService.InitializeAudio();
         }
 
         private void OnApplicationFocus(bool hasFocus)
@@ -46,6 +46,6 @@ namespace UI.Home
         }
 
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode) =>
-            AudioService.UpdateAllAudioSources();
+            AudioService.InitializeAudio();
     }
 }

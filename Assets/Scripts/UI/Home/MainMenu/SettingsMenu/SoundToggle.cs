@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UI.Home.AudioSystem;
 using YG;
 
 namespace UI.Home.MainMenu.SettingsMenu
@@ -14,15 +15,11 @@ namespace UI.Home.MainMenu.SettingsMenu
             AudioService.InitializeAudio();
         }
 
-        public void OnValueChanged()
-        {
+        public void OnValueChanged() =>
             UpdateSoundSettings();
-        }
 
-        private void UpdateSoundSettings()
-        {
+        private void UpdateSoundSettings() => 
             AudioService.SetSoundState(_toggle.isOn);
-        }
 
         private void LoadSoundSettings()
         {
